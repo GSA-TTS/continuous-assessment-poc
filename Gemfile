@@ -60,7 +60,7 @@ group :development, :test do
   gem "bundler-audit", "~> 0.9"
   gem "standard", "~> 1.36"
 end
-gem "rails_template_18f", group: :development
+gem "rails_template_18f", group: :development, github: "gsa-tts/rails-template"
 gem "rails-erd", "~> 1.7", group: :development
 
 group :development, :test do
