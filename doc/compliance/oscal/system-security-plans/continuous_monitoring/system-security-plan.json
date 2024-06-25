@@ -1,0 +1,1573 @@
+{
+  "system-security-plan": {
+    "uuid": "92025a4a-1b32-4733-a0dc-5ad87147efb5",
+    "import-profile": {
+      "href": "trestle://profiles/lato/profile.json"
+    },
+    "control-implementation": {
+      "description": "This is the control implementation for the system.",
+      "implemented-requirements": [
+        {
+          "uuid": "f0097004-4ba8-4fbb-b201-daf20a090466",
+          "control-id": "ac-2",
+          "statements": [
+            {
+              "statement-id": "ac-2_smt.a",
+              "uuid": "4149abed-0c82-4b64-bda6-ce33c088f7ab",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "a97b2ff5-1a93-4e5b-8da6-4c339afcf3c3",
+                  "description": "For UAA accounts (Cloud Foundry User Account and Authentication accounts, which includes cloud.gov users who log in via agency single sign-on or the cloud.gov identity provider) used to manage applications, cloud.gov provides this control. Application accounts unless integrated with the UAA are the responsibility of the application owner.\n\nThat is, your developer login to cloud.gov where you create/edit/delete applications on the platform would count as covered, but accounts within the applications you create would not be, unless they too integrate with the UAA.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-account-management-needed"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "ac-2_smt.b",
+              "uuid": "f21da839-71ab-4b41-b4ea-9fe87cceb10f",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "7a93920e-8b0d-4da3-91f8-2f5fc9d052e4",
+                  "description": "For UAA accounts (Cloud Foundry User Account and Authentication accounts, which includes cloud.gov users who log in via agency single sign-on or the cloud.gov identity provider) used to manage applications, cloud.gov provides this control. Application accounts unless integrated with the UAA are the responsibility of the application owner.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-account-management-needed"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "ac-2_smt.c",
+              "uuid": "cc15dbc6-9534-4305-9f2d-08f2c2747bd7",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "74f1ca8e-2450-4499-8097-0cc5c61256ed",
+                  "description": "For UAA accounts (Cloud Foundry User Account and Authentication accounts, which includes cloud.gov users who log in via agency single sign-on or the cloud.gov identity provider) used to manage applications, cloud.gov provides this control. Application accounts unless integrated with the UAA are the responsibility of the application owner.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-account-management-needed"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "ac-2_smt.d",
+              "uuid": "cc1a5175-4ade-4361-b293-77a5d08fb41a",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "e3b1531b-4248-4467-857d-30e54956d79f",
+                  "description": "For UAA accounts (Cloud Foundry User Account and Authentication accounts, which includes cloud.gov users who log in via agency single sign-on or the cloud.gov identity provider) used to manage applications, cloud.gov provides this control. Application accounts unless integrated with the UAA are the responsibility of the application owner.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-account-management-needed"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "ac-2_smt.e",
+              "uuid": "88796a77-1780-4496-86f9-904689c9ff31",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "857c7d2c-cd34-45dd-89bf-bf79b068efd1",
+                  "description": "For UAA accounts (Cloud Foundry User Account and Authentication accounts, which includes cloud.gov users who log in via agency single sign-on or the cloud.gov identity provider) used to manage applications, cloud.gov provides this control. Application accounts unless integrated with the UAA are the responsibility of the application owner.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-account-management-needed"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "ac-2_smt.f",
+              "uuid": "45c48ffe-05c4-4846-9fda-a6383d9b2af2",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "c40b029b-a302-471b-9f5f-21dc535f587b",
+                  "description": "For UAA accounts (Cloud Foundry User Account and Authentication accounts, which includes cloud.gov users who log in via agency single sign-on or the cloud.gov identity provider) used to manage applications, cloud.gov provides this control. Application accounts unless integrated with the UAA are the responsibility of the application owner.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-account-management-needed"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "ac-2_smt.g",
+              "uuid": "df37c2ef-512e-4063-a836-b098a01db2ab",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "15e6063c-e173-47e0-b519-2378d67892dd",
+                  "description": "For UAA accounts (Cloud Foundry User Account and Authentication accounts, which includes cloud.gov users who log in via agency single sign-on or the cloud.gov identity provider) used to manage applications, cloud.gov provides this control. Application accounts unless integrated with the UAA are the responsibility of the application owner.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-account-management-needed"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "ac-2_smt.h",
+              "uuid": "a7477d08-2a5a-4468-9a72-7679a7e661de",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "362a3e6c-7f54-4497-9e1e-720825958073",
+                  "description": "For UAA accounts (Cloud Foundry User Account and Authentication accounts, which includes cloud.gov users who log in via agency single sign-on or the cloud.gov identity provider) used to manage applications, cloud.gov provides this control. Application accounts unless integrated with the UAA are the responsibility of the application owner.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-account-management-needed"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "ac-2_smt.i",
+              "uuid": "ed9da89e-d019-4fa7-b5f9-0ede65d17e55",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "c80f5237-5bfd-4081-9a8a-fceaff742162",
+                  "description": "For UAA accounts (Cloud Foundry User Account and Authentication accounts, which includes cloud.gov users who log in via agency single sign-on or the cloud.gov identity provider) used to manage applications, cloud.gov provides this control. Application accounts unless integrated with the UAA are the responsibility of the application owner.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-account-management-needed"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "ac-2_smt.j",
+              "uuid": "09ad8f9a-bc79-4bf7-8ebe-52285a2963a7",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "040df6f5-8a3d-4c7e-afc8-4d07ee1143e5",
+                  "description": "For UAA accounts (Cloud Foundry User Account and Authentication accounts, which includes cloud.gov users who log in via agency single sign-on or the cloud.gov identity provider) used to manage applications, cloud.gov provides this control. Application accounts unless integrated with the UAA are the responsibility of the application owner.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-account-management-needed"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "ac-2_smt.k",
+              "uuid": "66ebc265-3771-4fd0-9c29-9fc6b3fce474",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "b7882e07-a8f5-4e73-8565-173114f90149",
+                  "description": "For UAA accounts (Cloud Foundry User Account and Authentication accounts, which includes cloud.gov users who log in via agency single sign-on or the cloud.gov identity provider) used to manage applications, cloud.gov provides this control. Application accounts unless integrated with the UAA are the responsibility of the application owner.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-account-management-needed"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "85eade84-e23a-45bc-b908-5c3603448785",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "149968cf-97b3-463c-9380-dba7e672e1aa",
+          "control-id": "ac-3",
+          "by-components": [
+            {
+              "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+              "uuid": "b4d81247-411e-4aa0-bec0-903260c367ec",
+              "description": "For UAA accounts used to manage the applications cloud.gov provides this control. Application accounts unless integrated with the UAA are the responsibility of the application owner. The delineation of higher privileged accounts in the application and their monitoring is the responsibility of the application owner.",
+              "props": [
+                {
+                  "name": "Rule_Id",
+                  "value": "app-account-management-needed"
+                }
+              ],
+              "implementation-status": {
+                "state": "partial"
+              }
+            },
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "04abf2cd-8d43-42df-b84d-b3302c9c59ff",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "41580aa9-2b7f-4d4c-bb11-1cbccffdd636",
+          "control-id": "ac-6.5",
+          "by-components": [
+            {
+              "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+              "uuid": "2a22999e-a4cf-46c3-8d7e-eab3a7309384",
+              "description": "The roles are defined by cloud.gov but the application owner must make the proper assignments to personnel to ensure least privilege is enforced.",
+              "props": [
+                {
+                  "name": "Rule_Id",
+                  "value": "system-roles-needed"
+                }
+              ],
+              "implementation-status": {
+                "state": "partial"
+              }
+            },
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "4e53aec0-3d42-41c6-ae63-a25545705b69",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "16d314f8-0f32-488a-9368-742e2d3492ff",
+          "control-id": "ac-6.9",
+          "by-components": [
+            {
+              "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+              "uuid": "f3e6659a-4a6d-4782-8488-a5cce18c71ae",
+              "description": "cloud.gov automatically logs privileged actions taken within cloud.gov.",
+              "props": [
+                {
+                  "name": "Rule_Id",
+                  "value": "fully-inherited"
+                }
+              ],
+              "implementation-status": {
+                "state": "implemented"
+              }
+            },
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "c2db0c86-cfa5-4fb5-9f92-66a066bf5604",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "4a0e1b2b-8651-48b6-8def-5a3c9b2fe2ca",
+          "control-id": "au-2",
+          "statements": [
+            {
+              "statement-id": "au-2_smt.a",
+              "uuid": "50ac63ae-fc48-45bb-a4d1-cbe65b51c413",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "24bf5f57-ef15-4695-bda2-e932e039776f",
+                  "description": "Application owners must ensure that the auditing provided by cloud.gov meets their requirements and must provide for additional auditing if needed.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-supplementary-logging"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "au-2_smt.b",
+              "uuid": "840fd85e-434a-42d1-91b9-76eef602e3de",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "ee2dd398-8daa-42ab-92b4-d46cdec05a4d",
+                  "description": "Application owners must ensure that the auditing provided by cloud.gov meets their requirements and must provide for additional auditing if needed.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-supplementary-logging"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "au-2_smt.c",
+              "uuid": "0f3bf73a-2396-49ab-8044-3460aa187426",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "236bea95-45aa-482a-ba1e-e3f25234b613",
+                  "description": "Application owners must ensure that the auditing provided by cloud.gov meets their requirements and must provide for additional auditing if needed.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-supplementary-logging"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "au-2_smt.d",
+              "uuid": "620c8ef0-154a-4c49-911a-6325aa0245c3",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "1a0dd916-0d2a-4386-9367-752c290506dc",
+                  "description": "Application owners must ensure that the auditing provided by cloud.gov meets their requirements and must provide for additional auditing if needed.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-supplementary-logging"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "au-2_smt.e",
+              "uuid": "ece055ab-cc98-40c3-9360-38fe84abae30",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "f836c79a-35ec-49cc-a4c6-ec91ff79647f",
+                  "description": "Application owners must ensure that the auditing provided by cloud.gov meets their requirements and must provide for additional auditing if needed.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-supplementary-logging"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "234362fc-c90b-4bef-bafa-5011ecfd6315",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "9d475fb8-113d-4e42-8e71-91f7e82b745a",
+          "control-id": "ca-7",
+          "statements": [
+            {
+              "statement-id": "ca-7_smt.a",
+              "uuid": "a16d00ad-2226-4633-a918-9d7b7ee9c699",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "6f5a25a7-fb03-4fd6-85f2-31db5abc594e",
+                  "description": "Operating systems and DB scans are out of the boundary of application owners. The requirement is bound to the application code and is the responsibility of the application owner.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-monitoring-scanning-required"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                },
+                {
+                  "component-uuid": "d86c09e8-8003-4223-8070-a87b83e8b118",
+                  "uuid": "98fcd4d3-ebad-448d-9f72-3b900b5ce727",
+                  "description": "* continuous_monitoring DevOps staff review OWASP and Dependency scans every build, or at least weekly.\n* continuous_monitoring DevOps staff and the GSA ISSO review Web Application vulnerability scans on a weekly basis.\n* continuous_monitoring Administrators and DevOps staff review changes for potential security impact and engage the continuous_monitoring ISSO and ISSM who will review or engage assessment staff as needed.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "properly-configured"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "ca-7_smt.b",
+              "uuid": "d7286cf9-017d-44c9-a065-1ce82946234d",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "f2a29869-c642-48b4-9c21-2dbbc0988693",
+                  "description": "Operating systems and DB scans are out of the boundary of application owners. The requirement is bound to the application code and is the responsibility of the application owner.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-monitoring-scanning-required"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "ca-7_smt.c",
+              "uuid": "f2ba6e30-c42d-46f1-9b88-a7f3e9fce508",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "3c812a08-32dc-4ea8-a25d-c09589c8c5a4",
+                  "description": "Operating systems and DB scans are out of the boundary of application owners. The requirement is bound to the application code and is the responsibility of the application owner.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-monitoring-scanning-required"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "ca-7_smt.d",
+              "uuid": "c7c4ca36-5948-4c7e-9778-b25c83929b9b",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "a54b2a98-cec3-4089-9520-dda3a2ec60b5",
+                  "description": "Operating systems and DB scans are out of the boundary of application owners. The requirement is bound to the application code and is the responsibility of the application owner.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-monitoring-scanning-required"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "ca-7_smt.e",
+              "uuid": "a0b4c541-6681-475d-94fe-0acbdcf35be3",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "515f60a0-4c85-424b-90b9-4070d3b47555",
+                  "description": "Operating systems and DB scans are out of the boundary of application owners. The requirement is bound to the application code and is the responsibility of the application owner.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-monitoring-scanning-required"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "ca-7_smt.f",
+              "uuid": "9164ded7-eece-49b7-a219-9cf3a60ef13d",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "8bb02ae5-b73e-4622-9e60-5c4c0d3382c2",
+                  "description": "Operating systems and DB scans are out of the boundary of application owners. The requirement is bound to the application code and is the responsibility of the application owner.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-monitoring-scanning-required"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "ca-7_smt.g",
+              "uuid": "1fb5a2c2-3a1c-4dde-a03a-d5ac33099ea6",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "5001b27a-90cf-44ad-af3e-f50c81117ed3",
+                  "description": "Operating systems and DB scans are out of the boundary of application owners. The requirement is bound to the application code and is the responsibility of the application owner.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-monitoring-scanning-required"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "a7e0f2b4-7555-4732-b3d0-92d6f1391d66",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "7f9e3641-ff39-477d-bdc6-27913e98aeba",
+          "control-id": "cm-2.2",
+          "by-components": [
+            {
+              "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+              "uuid": "fd195a1a-2eba-4e4d-874a-dda01d763e33",
+              "description": "Application owners are responsible for utilizing an automated mechanism to manage the baseline configuration of their applications. All operating systems, network and DB configurations are outside of the application owner boundary.",
+              "props": [
+                {
+                  "name": "Rule_Id",
+                  "value": "app-config-control"
+                }
+              ],
+              "implementation-status": {
+                "state": "partial"
+              }
+            },
+            {
+              "component-uuid": "d86c09e8-8003-4223-8070-a87b83e8b118",
+              "uuid": "6110ef02-6eda-49b9-b125-ba0e8a44398e",
+              "description": "The continuous_monitoring team develops, documents, and maintains a current baseline for the continuous_monitoring application\ncomponents under configuration control, managed via git and github.com, and orchestrated using GitHub Actions\nand the cloud.gov Cloud Foundry CLI.\n\nNote: All cloud.gov brokered services (including databases) are fully managed by the cloud.gov platform.\nDue to this, the configuration and security of these services are not included in the continuous_monitoring configuration baseline.",
+              "props": [
+                {
+                  "name": "Rule_Id",
+                  "value": "properly-configured"
+                }
+              ],
+              "implementation-status": {
+                "state": "implemented"
+              }
+            },
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "c9ae0c30-8e6d-452d-903c-e45b8379b634",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "3fc1b83e-0892-44e3-a490-878a957f3c82",
+          "control-id": "cm-6.1",
+          "by-components": [
+            {
+              "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+              "uuid": "31dcf35b-aae2-4109-944c-c26abeff5175",
+              "description": "Application owners are responsible for implementing automated controls to verify their intended state. They can use the cloud.gov API, Terraform, etc. to accomplish this.",
+              "props": [
+                {
+                  "name": "Rule_Id",
+                  "value": "app-config-control"
+                }
+              ],
+              "implementation-status": {
+                "state": "partial"
+              }
+            },
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "bb307783-2ecc-49bb-a4c8-a049e5d5212b",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "3e755cfa-9821-4080-a589-3c789bedb9ea",
+          "control-id": "cp-7.1",
+          "by-components": [
+            {
+              "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+              "uuid": "cb52987c-638a-4074-b984-127f1e158c7f",
+              "description": "cloud.gov distributes customer workloads across availability zones. Application owners are responsible for ensuring multiple instances of their application are running in order to take advantage of multiple availability zones.",
+              "props": [
+                {
+                  "name": "Rule_Id",
+                  "value": "app-redundant-containers"
+                }
+              ],
+              "implementation-status": {
+                "state": "partial"
+              }
+            },
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "16e3a629-f1bb-44be-8490-88e4bf87d45d",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "5fc0e96c-f18e-4994-b90b-bc743ce62c45",
+          "control-id": "ia-2",
+          "by-components": [
+            {
+              "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+              "uuid": "14a9df9f-614e-4ebf-99bc-cfca6669366a",
+              "description": "Application owners are responsible for implementing a MFA solution for access to their systems and resources. cloud.gov supports customers in leveraging cloud.gov's MFA-enabled authentication system to authenticate government users.",
+              "props": [
+                {
+                  "name": "Rule_Id",
+                  "value": "app-mfa-required"
+                }
+              ],
+              "implementation-status": {
+                "state": "partial"
+              }
+            },
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "ff680f57-5c54-4406-8962-c263271c068b",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "4f31163f-8930-4c6b-bb34-7ae9466d5fa3",
+          "control-id": "ia-2.1",
+          "by-components": [
+            {
+              "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+              "uuid": "85960eaf-dfc9-48a6-8fd8-f197d5ce40cb",
+              "description": "Application owners are responsible for implementing a MFA solution for access to their systems and resources. cloud.gov supports customers in leveraging cloud.gov's MFA-enabled authentication system to authenticate government users.",
+              "props": [
+                {
+                  "name": "Rule_Id",
+                  "value": "app-mfa-required"
+                }
+              ],
+              "implementation-status": {
+                "state": "partial"
+              }
+            },
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "18e1d5e4-8e66-4171-8b1d-488573ce4c3b",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "87bfd8e2-2ec9-4f2b-9e50-714a3756faaa",
+          "control-id": "ia-2.2",
+          "by-components": [
+            {
+              "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+              "uuid": "914c3c76-ef10-4c5b-b424-5016fcadf289",
+              "description": "Application owners are responsible for implementing a MFA solution for access to their systems and resources. cloud.gov supports customers in leveraging cloud.gov's MFA-enabled authentication system to authenticate government users.",
+              "props": [
+                {
+                  "name": "Rule_Id",
+                  "value": "app-mfa-required"
+                }
+              ],
+              "implementation-status": {
+                "state": "partial"
+              }
+            },
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "e90f5534-b0e4-4304-ba66-5a3f9435a4b6",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "10234ecb-7056-42bc-8782-848f05f837c7",
+          "control-id": "sc-7",
+          "statements": [
+            {
+              "statement-id": "sc-7_smt.a",
+              "uuid": "3a4b159f-4b8f-4049-bb20-80b1d8d23a44",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "37427b9a-2264-41e8-b733-a312524adc32",
+                  "description": "Application owners are responsible for ensuring their application does not exchange traffic with systems outside its own boundary over unsanctioned or unmonitored interfaces.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "egress-control-in-place"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "sc-7_smt.b",
+              "uuid": "72f5fe35-465d-4a9a-9714-70184680f1a4",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "9170f44b-9917-4045-a8f0-fc2d425ec1a6",
+                  "description": "Application owners are responsible for ensuring their application does not exchange traffic with systems outside its own boundary over unsanctioned or unmonitored interfaces.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "egress-control-in-place"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "sc-7_smt.c",
+              "uuid": "c635cc8f-7515-441c-ac78-5d11793d85f7",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "934440cc-2082-440e-bbbe-cd1d054aa914",
+                  "description": "Application owners are responsible for ensuring their application does not exchange traffic with systems outside its own boundary over unsanctioned or unmonitored interfaces.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "egress-control-in-place"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "0c069660-99d3-4dd2-b1f1-84bec2d78327",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "76e0674a-fb51-4b9e-afb7-179e551b441d",
+          "control-id": "sc-8.1",
+          "by-components": [
+            {
+              "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+              "uuid": "ffec3b23-9334-4a64-a826-6049827be972",
+              "description": "Customer applications fully inherit this control from cloud.gov.",
+              "props": [
+                {
+                  "name": "Rule_Id",
+                  "value": "fully-inherited"
+                }
+              ],
+              "implementation-status": {
+                "state": "implemented"
+              }
+            },
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "bd150a4d-4c3e-44bf-a0c3-21e57579a08f",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "e32c1518-db24-491a-b3b8-6a540088796f",
+          "control-id": "sc-28.1",
+          "by-components": [
+            {
+              "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+              "uuid": "cc29c2fb-36bb-4fd6-b2af-cf0cb677648f",
+              "description": "cloud.gov has built-in cryptographic mechanisms to prevent unauthorized disclosure and modification of data. Customers are responsible for further securing/encrypting any sensitive information in their customer applications, and for auditing the permissions their users have for managing their applications.",
+              "props": [
+                {
+                  "name": "Rule_Id",
+                  "value": "app-field-level-encryption"
+                }
+              ],
+              "implementation-status": {
+                "state": "partial"
+              }
+            },
+            {
+              "component-uuid": "d86c09e8-8003-4223-8070-a87b83e8b118",
+              "uuid": "2d4f16ae-e0b7-4752-bdf2-8246de250285",
+              "description": "As an additional layer of protection, all PII data is encrypted using [Active Record Encryption — Ruby on Rails Guides](https://guides.rubyonrails.org/active_record_encryption.html).\nThis encryption is implemented in a using non-deterministic AES-256-GCM through Ruby's openssl library with a 256-bit key and a random initialization vector {rails crypto module}.\n\nThe Data Encryption Key is stored in the credentials.yml file in an encrypted format by Ruby's openssl library using the AES-128-GCM cipher,\nand is built into the application package.\n\nThe credentials.yml decryption key is stored in GitHub Actions and injected into the running application as an environmental variable. The application then uses this key\nto decrypt the credentials.yml file and obtain the Data Encryption Key.\n\nA backup of the key is stored by the Lead Developer and System Owner within a keepass database stored in Google Drive.",
+              "props": [
+                {
+                  "name": "Rule_Id",
+                  "value": "properly-configured"
+                }
+              ],
+              "implementation-status": {
+                "state": "partial"
+              }
+            },
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "60f71b16-4a2b-472d-a718-7575fc29a5da",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "7193c3b5-f795-436b-8e44-d98d60adc152",
+          "control-id": "si-4",
+          "statements": [
+            {
+              "statement-id": "si-4_smt.a",
+              "uuid": "0e310e3a-380c-48f1-a856-a299c1a4a370",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "0c9bc867-df4f-4a8a-9ff8-e224f71173fb",
+                  "description": "Application owners are responsible for monitoring their application logs for signs of unauthorized activity according to laws and regulations, and applying heightened scrutiny when there is an indication of increased risk.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-log-monitoring"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "si-4_smt.b",
+              "uuid": "1e1cd310-d5c2-4100-a7bd-29cadd947868",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "7cf02192-a5b4-485f-815b-8e32990140cc",
+                  "description": "Application owners are responsible for monitoring their application logs for signs of unauthorized activity according to laws and regulations, and applying heightened scrutiny when there is an indication of increased risk.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-log-monitoring"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "si-4_smt.c",
+              "uuid": "dfbbae42-15a1-48d2-ad84-5fae459f63b5",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "18a134e0-d8f4-4813-bdd5-5856d82bcfc6",
+                  "description": "Application owners are responsible for monitoring their application logs for signs of unauthorized activity according to laws and regulations, and applying heightened scrutiny when there is an indication of increased risk.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-log-monitoring"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "si-4_smt.d",
+              "uuid": "ebc170d7-7268-41a5-ba98-2fba48e68f6b",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "1e69393b-7667-4650-9ccc-5410c4f50e28",
+                  "description": "Application owners are responsible for monitoring their application logs for signs of unauthorized activity according to laws and regulations, and applying heightened scrutiny when there is an indication of increased risk.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-log-monitoring"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "si-4_smt.e",
+              "uuid": "c91b102c-de62-4135-a5b6-5b1263c12abf",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "be93be66-c3ed-4865-9a14-0577fcccc2bb",
+                  "description": "Application owners are responsible for monitoring their application logs for signs of unauthorized activity according to laws and regulations, and applying heightened scrutiny when there is an indication of increased risk.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-log-monitoring"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "si-4_smt.f",
+              "uuid": "a2922002-7194-4609-9b33-0088dbb311cc",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "75cf8f83-8d8c-4eea-82da-c8171fbf9388",
+                  "description": "Application owners are responsible for monitoring their application logs for signs of unauthorized activity according to laws and regulations, and applying heightened scrutiny when there is an indication of increased risk.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-log-monitoring"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "si-4_smt.g",
+              "uuid": "b397d783-ace0-415a-95b6-e8998166fede",
+              "by-components": [
+                {
+                  "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+                  "uuid": "562c1802-34f7-4bbd-a416-2b1a75a4ffff",
+                  "description": "Application owners are responsible for monitoring their application logs for signs of unauthorized activity according to laws and regulations, and applying heightened scrutiny when there is an indication of increased risk.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "app-log-monitoring"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "partial"
+                  }
+                }
+              ]
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "8f8453f1-1323-4816-a0da-5933bdcf2d43",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "0bfe4d1b-39c1-4070-b639-18ad7273835b",
+          "control-id": "si-4.2",
+          "by-components": [
+            {
+              "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+              "uuid": "b5fe621a-a602-4490-a67c-ea6e85bffbac",
+              "description": "cloud.gov supplies a real-time feed of events related to customer applications. Application owners are responsible for using automated tools to interpret and analyze these events.",
+              "props": [
+                {
+                  "name": "Rule_Id",
+                  "value": "app-event-analysis"
+                }
+              ],
+              "implementation-status": {
+                "state": "partial"
+              }
+            },
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "933ea656-08d9-469a-9e18-72949a2d91be",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "26553043-a511-4597-8c30-36dfb93de0a1",
+          "control-id": "si-4.4",
+          "by-components": [
+            {
+              "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+              "uuid": "43539a87-445e-4433-8fef-4a6d96b1a412",
+              "description": "Customer applications fully inherit this control from cloud.gov.",
+              "props": [
+                {
+                  "name": "Rule_Id",
+                  "value": "fully-inherited"
+                }
+              ],
+              "implementation-status": {
+                "state": "implemented"
+              }
+            },
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "467ac853-fe96-491c-ad60-dfb1ce57c3b1",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "9fc06504-2c10-426e-8a71-db6b9fcdea5e",
+          "control-id": "si-4.5",
+          "by-components": [
+            {
+              "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+              "uuid": "dc96c90a-b980-4378-8199-504b514fca18",
+              "description": "Application owners must establish the SLA with cloud.gov for reporting malicious code detection that effects the application. cloud.gov will detect files matching AV/Malware signatures in customer application deployments, or uploads, but alerts can only be routed to customers during business hours.",
+              "props": [
+                {
+                  "name": "Rule_Id",
+                  "value": "app-alert-sla"
+                }
+              ],
+              "implementation-status": {
+                "state": "partial"
+              }
+            },
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "5d2e25af-cb89-40b3-8913-e9e06f8b4761",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "bba59000-b1e5-4168-a521-84b076cb7e25",
+          "control-id": "cm-3.1",
+          "statements": [
+            {
+              "statement-id": "cm-3.1_smt.f",
+              "uuid": "59104b0d-74f8-406d-b6a2-08c1b0accb18",
+              "by-components": [
+                {
+                  "component-uuid": "d86c09e8-8003-4223-8070-a87b83e8b118",
+                  "uuid": "d027970a-c54f-46ed-8087-68bbc821126b",
+                  "description": "GitHub Actions is used to execute proposed changes to the information system.\nAdministrators and Developers for continuous_monitoring are automatically notified of\nthe success or failure of the change execution via the GitHub notification system.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "properly-configured"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "implemented"
+                  }
+                }
+              ]
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "4042462b-7ddb-4292-9ea8-e2549ad2fc96",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "3d359218-8309-47af-9af1-b5636c1bd027",
+          "control-id": "ra-5",
+          "statements": [
+            {
+              "statement-id": "ra-5_smt.a",
+              "uuid": "5a2c6c3a-a8af-4c29-92fc-804280398bf4",
+              "by-components": [
+                {
+                  "component-uuid": "d86c09e8-8003-4223-8070-a87b83e8b118",
+                  "uuid": "d74ac95b-e1b2-4b4b-8894-e3195f7f3efa",
+                  "description": "Any vulnerabilities in continuous_monitoring would have to be introduced at time of deployment because continuous_monitoring\nis a set of cloud.gov managed applications with SSH disabled in Production. continuous_monitoring monitors for\nvulnerabilities by ensuring that scans for vulnerabilities in the information system and hosted applications occur\ndaily and when new code is deployed.\n\nOWASP ZAP scans are built into the GitHub Actions CI/CD pipeline and runs a series of web vulnerability scans before\na successful deploy can be made to cloud.gov. Any issues or alerts caused by the scan are documented by continuous_monitoring\nOperations and cause the deployment to fail. Issues are tracked in GitHub. The issue posted will provide information\non which endpoints are vulnerable and the level of vulnerability, ranging from **False Positive** to **High**.\nThe issue also provides a detailed report formatted in html, json, and markdown.\n\nSystem Administrators are responsible for reporting any new vulnerabilities reported by the OWASP ZAP scan to the continuous_monitoring ISSO.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "properly-configured"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "implemented"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "ra-5_smt.b",
+              "uuid": "eae1ea44-5c33-4abd-b3b8-d44be9d68ec6",
+              "by-components": [
+                {
+                  "component-uuid": "d86c09e8-8003-4223-8070-a87b83e8b118",
+                  "uuid": "10f2230e-a3a9-4a18-86ba-e0bb2f1c3f25",
+                  "description": "1. Alerts from each ZAP vulnerability scan are automatically reported in GitHub as an issue on the continuous_monitoring repository. This issue will enumerate each finding and detail the type and severity of the vulnerability. continuous_monitoring Developers and continuous_monitoring Administrators receive automated alerts via GitHub of the issues to remediate. Scan results are sent to the continuous_monitoring System Owner by continuous_monitoring Administrators. The vulnerabilities are analyzed and prioritized within GitHub based on input from the System Owner and ISSO.\n1. The ZAP report contains vulnerabilities grouped by type and by risk level. The report also provides a detailed report formatted in html, json, and markdown. The reported issues also include the CVE item associated with the vulnerability.\n1. Vulnerabilities are classified by ZAP under a level range from **False Positive** to **High**. The impact level is used to drive the priority of the effort to remediate.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "properly-configured"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "implemented"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "ra-5_smt.c",
+              "uuid": "79d6739d-2d79-4f40-b97d-72d18b958807",
+              "by-components": [
+                {
+                  "component-uuid": "d86c09e8-8003-4223-8070-a87b83e8b118",
+                  "uuid": "35a466a9-cc47-40ef-b5ba-58e5414dcd1a",
+                  "description": "The ZAP vulnerability report contains information about how the attack was made and suggested solutions for each vulnerability found. Any static code analysis findings identified during automation as part of the GitHub pull request process must be reviewed, analyzed, and resolved by the continuous_monitoring Developer before the team can merge the pull request.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "properly-configured"
+                    },
+                    {
+                      "name": "Rule_Id",
+                      "value": "branch-protections"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "planned"
+                  }
+                }
+              ]
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "72a1129d-6c86-4f99-9fea-14e6b37a05b5",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "e1e38d6d-63b0-40b5-8b23-1ea72b09a0d2",
+          "control-id": "sa-11.1",
+          "by-components": [
+            {
+              "component-uuid": "d86c09e8-8003-4223-8070-a87b83e8b118",
+              "uuid": "556d54c0-3a61-4b2e-96a7-18524c9c6245",
+              "description": "The CI/CD pipeline utilizes multiple tools to perform static code analysis for security and privacy:\n\n* **Brakeman** is a static code scanner designed to find security issues in Ruby on Rails code. It can flag potential SQL injection,\nCommand Injection, open redirects, and other common vulnerabilities.\n* **bundle-audit** checks Ruby dependencies against a database of known CVE numbers.\n* **yarn audit** checks Javascript dependencies against a database of known CVE numbers.\n* **OWASP ZAP** is a dynamic security scanner that can simulate actual attacks on a running server.\n\nAn additional RAILS_ENV has been created called ci. It inherits from production to ensure that the system being tested is as close as possible to production while allowing for overrides such as bypassing authentication in a secure way.",
+              "props": [
+                {
+                  "name": "Rule_Id",
+                  "value": "properly-configured"
+                }
+              ],
+              "implementation-status": {
+                "state": "implemented"
+              }
+            },
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "b472a3f6-6656-49e5-a067-a3cc6a367989",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "088c26d5-9b7e-422d-9192-bc00a52f75be",
+          "control-id": "sa-22",
+          "statements": [
+            {
+              "statement-id": "sa-22_smt.a",
+              "uuid": "5ce5830d-64cc-4c14-b28c-2971ee6780ac",
+              "by-components": [
+                {
+                  "component-uuid": "d86c09e8-8003-4223-8070-a87b83e8b118",
+                  "uuid": "9112aed5-9173-4732-8e02-0987bf75ef31",
+                  "description": "The continuous_monitoring application is built and supported by the continuous_monitoring DevOps staff.\n\nThe application utilizes public open source Ruby and NodeJS components.\n\nThe application utilizes dependency scanning tools Bundle Audit and Yarn Audit to find vulnerable or insecure dependencies.\n\nIf a vulnerable or insecure dependency is found it will be upgraded or replaced. Additionally the continuous_monitoring team code review processes include a review of the health (up to date, supported, many individuals involved) of direct open source dependencies.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "properly-configured"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "implemented"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "sa-22_smt.b",
+              "uuid": "dbfadf62-a87e-48c9-95e2-f91576dcdc0e",
+              "by-components": [
+                {
+                  "component-uuid": "d86c09e8-8003-4223-8070-a87b83e8b118",
+                  "uuid": "db44bf79-48dd-4032-89c1-34f02523154f",
+                  "description": "There are currently no unsupported system components within continuous_monitoring. In case an unsupported system component is required to maintain continuous_monitoring, the continuous_monitoring System Owner will be consulted to make a determination in coordination with the continuous_monitoring ISSO and ISSM.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "properly-configured"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "implemented"
+                  }
+                }
+              ]
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "fbc30624-7979-4a80-9690-a39c4b513e54",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "910f4e50-e778-46aa-b8a2-e7c8f4dc8a80",
+          "control-id": "si-2",
+          "statements": [
+            {
+              "statement-id": "si-2_smt.a",
+              "uuid": "c98059e0-8534-40a6-94cd-2d96e7a9c150",
+              "by-components": [
+                {
+                  "component-uuid": "d86c09e8-8003-4223-8070-a87b83e8b118",
+                  "uuid": "b7cd1714-d0d9-4a60-89e5-42922767fa86",
+                  "description": "Flaw and vulnerability checks are built into the continuous_monitoring CI/CD pipeline and automated to ensure compliance. Dynamic vulnerability scans are performed against continuous_monitoring before a successful deployment and reports issues after every scan.\n\nCompliance is documented in sections SA-11 and RA-5. The continuous_monitoring DevOps team uses GitHub as the Product Backlog to track and prioritize issues related to system flaws.\n\nThe responsibility of remediating flaws and vulnerabilities (once a remediation is available) falls on the continuous_monitoring Developer, who updates the continuous_monitoring code and deploys fixes as part of the normal development and CI/CD process.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "properly-configured"
+                    },
+                    {
+                      "name": "Rule_Id",
+                      "value": "branch-protections"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "implemented"
+                  }
+                }
+              ]
+            },
+            {
+              "statement-id": "si-2_smt.b",
+              "uuid": "bab6f9d2-f2f9-4b65-9e3c-2ee8ef7e700d",
+              "by-components": [
+                {
+                  "component-uuid": "d86c09e8-8003-4223-8070-a87b83e8b118",
+                  "uuid": "99a26c21-a1af-4663-9766-3d6c2a30e837",
+                  "description": "Any flaws or vulnerabilities resolved in continuous_monitoring result in a GitHub issue for triage via the continuous_monitoring CM Configuration Control process described in CM-2(2). After resolving a vulnerability or flaw in continuous_monitoring, unit tests and integration tests are updated to prevent further inclusion of similar flaws.\n\n* All GitHub tickets have accompanying Acceptance Criteria that are used to create unit tests.\n* Unit tests are run on the Development environment when new code is pushed.\n* Integration tests are run on the Test environment when the remediation is deployed via the CI/CD process to ensure that the production environment does not suffer from any side effects of the vulnerability remediation.\n* Integration tests are run on the Prod environment when the remediation is deployed via the CI/CD process to validate the remediation and application functionality.\n* All findings that are not remediated immediately are tracked in the #{app_name} Plan of Action and Milestones (POAM) by continuous_monitoring Operations and the continuous_monitoring ISSO.",
+                  "props": [
+                    {
+                      "name": "Rule_Id",
+                      "value": "properly-configured"
+                    }
+                  ],
+                  "implementation-status": {
+                    "state": "implemented"
+                  }
+                }
+              ]
+            }
+          ],
+          "by-components": [
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "dc8143c4-a7fd-41cd-8e50-fa1733665c7f",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "1e8c3910-5129-43fc-a0ac-ee8656d6e937",
+          "control-id": "si-10",
+          "by-components": [
+            {
+              "component-uuid": "d86c09e8-8003-4223-8070-a87b83e8b118",
+              "uuid": "976312f0-42d9-4034-818c-d7ea8c82fe43",
+              "description": "All inputs from the end user are parameterized prior to use to avoid potential sql injection.\n\nBrakeman scanner is impelmented within GitHub Actions which further identifies coding practices\nthat may lead to application vulnerabilities that are a result of improper input validation.",
+              "props": [
+                {
+                  "name": "Rule_Id",
+                  "value": "properly-configured"
+                }
+              ],
+              "implementation-status": {
+                "state": "partial"
+              }
+            },
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "8d4c8158-14fb-4a5e-af67-e3dd8f3600f4",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "121fa047-0201-4079-a08c-a9391e1984f9",
+          "control-id": "pl-2",
+          "by-components": [
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "68219bc6-a55a-4faf-aa1d-06f90038c37b",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "7571053f-3938-4b11-abf9-47bdeada4cd1",
+          "control-id": "pl-8",
+          "by-components": [
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "3bea7cd8-938c-43d1-93f1-efaa0a4ee077",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "82dd6820-937b-40e9-abb1-5937b6ee697c",
+          "control-id": "cm-7.5",
+          "by-components": [
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "22d26ae6-673e-459e-8e28-742d5ab1e058",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "8331bd7d-6580-4d8c-b422-ee3ecc5dd1c8",
+          "control-id": "ca-8",
+          "by-components": [
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "a7cf7514-fbd7-493c-9214-8e731eed02d1",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "e20e4754-b02f-4081-85fe-681337302bd8",
+          "control-id": "cm-8.2",
+          "by-components": [
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "e94fef4a-ecbf-494e-b6ad-5c69319490bc",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "81c0996b-6a11-4c3b-8b50-e25b37e5e209",
+          "control-id": "au-6.1",
+          "by-components": [
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "db126416-d72a-46b2-b91b-ef18289bb281",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        },
+        {
+          "uuid": "2e7bbe4a-bb8b-4a1d-b171-d1e48c5986c2",
+          "control-id": "si-7",
+          "by-components": [
+            {
+              "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+              "uuid": "0adfb55b-4fe7-409f-a894-bae926271c09",
+              "description": "",
+              "implementation-status": {
+                "state": "planned"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
