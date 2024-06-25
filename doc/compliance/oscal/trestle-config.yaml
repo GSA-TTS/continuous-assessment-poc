@@ -1,0 +1,7 @@
+# docker-trestle configuration file
+# for ease of future rails_template18f generator use, keep the components list last in this file
+system-name: "continuous_monitoring"
+profile: lato
+components:
+  - cloud_gov
+  - github_actions

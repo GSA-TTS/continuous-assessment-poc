@@ -1,0 +1,41 @@
+name: Run Terraform plan in staging
+
+on:
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  terraform:
+    name: Terraform plan
+    runs-on: ubuntu-latest
+    environment: staging
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: terraform validate
+        uses: dflook/terraform-validate@v1
+        with:
+          path: terraform/staging
+
+      - name: terraform fmt
+        uses: dflook/terraform-fmt-check@v1
+        with:
+          path: terraform/staging
+
+      - name: terraform plan
+        uses: dflook/terraform-plan@v1
+        env:
+          TF_VAR_cf_user: ${{ secrets.CF_USERNAME }}
+          TF_VAR_cf_password: ${{ secrets.CF_PASSWORD }}
+        with:
+          path: terraform/staging
+          backend_config: >
+            access_key=${{ secrets.TERRAFORM_STATE_ACCESS_KEY }}
+            secret_key=${{ secrets.TERRAFORM_STATE_SECRET_ACCESS_KEY }}
