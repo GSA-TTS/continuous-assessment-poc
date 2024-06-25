@@ -1,2 +1,20 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Published Compliance Documents</h1>
+<table class="usa-table">
+  <caption>
+    Component Definitions
+  </caption>
+  <thead>
+    <tr>
+      <th scope="col">Document title</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @documents.each do |d| %>
+        <tr>
+            <th scope="row"><%= link_to d.title, d.url, class: "usa-link usa-link--external", rel: "noreferrer", target: "_blank" %></th>
+            <td><%= d.description %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
