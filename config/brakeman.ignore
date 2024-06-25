@@ -1,0 +1,40 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "d0e9d6fdde0767b697aa5a6acefada357aadb15e48d55ce07a17ed87db41e8a6",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/pages/home.html.erb",
+      "line": 15,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(Document.new.title, Document.new.url, :class => \"usa-link usa-link--external\", :rel => \"noreferrer\", :target => \"_blank\")",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "PagesController",
+          "method": "home",
+          "line": 4,
+          "file": "app/controllers/pages_controller.rb",
+          "rendered": {
+            "name": "pages/home",
+            "file": "app/views/pages/home.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "pages/home"
+      },
+      "user_input": "Document.new.url",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ],
+      "note": "Document#url is validated to only begin with https"
+    }
+  ],
+  "updated": "2024-06-25 17:59:19 -0400",
+  "brakeman_version": "6.1.2"
+}
