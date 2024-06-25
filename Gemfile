@@ -70,4 +70,5 @@ gem "sidekiq", "~> 7.2"
 
 group :test do
   gem "climate_control", "~> 1.0"
+  gem "shoulda-matchers", "~> 6.2"
 end
