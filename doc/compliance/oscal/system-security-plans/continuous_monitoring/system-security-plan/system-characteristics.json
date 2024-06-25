@@ -1,0 +1,25 @@
+{
+  "system-characteristics": {
+    "system-ids": [
+      {
+        "id": "REPLACE_ME"
+      }
+    ],
+    "system-name": "REPLACE_ME",
+    "description": "REPLACE_ME",
+    "system-information": {
+      "information-types": [
+        {
+          "title": "REPLACE_ME",
+          "description": "REPLACE_ME"
+        }
+      ]
+    },
+    "status": {
+      "state": "operational"
+    },
+    "authorization-boundary": {
+      "description": "REPLACE_ME"
+    }
+  }
+}

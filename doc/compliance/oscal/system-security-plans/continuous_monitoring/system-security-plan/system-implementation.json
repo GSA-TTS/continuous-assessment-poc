@@ -1,0 +1,212 @@
+{
+  "system-implementation": {
+    "users": [
+      {
+        "uuid": "d32e4f06-847c-426a-bdd0-1227cd0979a3"
+      }
+    ],
+    "components": [
+      {
+        "uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
+        "type": "service",
+        "title": "Cloud.gov",
+        "description": "The Cloud.gov Platform-as-a-Service",
+        "props": [
+          {
+            "name": "Rule_Id",
+            "value": "fully-inherited",
+            "remarks": "rule_0"
+          },
+          {
+            "name": "Rule_Description",
+            "value": "Customer fully inherits this control with no responsibility",
+            "remarks": "rule_0"
+          },
+          {
+            "name": "Rule_Id",
+            "value": "app-account-management-needed",
+            "remarks": "rule_app_ac"
+          },
+          {
+            "name": "Rule_Description",
+            "value": "Application accounts are the responsiblity of the application owner",
+            "remarks": "rule_app_ac"
+          },
+          {
+            "name": "Rule_Id",
+            "value": "system-roles-needed",
+            "remarks": "rule_user_roles"
+          },
+          {
+            "name": "Rule_Description",
+            "value": "The system must manage user roles",
+            "remarks": "rule_user_roles"
+          },
+          {
+            "name": "Rule_Id",
+            "value": "app-supplementary-logging",
+            "remarks": "rule_audit_logging_supplement"
+          },
+          {
+            "name": "Rule_Description",
+            "value": "System must provide additional logging if required",
+            "remarks": "rule_audit_logging_supplement"
+          },
+          {
+            "name": "Rule_Id",
+            "value": "app-monitoring-scanning-required",
+            "remarks": "rule_app_monitoring"
+          },
+          {
+            "name": "Rule_Description",
+            "value": "Application scanning and monitoring are the system responsibility",
+            "remarks": "rule_app_monitoring"
+          },
+          {
+            "name": "Rule_Id",
+            "value": "app-config-control",
+            "remarks": "rule_app_config_control"
+          },
+          {
+            "name": "Rule_Description",
+            "value": "Application configuration control is the system responsibility",
+            "remarks": "rule_app_config_control"
+          },
+          {
+            "name": "Rule_Id",
+            "value": "app-redundant-containers",
+            "remarks": "rule_app_redundant_containers"
+          },
+          {
+            "name": "Rule_Description",
+            "value": "Application owners must ensure multiple instances of application are running",
+            "remarks": "rule_app_redundant_containers"
+          },
+          {
+            "name": "Rule_Id",
+            "value": "app-mfa-required",
+            "remarks": "rule_application_mfa"
+          },
+          {
+            "name": "Rule_Description",
+            "value": "Application owners must implement an MFA solution for all accounts",
+            "remarks": "rule_application_mfa"
+          },
+          {
+            "name": "Rule_Id",
+            "value": "egress-control-in-place",
+            "remarks": "rule_app_egress_control"
+          },
+          {
+            "name": "Rule_Description",
+            "value": "Customer must ensure egress control is in place",
+            "remarks": "rule_app_egress_control"
+          },
+          {
+            "name": "Rule_Id",
+            "value": "app-field-level-encryption",
+            "remarks": "rule_app_field_level_encryption"
+          },
+          {
+            "name": "Rule_Description",
+            "value": "Customer must further encrypt sensitive data at the field level",
+            "remarks": "rule_app_field_level_encryption"
+          },
+          {
+            "name": "Rule_Id",
+            "value": "app-event-analysis",
+            "remarks": "rule_app_event_analysis"
+          },
+          {
+            "name": "Rule_Description",
+            "value": "Application owners are responsible for using automated tools to analyze cloud.gov-supplied events feed",
+            "remarks": "rule_app_event_analysis"
+          },
+          {
+            "name": "Rule_Id",
+            "value": "app-alert-sla",
+            "remarks": "rule_app_alert_sla"
+          },
+          {
+            "name": "Rule_Description",
+            "value": "Application owners must establish an SLA with cloud.gov for reporting malicious code detection",
+            "remarks": "rule_app_alert_sla"
+          },
+          {
+            "name": "Rule_Id",
+            "value": "app-log-monitoring",
+            "remarks": "rule_app_log_monitoring"
+          },
+          {
+            "name": "Rule_Description",
+            "value": "Application owners are responsible for monitoring their application logs",
+            "remarks": "rule_app_log_monitoring"
+          }
+        ],
+        "links": [
+          {
+            "href": "https://cloud.gov",
+            "rel": "reference"
+          }
+        ],
+        "status": {
+          "state": "operational"
+        },
+        "protocols": [
+          {
+            "uuid": "0130b4ef-4561-4363-bab5-1e20b9888e49",
+            "name": "https",
+            "title": "Transport Layer Security",
+            "port-ranges": [
+              {
+                "start": 443,
+                "end": 443,
+                "transport": "TCP"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "uuid": "d86c09e8-8003-4223-8070-a87b83e8b118",
+        "type": "service",
+        "title": "GitHub Actions",
+        "description": "GitHub Actions CI/CD Pipeline",
+        "props": [
+          {
+            "name": "Rule_Id",
+            "value": "properly-configured",
+            "remarks": "rule-config"
+          },
+          {
+            "name": "Rule_Description",
+            "value": "System Owner has configured the system to properly utilize CI/CD for all tests, scans, and deployments",
+            "remarks": "rule-config"
+          },
+          {
+            "name": "Rule_Id",
+            "value": "branch-protections",
+            "remarks": "rule-branch"
+          },
+          {
+            "name": "Rule_Description",
+            "value": "System Owner has configured GitHub branch protections as described in control",
+            "remarks": "rule-branch"
+          }
+        ],
+        "status": {
+          "state": "operational"
+        }
+      },
+      {
+        "uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
+        "type": "this-system",
+        "title": "This System",
+        "description": "",
+        "status": {
+          "state": "operational"
+        }
+      }
+    ]
+  }
+}
