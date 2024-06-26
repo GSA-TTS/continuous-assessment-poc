@@ -2,18 +2,46 @@
   "system-characteristics": {
     "system-ids": [
       {
-        "id": "REPLACE_ME"
+        "id": "CMPOC"
       }
     ],
-    "system-name": "REPLACE_ME",
-    "description": "REPLACE_ME",
+    "system-name": "Continuous Monitoring",
+    "description": "The Continuous Monitoring system is a proof-of-concept of how assessment evidence can be generated in a CI/CD pipeline",
+    "security-sensitivity-level": "LOW",
     "system-information": {
       "information-types": [
         {
-          "title": "REPLACE_ME",
-          "description": "REPLACE_ME"
+          "uuid": "3e3413dc-ac0b-4fb9-90ee-08438e1615a1",
+          "title": "3.5.5 Information Security Information Type",
+          "description": "The system stores a list of published OSCAL content in other systems. This content relates to Security Profiles, Customer Responsiblity Matrices, and control catalogs.",
+          "categorizations": [
+            {
+              "system": "http://doi.org/10.6028/NIST.SP.800-60v2r1",
+              "information-type-ids": [
+                "3.5.5"
+              ]
+            }
+          ],
+          "confidentiality-impact": {
+            "base": "LOW",
+            "selected": "LOW"
+          },
+          "integrity-impact": {
+            "base": "MODERATE",
+            "selected": "LOW",
+            "adjustment-justification": "This system is simply a pointer to canonical storage locations, and the contents downloaded therin undergo multiple further reviews before being used."
+          },
+          "availability-impact": {
+            "base": "LOW",
+            "selected": "LOW"
+          }
         }
       ]
+    },
+    "security-impact-level": {
+      "security-objective-confidentiality": "LOW",
+      "security-objective-integrity": "LOW",
+      "security-objective-availability": "LOW"
     },
     "status": {
       "state": "operational"

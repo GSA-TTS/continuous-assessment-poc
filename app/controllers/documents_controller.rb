@@ -27,6 +27,7 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       if @document.save
+        logger.info "[PRIVILEGED] Document(#{@document.id}) created by #{current_user.id}"
         format.html { redirect_to document_url(@document), notice: "Document was successfully created." }
         format.json { render :show, status: :created, location: @document }
       else
@@ -40,6 +41,7 @@ class DocumentsController < ApplicationController
   def update
     respond_to do |format|
       if @document.update(document_params)
+        logger.info "[PRIVILEGED] Document(#{@document.id}) updated by #{current_user.id}"
         format.html { redirect_to document_url(@document), notice: "Document was successfully updated." }
         format.json { render :show, status: :ok, location: @document }
       else
@@ -52,6 +54,7 @@ class DocumentsController < ApplicationController
   # DELETE /documents/1 or /documents/1.json
   def destroy
     @document.destroy!
+    logger.info "[PRIVILEGED] Document(#{@document.id}) destroyed by #{current_user.id}"
 
     respond_to do |format|
       format.html { redirect_to documents_url, notice: "Document was successfully destroyed." }

@@ -35,9 +35,9 @@ ______________________________________________________________________
 
 ### This System
 
-<!-- Add implementation prose for the main This System component for control: ac-3 -->
+The Pundit library is used to enforce authorization checks for all data access within the Rails application. This check utilizes the attributes of the data and the currently logged in user to determine if access should be granted or not.
 
-#### Implementation Status: planned
+#### Implementation Status: implemented
 
 ### Cloud.gov
 
