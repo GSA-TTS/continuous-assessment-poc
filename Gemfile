@@ -72,3 +72,7 @@ group :test do
   gem "climate_control", "~> 1.0"
   gem "shoulda-matchers", "~> 6.2"
 end
+
+gem "pundit", "~> 2.3"
+
+gem "devise", "~> 4.9"

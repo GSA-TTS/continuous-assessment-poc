@@ -87,6 +87,7 @@ GEM
       tzinfo (~> 2.0)
     ast (2.4.2)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     bigdecimal (3.1.8)
     bindex (0.8.1)
     bootsnap (1.18.3)
@@ -109,6 +110,12 @@ GEM
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    devise (4.9.4)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
     diff-lcs (1.5.1)
     dotenv (3.1.2)
     dotenv-rails (3.1.2)
@@ -178,6 +185,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.6-x86_64-linux)
       racc (~> 1.4)
+    orm_adapter (0.5.0)
     parallel (1.25.1)
     parser (3.3.3.0)
       ast (~> 2.4.1)
@@ -187,6 +195,8 @@ GEM
       stringio
     puma (6.4.2)
       nio4r (~> 2.0)
+    pundit (2.3.2)
+      activesupport (>= 3.0.0)
     racc (1.8.0)
     rack (3.1.4)
     rack-session (2.0.0)
@@ -242,6 +252,9 @@ GEM
     regexp_parser (2.9.2)
     reline (0.5.9)
       io-console (~> 0.5)
+    responders (3.1.1)
+      actionpack (>= 5.2)
+      railties (>= 5.2)
     rexml (3.3.1)
       strscan
     rspec-core (3.13.0)
@@ -316,6 +329,8 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -342,12 +357,14 @@ DEPENDENCIES
   climate_control (~> 1.0)
   cssbundling-rails
   debug
+  devise (~> 4.9)
   dotenv-rails (~> 3.1)
   i18n-tasks (~> 1.0)
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
   puma (>= 5.0)
+  pundit (~> 2.3)
   rails (~> 7.1.3, >= 7.1.3.4)
   rails-erd (~> 1.7)
   rails_template_18f!

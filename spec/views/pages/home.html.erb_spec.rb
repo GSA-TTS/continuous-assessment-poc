@@ -1,7 +1,10 @@
 require "rails_helper"
 
 RSpec.describe "pages/home.html.erb", type: :view do
-  before { assign(:documents, Document.all) }
+  before do
+    assign(:documents, Document.all)
+    enable_pundit(view)
+  end
 
   it "displays the gov banner" do
     render template: "pages/home", layout: "layouts/application"

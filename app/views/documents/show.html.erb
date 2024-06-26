@@ -1,0 +1,15 @@
+<div id="<%= dom_id @document %>" class="usa-prose">
+  <h1><%= @document.title %></h1>
+  <p><%= @document.description %></p>
+  <p><%= external_link "Contents", @document.url %>
+</div>
+
+<div class="grid-row flex-align-baseline">
+  <p class="tablet:grid-col-6">
+    <%= link_to "Edit this document", edit_document_path(@document), class: "usa-link" %> |
+    <%= link_to "Back to documents", documents_path, class: "usa-link" %>
+  </p>
+  <div class="tablet:grid-col-6 tablet:display-flex tablet:flex-justify-end">
+    <%= button_to "Destroy this document", @document, method: :delete, class: "usa-button usa-button--secondary" %>
+  </div>
+</div>

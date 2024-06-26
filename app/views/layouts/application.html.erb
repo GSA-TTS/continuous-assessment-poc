@@ -13,6 +13,26 @@
   <body>
     <%= render "application/usa_banner" %>
     <%= render "application/header" %>
+
+    <% if notice.present? %>
+      <div class="grid-container">
+        <div class="usa-alert usa-alert--success">
+          <div class="usa-alert__body">
+            <h4 class="usa-alert__heading">Notice</h4>
+            <p class="usa-alert__text">
+              <%= notice %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <% if alert.present? %>
+      <div class="grid-container">
+        <%= render partial: "application/alert", locals: {heading: "Error", content: alert} %>
+      </div>
+    <% end %>
+
     <main id="main-content">
       <div class="grid-container usa-section">
         <%= yield %>
