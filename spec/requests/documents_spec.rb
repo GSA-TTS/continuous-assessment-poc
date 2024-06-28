@@ -83,6 +83,12 @@ RSpec.describe "/documents", type: :request do
         post documents_url, params: {document: valid_attributes}
         expect(response).to redirect_to(document_url(Document.last))
       end
+
+      it "logs the use of this privileged function", control_id: "ac-6.9", statement_id: "ac-6.9_smt", assessment_plan_uuid: "06eb2b97-7665-467b-88d5-027170dc6f63" do
+        allow(Rails.logger).to receive(:info)
+        expect(Rails.logger).to receive(:info).with(/\[PRIVILEGED\] Document\(\d+\) created by #{user.id}/)
+        post documents_url, params: {document: valid_attributes}
+      end
     end
 
     context "with invalid parameters" do
@@ -101,6 +107,7 @@ RSpec.describe "/documents", type: :request do
 
   describe "PATCH /update" do
     let(:user) { User.create! email: "admin@gsa.gov", password: SecureRandom.alphanumeric, admin: true }
+    let!(:document) { Document.create! valid_attributes }
 
     context "with valid parameters" do
       let(:new_attributes) {
@@ -110,17 +117,21 @@ RSpec.describe "/documents", type: :request do
       }
 
       it "updates the requested document" do
-        document = Document.create! valid_attributes
         patch document_url(document), params: {document: new_attributes}
         document.reload
         expect(document.description).to eq "We updated the description!"
       end
 
       it "redirects to the document" do
-        document = Document.create! valid_attributes
         patch document_url(document), params: {document: new_attributes}
         document.reload
         expect(response).to redirect_to(document_url(document))
+      end
+
+      it "logs the use of this privileged function", control_id: "ac-6.9", statement_id: "ac-6.9_smt", assessment_plan_uuid: "06eb2b97-7665-467b-88d5-027170dc6f63" do
+        allow(Rails.logger).to receive(:info)
+        expect(Rails.logger).to receive(:info).with("[PRIVILEGED] Document(#{document.id}) updated by #{user.id}")
+        patch document_url(document), params: {document: new_attributes}
       end
     end
 
@@ -135,18 +146,23 @@ RSpec.describe "/documents", type: :request do
 
   describe "DELETE /destroy" do
     let(:user) { User.create! email: "admin@gsa.gov", password: SecureRandom.alphanumeric, admin: true }
+    let!(:document) { Document.create! valid_attributes }
 
     it "destroys the requested document" do
-      document = Document.create! valid_attributes
       expect {
         delete document_url(document)
       }.to change(Document, :count).by(-1)
     end
 
     it "redirects to the documents list" do
-      document = Document.create! valid_attributes
       delete document_url(document)
       expect(response).to redirect_to(documents_url)
+    end
+
+    it "logs the use of this privileged function", control_id: "ac-6.9", statement_id: "ac-6.9_smt", assessment_plan_uuid: "06eb2b97-7665-467b-88d5-027170dc6f63" do
+      allow(Rails.logger).to receive(:info)
+      expect(Rails.logger).to receive(:info).with("[PRIVILEGED] Document(#{document.id}) destroyed by #{user.id}")
+      delete document_url(document)
     end
   end
 end
