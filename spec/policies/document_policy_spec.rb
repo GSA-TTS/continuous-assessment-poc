@@ -17,29 +17,44 @@ RSpec.describe DocumentPolicy, type: :policy do
   end
 
   permissions :create? do
-    it { expect(subject).not_to permit(user, record) }
+    it "Users cannot create a new document", control_id: "ac-3", statement_id: "ac-3_smt", assessment_plan_uuid: "4635e122-87fc-4533-b3bb-14674f2562b8" do
+      expect(subject).not_to permit(user, record)
+    end
 
     context "admin" do
       let(:user) { User.new admin: true }
-      it { expect(subject).to permit(user, record) }
+
+      it "Admins can create a new document", control_id: "ac-3", statement_id: "ac-3_smt", assessment_plan_uuid: "4635e122-87fc-4533-b3bb-14674f2562b8" do
+        expect(subject).to permit(user, record)
+      end
     end
   end
 
   permissions :update? do
-    it { expect(subject).not_to permit(user, record) }
+    it "Users cannot update documents", control_id: "ac-3", statement_id: "ac-3_smt", assessment_plan_uuid: "4635e122-87fc-4533-b3bb-14674f2562b8" do
+      expect(subject).not_to permit(user, record)
+    end
 
     context "admin" do
       let(:user) { User.new admin: true }
-      it { expect(subject).to permit(user, record) }
+
+      it "Admins can update documents", control_id: "ac-3", statement_id: "ac-3_smt", assessment_plan_uuid: "4635e122-87fc-4533-b3bb-14674f2562b8" do
+        expect(subject).to permit(user, record)
+      end
     end
   end
 
   permissions :destroy? do
-    it { expect(subject).not_to permit(user, record) }
+    it "Users cannot destroy documents", control_id: "ac-3", statement_id: "ac-3_smt", assessment_plan_uuid: "4635e122-87fc-4533-b3bb-14674f2562b8" do
+      expect(subject).not_to permit(user, record)
+    end
 
     context "admin" do
       let(:user) { User.new admin: true }
-      it { expect(subject).to permit(user, record) }
+
+      it "Admins can destroy documents", control_id: "ac-3", statement_id: "ac-3_smt", assessment_plan_uuid: "4635e122-87fc-4533-b3bb-14674f2562b8" do
+        expect(subject).to permit(user, record)
+      end
     end
   end
 end

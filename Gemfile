@@ -53,26 +53,29 @@ end
 
 gem "secure_headers", "~> 6.3"
 
+gem "sidekiq", "~> 7.2"
+
+gem "pundit", "~> 2.3"
+gem "devise", "~> 4.9"
+
 group :development, :test do
   gem "rspec-rails", "~> 6.1"
   gem "dotenv-rails", "~> 3.1"
   gem "brakeman", "~> 6.1"
   gem "bundler-audit", "~> 0.9"
   gem "standard", "~> 1.36"
-end
-gem "rails_template_18f", group: :development, github: "gsa-tts/rails-template"
-gem "rails-erd", "~> 1.7", group: :development
-
-group :development, :test do
   gem "i18n-tasks", "~> 1.0"
 end
-gem "sidekiq", "~> 7.2"
+
+group :development do
+  gem "rails_template_18f"
+  gem "rails-erd", "~> 1.7"
+end
 
 group :test do
   gem "climate_control", "~> 1.0"
   gem "shoulda-matchers", "~> 6.2"
+  gem "oscal", github: "rahearn/oscal-ruby", branch: "allow-setting-logger"
+  gem "rspec_oscal_formatter", github: "rahearn/rspec_oscal_formatter", branch: "mix-test-types"
+  gem "byebug", "~> 11.1"
 end
-
-gem "pundit", "~> 2.3"
-
-gem "devise", "~> 4.9"
