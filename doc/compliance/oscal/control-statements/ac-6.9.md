@@ -35,9 +35,9 @@ ______________________________________________________________________
 
 ### This System
 
-<!-- Add implementation prose for the main This System component for control: ac-6.9 -->
+Privileged functions within the app are logged including timestamp, relevant record id, and current_user id.
 
-#### Implementation Status: planned
+#### Implementation Status: implemented
 
 ### Cloud.gov
 

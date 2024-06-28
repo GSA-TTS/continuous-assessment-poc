@@ -1,7 +1,7 @@
 <h1>Published Compliance Documents</h1>
 <table class="usa-table">
   <caption>
-    Component Definitions
+    OSCAL Documents
   </caption>
   <thead>
     <tr>
@@ -12,9 +12,12 @@
   <tbody>
     <% @documents.each do |d| %>
         <tr>
-            <th scope="row"><%= link_to d.title, d.url, class: "usa-link usa-link--external", rel: "noreferrer", target: "_blank" %></th>
+            <th scope="row"><%= external_link d.title, d.url %></th>
             <td><%= d.description %></td>
         </tr>
     <% end %>
   </tbody>
 </table>
+<% if policy(Document.new).create? %>
+  <%= link_to "Create new document", new_document_path, class: "usa-link" %>
+<% end %>

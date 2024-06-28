@@ -18,8 +18,17 @@
       </button>
       <ul class="usa-nav__primary usa-accordion">
         <li class="usa-nav__primary-item">
-          <%= link_to "Example Nav Item", root_path %>
+          <%= link_to "All documents", documents_path %>
         </li>
+        <% if user_signed_in? %>
+          <li class="usa-nav__primary-item">
+            <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "usa-button" %>
+          </li>
+        <% else %>
+          <li class="usa-nav__primary-item">
+            <%= link_to "Log in", new_user_session_path %>
+          </li>
+        <% end %>
       </ul>
     </nav>
   </div>

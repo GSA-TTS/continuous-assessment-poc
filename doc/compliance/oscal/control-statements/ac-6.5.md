@@ -54,18 +54,20 @@ ______________________________________________________________________
 
 ### This System
 
-<!-- Add implementation prose for the main This System component for control: ac-6.5 -->
+Privileged accounts within the application are limited to Ryan only.
 
-#### Implementation Status: planned
+#### Implementation Status: implemented
 
 ### Cloud.gov
 
 The roles are defined by cloud.gov but the application owner must make the proper assignments to personnel to ensure least privilege is enforced.
 
+Ryan monitors the cloud.gov roles to ensure that only Ryan can access the cloud.gov infrastructure.
+
 #### Rules:
 
   - system-roles-needed
 
-#### Implementation Status: partial
+#### Implementation Status: implemented
 
 ______________________________________________________________________

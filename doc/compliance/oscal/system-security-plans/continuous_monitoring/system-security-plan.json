@@ -264,9 +264,9 @@
             {
               "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
               "uuid": "04abf2cd-8d43-42df-b84d-b3302c9c59ff",
-              "description": "",
+              "description": "The Pundit library is used to enforce authorization checks for all data access within the Rails application. This check utilizes the attributes of the data and the currently logged in user to determine if access should be granted or not.",
               "implementation-status": {
-                "state": "planned"
+                "state": "implemented"
               }
             }
           ]
@@ -278,7 +278,7 @@
             {
               "component-uuid": "feef8607-5d90-493e-b367-b27b79dcabf6",
               "uuid": "2a22999e-a4cf-46c3-8d7e-eab3a7309384",
-              "description": "The roles are defined by cloud.gov but the application owner must make the proper assignments to personnel to ensure least privilege is enforced.",
+              "description": "The roles are defined by cloud.gov but the application owner must make the proper assignments to personnel to ensure least privilege is enforced.\n\nRyan monitors the cloud.gov roles to ensure that only Ryan can access the cloud.gov infrastructure.",
               "props": [
                 {
                   "name": "Rule_Id",
@@ -286,15 +286,15 @@
                 }
               ],
               "implementation-status": {
-                "state": "partial"
+                "state": "implemented"
               }
             },
             {
               "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
               "uuid": "4e53aec0-3d42-41c6-ae63-a25545705b69",
-              "description": "",
+              "description": "Privileged accounts within the application are limited to Ryan only.",
               "implementation-status": {
-                "state": "planned"
+                "state": "implemented"
               }
             }
           ]
@@ -320,9 +320,9 @@
             {
               "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
               "uuid": "c2db0c86-cfa5-4fb5-9f92-66a066bf5604",
-              "description": "",
+              "description": "Privileged functions within the app are logged including timestamp, relevant record id, and current_user id.",
               "implementation-status": {
-                "state": "planned"
+                "state": "implemented"
               }
             }
           ]

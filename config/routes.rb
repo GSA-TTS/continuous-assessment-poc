@@ -1,6 +1,8 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
+  resources :documents
+  devise_for :users
   if Rails.env.development?
     mount Sidekiq::Web => "/sidekiq"
   end

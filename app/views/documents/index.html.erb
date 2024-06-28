@@ -1,0 +1,15 @@
+<h1>All Documents</h1>
+
+<ul class="usa-list">
+  <% @documents.each do |document| %>
+    <li>
+      <% if policy(document).show? %>
+        <%= link_to document.title, document, class: "usa-link" %>
+      <% else %>
+        <%= document.title %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New document", new_document_path, class: "usa-link" %>
