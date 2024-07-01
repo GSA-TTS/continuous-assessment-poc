@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/rahearn/oscal-ruby.git
-  revision: 56faf2931931370acb47e05e7668883c48ffa9ec
-  branch: allow-setting-logger
-  specs:
-    oscal (0.2.1)
-      yaml
-
-GIT
   remote: https://github.com/rahearn/rspec_oscal_formatter.git
   revision: 64dbf70748bfde0f9837dd6087f9813caa1c257c
   branch: mix-test-types
@@ -195,6 +187,8 @@ GEM
     nokogiri (1.16.6-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    oscal (0.2.2)
+      yaml
     parallel (1.25.1)
     parser (3.3.3.0)
       ast (~> 2.4.1)
@@ -379,7 +373,6 @@ DEPENDENCIES
   i18n-tasks (~> 1.0)
   jbuilder
   jsbundling-rails
-  oscal!
   pg (~> 1.1)
   puma (>= 5.0)
   pundit (~> 2.3)
