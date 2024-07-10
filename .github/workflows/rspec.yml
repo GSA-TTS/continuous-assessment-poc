@@ -31,11 +31,11 @@ jobs:
       - name: Run rspec
         env:
           DATABASE_URL: ${{ steps.setup.outputs.database_url }}
-          rspec_oscal_timestamp: false
+          rspec_oscal_output: tmp
         run: bundle exec rspec
 
       - name: Save assessment results
         uses: actions/upload-artifact@v4
         with:
           name: continuous_monitoring_assessment
-          path: tmp/oscal_assessment
+          path: tmp/oscal
