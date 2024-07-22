@@ -292,7 +292,7 @@
             {
               "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
               "uuid": "4e53aec0-3d42-41c6-ae63-a25545705b69",
-              "description": "Privileged accounts within the application are limited to Ryan only.",
+              "description": "Users can be assigned the admin role to allow access to privileged functions.\n\nPrivileged accounts within the application are limited to Ryan only.",
               "implementation-status": {
                 "state": "implemented"
               }
