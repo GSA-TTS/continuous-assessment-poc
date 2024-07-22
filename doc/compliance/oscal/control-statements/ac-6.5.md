@@ -54,6 +54,8 @@ ______________________________________________________________________
 
 ### This System
 
+Users can be assigned the admin role to allow access to privileged functions.
+
 Privileged accounts within the application are limited to Ryan only.
 
 #### Implementation Status: implemented

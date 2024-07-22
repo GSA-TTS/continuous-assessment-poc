@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
-  describe "#admin?" do
+  describe "#admin?", control_id: "ac-6.5", statement_id: "ac-6.5_smt", rule_ids: "system-roles-needed" do
     context "default" do
       it { expect(subject).not_to be_admin }
     end
