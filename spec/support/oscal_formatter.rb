@@ -1,6 +1,6 @@
-return if ENV['rspec_oscal_output'].blank?
+return if ENV["rspec_oscal_output"].blank?
 
-require 'oscal'
+require "oscal"
 Oscal::ParsingLogger.logger = Rails.logger
 
 RSpecOscalFormatter.configure do |config|
@@ -15,7 +15,7 @@ RSpec.configure do |config|
   else
     config.add_formatter "progress"
   end
-  oscal_directory = if ENV['rspec_oscal_output'] == 'tmp'
+  oscal_directory = if ENV["rspec_oscal_output"] == "tmp"
     Rails.root.join("tmp", "oscal")
   else
     Rails.root.join("doc/compliance/oscal")

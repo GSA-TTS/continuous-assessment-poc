@@ -10,7 +10,7 @@ guide for an introduction to the framework.
 
 ### Local Setup
 
-* Install Ruby 3.3.1
+* Install Ruby 3.3.4
 * Install NodeJS 20.13.1
 * Install homebrew dependencies: `brew bundle`
   * [redis](https://redis.io/)
