@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@csstools/postcss-sass": "^5.1.1",
+    "@csstools/sass-import-resolve": "https://github.com/rahearn/sass-import-resolve",
     "@uswds/uswds": "^3.8.1",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
@@ -22,6 +23,6 @@
   },
   "resolutions": {
     "@csstools/postcss-sass/@csstools/sass-import-resolve": "https://github.com/rahearn/sass-import-resolve",
-    "semver": "7.6.2"
+    "semver": "7.6.3"
   }
 }
