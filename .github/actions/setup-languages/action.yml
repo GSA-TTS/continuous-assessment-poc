@@ -14,7 +14,6 @@ runs:
       uses: actions/setup-node@v4
       with:
         node-version: '22.3.0'
-        cache: 'yarn'
     - name: Install yarn dependencies
       shell: bash
       run: yarn install --frozen-lockfile
