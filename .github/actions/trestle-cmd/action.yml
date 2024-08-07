@@ -17,4 +17,4 @@ runs:
 
     - name: Run cmd
       shell: bash
-      run: docker run -v $GITHUB_WORKSPACE/doc/compliance/oscal:/app/docs:rw ghcr.io/gsa-tts/trestle:latest ${{ inputs.cmd }}
+      run: docker run -v $GITHUB_WORKSPACE/doc/compliance/oscal:/app/docs:rw ghcr.io/gsa-tts/trestle:${{ inputs.tag }} ${{ inputs.cmd }}
