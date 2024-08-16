@@ -19,6 +19,15 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: check workspace
+      shell: bash
+      run: echo $GITHUB_WORKSPACE
+    - name: check cdef
+      shell: bash
+      run: cat $GITHUB_WORKSPACE/${{inputs.cdef}}
+    - name: check pwd
+      shell: bash
+      run: pwd
     - name: Run cmd
       shell: bash
       run:
