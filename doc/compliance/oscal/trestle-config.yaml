@@ -4,4 +4,5 @@ system-name: "continuous_monitoring"
 profile: lato
 components:
   - cloud_gov
+  - devtools_cloud_gov
   - github_actions

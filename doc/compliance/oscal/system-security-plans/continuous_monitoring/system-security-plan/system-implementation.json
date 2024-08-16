@@ -168,6 +168,93 @@
         ]
       },
       {
+        "uuid": "f1815d23-9f15-4824-b7c3-b5e4df26f7cc",
+        "type": "policy",
+        "title": "DevTools Cloud.gov",
+        "description": "A set of testable best practices for cloud.gov hosted apps.",
+        "props": [
+          {
+            "name": "Rule_Id",
+            "value": "ssh-access-disabled",
+            "remarks": "rule_ssh_access_disabled_1"
+          },
+          {
+            "name": "Rule_Description",
+            "value": "Production spaces should disable ssh access",
+            "remarks": "rule_ssh_access_disabled_1"
+          },
+          {
+            "name": "Parameter_Id",
+            "value": "gov.cloud.space-names",
+            "remarks": "rule_ssh_access_disabled_1"
+          },
+          {
+            "name": "Parameter_Description",
+            "value": "The cloud.gov spaces in which ssh access should be disabled",
+            "remarks": "rule_ssh_access_disabled_1"
+          },
+          {
+            "name": "Parameter_Value_Alternatives",
+            "value": "rahearn",
+            "remarks": "rule_ssh_access_disabled_1"
+          },
+          {
+            "name": "Rule_Id",
+            "value": "ssh-access-disabled",
+            "remarks": "rule_ssh_access_disabled_2"
+          },
+          {
+            "name": "Rule_Description",
+            "value": "Production spaces should disable ssh access",
+            "remarks": "rule_ssh_access_disabled_2"
+          },
+          {
+            "name": "Parameter_Id",
+            "value": "gov.cloud.org-name",
+            "remarks": "rule_ssh_access_disabled_2"
+          },
+          {
+            "name": "Parameter_Description",
+            "value": "The cloud.gov org in which ssh access should be disabled",
+            "remarks": "rule_ssh_access_disabled_2"
+          },
+          {
+            "name": "Parameter_Value_Alternatives",
+            "value": "gsa-tts-devtools-prototyping",
+            "remarks": "rule_ssh_access_disabled_2"
+          }
+        ],
+        "status": {
+          "state": "operational"
+        }
+      },
+      {
+        "uuid": "d90f3053-a333-4b3c-9ff1-d726e29eaffa",
+        "type": "validation",
+        "title": "Auditree",
+        "description": "Auditree checks for Devtools best practices",
+        "props": [
+          {
+            "name": "Rule_Id",
+            "value": "ssh-access-disabled",
+            "remarks": "rule_ssh_access_disabled"
+          },
+          {
+            "name": "Check_Id",
+            "value": "checks.test_cf_ssh.SpaceSSHDisabledCheck.test_space_ssh_disabled",
+            "remarks": "rule_ssh_access_disabled"
+          },
+          {
+            "name": "Check_Description",
+            "value": "Validate that ssh access has been disabled to gov.cloud.space-names spaces",
+            "remarks": "rule_ssh_access_disabled"
+          }
+        ],
+        "status": {
+          "state": "operational"
+        }
+      },
+      {
         "uuid": "d86c09e8-8003-4223-8070-a87b83e8b118",
         "type": "service",
         "title": "GitHub Actions",

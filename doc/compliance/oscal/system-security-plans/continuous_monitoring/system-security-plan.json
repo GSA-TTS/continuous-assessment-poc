@@ -816,6 +816,14 @@
                   "implementation-status": {
                     "state": "partial"
                   }
+                },
+                {
+                  "component-uuid": "f1815d23-9f15-4824-b7c3-b5e4df26f7cc",
+                  "uuid": "5a4857ce-3cf9-4ae1-9259-b91f9f90dfb6",
+                  "description": "SSH access to production spaces: {{ insert: param, gov.cloud.space-names }} within Cloud.gov organization {{ insert: param, gov.cloud.org-name }} has been disabled.",
+                  "implementation-status": {
+                    "state": "implemented"
+                  }
                 }
               ]
             },
@@ -962,6 +970,14 @@
                   "implementation-status": {
                     "state": "partial"
                   }
+                },
+                {
+                  "component-uuid": "f1815d23-9f15-4824-b7c3-b5e4df26f7cc",
+                  "uuid": "8f19950b-c633-4712-9660-f3ab2a51c39a",
+                  "description": "The only type of remote connections available within cloud.gov are via SSH to the application containers. There is no other ability for local, remote, or network connections. By default, SSH access to the production space is turned off, except in the event of a security investigation or application failure/performance issues by System Administrators.",
+                  "implementation-status": {
+                    "state": "implemented"
+                  }
                 }
               ]
             },
@@ -981,6 +997,14 @@
                   ],
                   "implementation-status": {
                     "state": "partial"
+                  }
+                },
+                {
+                  "component-uuid": "f1815d23-9f15-4824-b7c3-b5e4df26f7cc",
+                  "uuid": "3fb77c14-4bf7-4d57-83e1-8e5a7adf987d",
+                  "description": "SSH Access has been disabled to production spaces {{ insert: param, gov.cloud.space-names }} in organization {{ insert: param, gov.cloud.org-name }} to limit potential unauthorized use.",
+                  "implementation-status": {
+                    "state": "implemented"
                   }
                 }
               ]
