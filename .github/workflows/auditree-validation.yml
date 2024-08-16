@@ -8,8 +8,8 @@ on:
     - cron: '0 11 * * *'
 
 jobs:
-  fetch_evidence:
-    name: Fetch auditree evidence
+  run_auditree:
+    name: Fetch and check auditree evidence
     runs-on: ubuntu-latest
     environment: staging
     steps:
@@ -24,13 +24,6 @@ jobs:
         with:
           cmd: fetch
 
-  check_evidence:
-    name: Check auditree evidence
-    runs-on: ubuntu-latest
-    environment: staging
-    steps:
-      - uses: actions/checkout@v4
-
       - name: Check evidence
         uses: ./.github/actions/auditree-cmd
         env:
@@ -38,10 +31,10 @@ jobs:
           CF_PASSWORD: ${{ secrets.CF_PASSWORD }}
           GITHUB_TOKEN: ${{ secrets.AUDITREE_GITHUB_TOKEN }}
         with:
-          cmd: check > doc/compliance/oscal/assessment-results/auditree.json
+          cmd: check > doc/compliance/oscal/assessment-results/auditree/assessment-results.json
 
       - name: Save results
         uses: actions/upload-artifact@v4
         with:
           name: auditree_assessment_results
-          path: doc/compliance/oscal/assessment-results/auditree.json
+          path: doc/compliance/oscal/assessment-results/auditree
