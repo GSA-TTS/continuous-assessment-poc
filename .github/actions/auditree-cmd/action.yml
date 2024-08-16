@@ -32,6 +32,6 @@ runs:
       shell: bash
       run:
         docker run -v $GITHUB_WORKSPACE/${{inputs.config_template}}:/app/auditree.template.json:ro
-          -v $GITUB_WORKSPACE/${{inputs.cdef}}:/app/cdef.json:ro
+          -v $GITHUB_WORKSPACE/${{inputs.cdef}}:/app/cdef.json:ro
           -e GITHUB_TOKEN -e CF_USERNAME -e CF_PASSWORD -e GIT_EMAIL="ryan.ahearn@gsa.gov"
           ghcr.io/gsa-tts/auditree:${{ inputs.tag }} ${{ inputs.cmd }}
