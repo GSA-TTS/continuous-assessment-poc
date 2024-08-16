@@ -1,0 +1,29 @@
+{
+  "locker": {
+    "repo_url": "https://github.com/GSA-TTS/continuous-assessment-poc-evidence",
+    "default_branch": "main",
+    "ttl_tolerance": 3600
+  },
+  "org": {
+    "auditree": {
+      "abandoned_evidence": {
+        "threshold": 0,
+        "ignore_history": true
+      },
+      "repo_integrity": {
+        "branches": {
+          "https://github.com/GSA-TTS/continuous-assessment-poc": ["main"]
+        },
+        "repos": [
+          "https://github.com/GSA-TTS/continuous-assessment-poc"
+        ]
+      }
+    }
+  },
+  "gov": {
+    "cloud": {
+      "org-name": "",
+      "space-names": []
+    }
+  }
+}
