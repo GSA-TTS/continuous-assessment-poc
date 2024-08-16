@@ -1,8 +1,53 @@
 ---
+x-trestle-add-props: []
+  # Add or modify control properties here
+  # Properties may be at the control or part level
+  # Add control level properties like this:
+  #   - name: ac1_new_prop
+  #     value: new property value
+  #
+  # Add properties to a statement part like this, where "b." is the label of the target statement part
+  #   - name: ac1_new_prop
+  #     value: new property value
+  #     smt-part: b.
+  #
 x-trestle-comp-def-rules:
   Cloud.gov:
     - name: egress-control-in-place
       description: Customer must ensure egress control is in place
+  DevTools Cloud.gov:
+    - name: ssh-access-disabled
+      description: Production spaces should disable ssh access
+    - name: ssh-access-disabled
+      description: Production spaces should disable ssh access
+x-trestle-rules-params:
+  DevTools Cloud.gov:
+    - name: gov.cloud.space-names
+      description: The cloud.gov spaces in which ssh access should be disabled
+      options: rahearn
+      rule-id: ssh-access-disabled
+    - name: gov.cloud.org-name
+      description: The cloud.gov org in which ssh access should be disabled
+      options: gsa-tts-devtools-prototyping
+      rule-id: ssh-access-disabled
+x-trestle-comp-def-rules-param-vals:
+  # You may set new values for rule parameters by adding
+  #
+  # ssp-values:
+  #   - value 1
+  #   - value 2
+  #
+  # below a section of values:
+  # The values list refers to the values as set by the components, and the ssp-values are the new values
+  # to be placed in SetParameters of the SSP.
+  #
+  DevTools Cloud.gov:
+    - name: gov.cloud.org-name
+      values:
+        - gsa-tts-devtools-prototyping
+    - name: gov.cloud.space-names
+      values:
+        - rahearn
 x-trestle-set-params:
   # You may set values for parameters in the assembled SSP by adding
   #
@@ -80,6 +125,16 @@ Application owners are responsible for ensuring their application does not excha
   - egress-control-in-place
 
 #### Implementation Status: partial
+
+### DevTools Cloud.gov
+
+SSH access to production spaces: {{ insert: param, gov.cloud.space-names }} within Cloud.gov organization {{ insert: param, gov.cloud.org-name }} has been disabled.
+
+#### Rules:
+
+  - ssh-access-disabled
+
+#### Implementation Status: implemented
 
 ______________________________________________________________________
 
