@@ -68,7 +68,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "rails_template_18f"
+  gem "rails_template_18f", github: "gsa-tts/rails-template", branch: "compliance-github-actions"
   gem "rails-erd", "~> 1.7"
 end
 
