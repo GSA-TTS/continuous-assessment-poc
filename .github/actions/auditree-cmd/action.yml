@@ -1,12 +1,15 @@
-name: "Run a auditree-devtools command"
+name: "Run an auditree-devtools command"
 description: "Sets up workspace for running a single command in auditree-devtools"
 inputs:
   tag:
-    description: auditree-devtools tag to use. Defaults to latest
+    description: auditree-devtools tag to use. Defaults to 20240819
     required: false
-    default: latest
+    default: 20240819
   cmd:
     description: Command to run within auditree-devtools
+    required: true
+  email:
+    description: Git user email to attribute to evidence updates
     required: true
   config_template:
     description: Auditree config file template
@@ -24,5 +27,5 @@ runs:
       run:
         docker run -v $GITHUB_WORKSPACE/${{inputs.config_template}}:/app/auditree.template.json:ro
           -v $GITHUB_WORKSPACE/${{inputs.cdef}}:/app/cdef.json:ro
-          -e GITHUB_TOKEN -e CF_USERNAME -e CF_PASSWORD -e GIT_EMAIL="ryan.ahearn@gsa.gov"
+          -e GITHUB_TOKEN -e CF_USERNAME -e CF_PASSWORD -e GIT_EMAIL="${{inputs.email}}"
           ghcr.io/gsa-tts/auditree:${{ inputs.tag }} ${{ inputs.cmd }}

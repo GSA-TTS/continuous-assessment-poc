@@ -7,7 +7,6 @@
   "org": {
     "auditree": {
       "abandoned_evidence": {
-        "threshold": 0,
         "ignore_history": true
       },
       "repo_integrity": {
