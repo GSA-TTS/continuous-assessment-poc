@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/gsa-tts/rails-template.git
-  revision: 50513902d9c2618f6fc850fac50b3656c6777445
-  branch: compliance-github-actions
+  revision: 347025a62b2215aecd159109f437b3b0fe157e06
+  branch: main
   specs:
     rails_template_18f (1.0.0)
       activesupport (~> 7.1.0)
@@ -276,7 +276,7 @@ GEM
       strscan
     rspec-core (3.13.0)
       rspec-support (~> 3.13.0)
-    rspec-expectations (3.13.1)
+    rspec-expectations (3.13.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-mocks (3.13.1)
