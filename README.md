@@ -170,6 +170,29 @@ Configuration that changes from staging to production, but is public, should be 
 
 ## Documentation
 
+### Auditree Control Validation
+
+Auditree is used within CI/CD to validate that certain controls are in place.
+
+* Run `bin/auditree` to start the auditree CLI.
+* Run `bin/auditree SCRIPT_NAME` to run a single auditree script
+
+#### Initial auditree setup.
+
+These steps must happen once per project.
+
+1. Docker desktop must be running
+1. Initialize the config file with `bin/auditree init > config/auditree.template.json`
+1. Create an evidence locker repository with a default or blank README
+1. Create a github personal access token to interact with the code repo and evidence locker and set as `AUDITREE_GITHUB_TOKEN` secret within your production Github environment secrets.
+1. Update `config/auditree.template.json` with the repo addresses for your locker and code repos
+1. Copy the `devtools_cloud_gov` component definition into the project with the latest docker-trestle
+
+#### Ongoing use
+
+See the [auditree-devtools README](https://github.com/gsa-tts/auditree-devtools) for help with updating
+auditree and using new checks.
+
 ### Compliance Documentation
 
 Security Controls should be documented within doc/compliance/oscal.
