@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "3.3.4"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.1.3", ">= 7.1.3.4"
+gem "rails", "~> 7.2.0"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -68,7 +68,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "rails_template_18f", github: "gsa-tts/rails-template", branch: "main"
+  gem "rails_template_18f", github: "gsa-tts/rails-template", branch: "rails-7.2"
   gem "rails-erd", "~> 1.7"
 end
 
