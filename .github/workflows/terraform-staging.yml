@@ -30,6 +30,7 @@ jobs:
           path: terraform/staging
 
       - name: terraform plan
+        if: ${{ github.actor != 'dependabot[bot]' }}
         uses: dflook/terraform-plan@v1
         env:
           TF_VAR_cf_user: ${{ secrets.CF_USERNAME }}
