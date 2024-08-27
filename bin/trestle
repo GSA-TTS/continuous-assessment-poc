@@ -7,4 +7,4 @@ fi
 
 oscal_location="$(dirname $(realpath $0))/../doc/compliance/oscal"
 
-docker run -it --rm -v $oscal_location:/app/docs:rw ghcr.io/gsa-tts/trestle:latest $command
+docker run -it --rm -v $oscal_location:/app/docs:rw ghcr.io/gsa-tts/trestle:20240826 $command
