@@ -19,8 +19,16 @@ jobs:
         with:
           cmd: trestle assemble -n continuous_monitoring system-security-plan
 
+      - name: Render final SSPP
+        uses: ./.github/actions/trestle-cmd
+        with:
+          cmd: render-ssp
+
       - name: Save artifact
         uses: actions/upload-artifact@v4
         with:
           name: continuous_monitoring_SSPP
-          path: doc/compliance/oscal/dist/system-security-plans/continuous_monitoring.json
+          path: |
+            doc/compliance/oscal/dist/system-security-plans/continuous_monitoring.json
+            doc/compliance/oscal/ssp-render/continuous_monitoring_ssp.md
+            doc/compliance/oscal/ssp-render/continuous_monitoring_ssp.md.html
