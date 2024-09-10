@@ -6,7 +6,25 @@
       }
     ],
     "system-name": "Continuous Monitoring",
+    "system-name-short": "CMPOC",
     "description": "The Continuous Monitoring system is a proof-of-concept of how assessment evidence can be generated in a CI/CD pipeline",
+    "props": [
+      {
+        "name": "identity-assurance-level",
+        "ns": "http://csrc.nist.gov/ns/oscal",
+        "value": "REPLACE_ME"
+      },
+      {
+        "name": "authenticator-assurance-level",
+        "ns": "http://csrc.nist.gov/ns/oscal",
+        "value": "REPLACE_ME"
+      },
+      {
+        "name": "federation-assurance-level",
+        "ns": "http://csrc.nist.gov/ns/oscal",
+        "value": "REPLACE_ME"
+      }
+    ],
     "security-sensitivity-level": "LOW",
     "system-information": {
       "information-types": [
@@ -47,7 +65,44 @@
       "state": "operational"
     },
     "authorization-boundary": {
-      "description": "REPLACE_ME"
-    }
+      "description": "REPLACE_ME",
+      "diagrams": [
+        {
+          "uuid": "c9c634b3-fbd5-43c8-8b91-ce061cf8ef57",
+          "links": [
+            {
+              "href": "REPLACE_ME",
+              "rel": "diagram"
+            }
+          ],
+          "caption": "REPLACE_ME"
+        }
+      ]
+    },
+    "data-flow": {
+      "description": "REPLACE_ME",
+      "diagrams": [
+        {
+          "uuid": "dbd2b952-e2dc-4044-9162-8d7ae41b34a3",
+          "links": [
+            {
+              "href": "REPLACE_ME",
+              "rel": "diagram"
+            }
+          ],
+          "caption": "REPLACE_ME"
+        }
+      ]
+    },
+    "responsible-parties": [
+      {
+        "role-id": "system-owner",
+        "party-uuids": ["5e4a1c1c-67a3-426a-bfa1-0abc1ba7a0b1"]
+      },
+      {
+        "role-id": "authorizing-official",
+        "party-uuids": []
+      }
+    ]
   }
 }
