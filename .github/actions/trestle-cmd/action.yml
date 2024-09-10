@@ -13,7 +13,7 @@ runs:
   steps:
     - name: Enable writing to trestle directories
       shell: bash
-      run: chmod -R a+w $GITHUB_WORKSPACE/doc/compliance/oscal
+      run: chmod -R a+w $GITHUB_WORKSPACE/doc/compliance/oscal || true
 
     - name: Run cmd
       shell: bash
