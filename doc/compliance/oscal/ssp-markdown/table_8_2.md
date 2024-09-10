@@ -9,4 +9,4 @@ Table 8-2. Systems Receiving Controls
 | Receiving System Name (FISMA System Identifier) | Receiving System Owner | Control Identifier, Name | Common/Hybrid |
 | --------------------- | ---------------------- | ------------------------ | ------------- |
 | <!-- Example: GSA Beta (GSA-B) --> | <!-- Mark Taylor --> | <!-- AC-02, Account Management --> | <!-- Hybrid --> |
-| | | | |
+| NA | NA | NA | NA |

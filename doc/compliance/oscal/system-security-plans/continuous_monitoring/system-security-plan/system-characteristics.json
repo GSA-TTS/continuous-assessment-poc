@@ -62,7 +62,7 @@
       "security-objective-availability": "LOW"
     },
     "status": {
-      "state": "operational"
+      "state": "under-development"
     },
     "authorization-boundary": {
       "description": "REPLACE_ME",
@@ -71,7 +71,7 @@
           "uuid": "c9c634b3-fbd5-43c8-8b91-ce061cf8ef57",
           "links": [
             {
-              "href": "REPLACE_ME",
+              "href": "https://raw.githubusercontent.com/GSA-TTS/continuous-assessment-poc/main/doc/compliance/rendered/apps/application.boundary.svg",
               "rel": "diagram"
             }
           ],

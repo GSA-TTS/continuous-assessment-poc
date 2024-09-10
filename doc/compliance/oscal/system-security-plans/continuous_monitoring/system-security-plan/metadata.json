@@ -37,7 +37,13 @@
       {
         "uuid": "31f34cb0-e2a7-4bf0-a0a0-79bb00ab8152",
         "type": "organization",
-        "name": "TTS DevTools"
+        "name": "TTS DevTools",
+        "addresses": [{
+          "addr-lines": ["1800 F St. NW"],
+          "city": "Washington",
+          "state": "DC",
+          "postal-code": 20405
+        }]
       },
       {
         "uuid": "5e4a1c1c-67a3-426a-bfa1-0abc1ba7a0b1",
