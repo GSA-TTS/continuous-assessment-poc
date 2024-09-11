@@ -1,13 +1,29 @@
 #! /usr/bin/env bash
+
+image="ghcr.io/gsa-tts/auditree"
+tag="20240911"
+cwd=`pwd`
+cdef="doc/compliance/oscal/component-definitions/devtools_cloud_gov/component-definition.json"
+config="config/auditree.template.json"
+email="auditree@gsa.gov"
+
 usage="
-$0: Run auditree docker image.
+$0: Run auditree docker image: $image.
 
 Usage:
   $0 -h
-  $0
+  $0 [-a AUDITREE_CONFIG_TEMPLATE] [-c CDEF] [-e GIT_EMAIL] [-t TAG] CMD
   $0 init > path/to/auditree.template.json
-  $0 fetch
-  $0 check > path/to/assessment-results/auditree/assessment-results.json
+  $0 [-o] check
+
+Options:
+-h: show help and exit
+-a: Auditree config. Given relative to \"$cwd\" Defaults to \"$config\"
+-c: component definition. Given relative to \"$cwd\" Defaults to \"$cdef\"
+-e: Git email. Defaults to \"$email\"
+-t: auditree docker tag. Defaults to \"$tag\"
+-o: Write assessment results to \"$cwd/tmp/auditree.json\". Only applicable for \"check\"
+CMD: The command to run. Defaults to \"bash\"
 
 Notes:
 The following environment variables will be passed through to the docker image:
@@ -16,14 +32,60 @@ The following environment variables will be passed through to the docker image:
 * CF_PASSWORD - the cloud.gov password to fetch evidence from cloud.gov, only needed when running fetch script
 "
 
-if [ "$1" = "-h" ]; then
-    echo "$usage"
-    exit 0
-fi
+ar_output=""
+args_to_shift=0
+
+while getopts "ha:c:e:t:o" opt; do
+  case "$opt" in
+    a)
+      config=${OPTARG}
+      args_to_shift=$((args_to_shift + 2))
+      ;;
+    c)
+      cdef=${OPTARG}
+      args_to_shift=$((args_to_shift + 2))
+      ;;
+    e)
+      email=${OPTARG}
+      args_to_shift=$((args_to_shift + 2))
+      ;;
+    t)
+      tag=${OPTARG}
+      args_to_shift=$((args_to_shift + 2))
+      ;;
+    o)
+      ar_output="$cwd/tmp/auditree.json"
+      args_to_shift=$((args_to_shift + 1))
+      ;;
+    h)
+      echo "$usage"
+      exit 0
+      ;;
+  esac
+done
+
+shift $args_to_shift
 
 command="bash"
 if [ "$1" != "" ]; then
     command=$1
 fi
 
-docker run -e GITHUB_TOKEN -e CF_USERNAME -e CF_PASSWORD -e GIT_EMAIL="ryan.ahearn@gsa.gov" -it --rm ghcr.io/gsa-tts/auditree:20240819 $command
+if [ "$command" = "init" ]; then
+  docker run --rm $image init
+  exit 0
+fi
+
+declare -a volume_args
+volume_args+=("-v" "$cwd/$config":/app/auditree.template.json:ro)
+volume_args+=("-v" "$cwd/$cdef":/app/cdef.json:ro)
+if [ "$ar_output" != "" ]; then
+  touch "$ar_output"
+  volume_args+=("-v" "$ar_output":/tmp/auditree.json:rw)
+  if [ "$command" = "check" ]; then
+    command="check /tmp/auditree.json"
+  fi
+fi
+
+docker run -e GITHUB_TOKEN -e CF_USERNAME -e CF_PASSWORD -e GIT_EMAIL="$email" \
+  "${volume_args[@]}" -it --rm $image:$tag $command

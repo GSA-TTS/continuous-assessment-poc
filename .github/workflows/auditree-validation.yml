@@ -32,11 +32,11 @@ jobs:
           CF_PASSWORD: ${{ secrets.CF_PASSWORD }}
           GITHUB_TOKEN: ${{ secrets.AUDITREE_GITHUB_TOKEN }}
         with:
-          cmd: check > doc/compliance/oscal/assessment-results/auditree/assessment-results.json
+          cmd: -o check
           email: "ryan.ahearn@gsa.gov"
 
       - name: Save results
         uses: actions/upload-artifact@v4
         with:
           name: auditree_assessment_results
-          path: doc/compliance/oscal/assessment-results/auditree
+          path: tmp/auditree.json

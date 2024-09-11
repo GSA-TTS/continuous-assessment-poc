@@ -4,7 +4,7 @@ inputs:
   tag:
     description: auditree-devtools tag to use. Defaults to 20240819
     required: false
-    default: 20240819
+    default: 20240911
   cmd:
     description: Command to run within auditree-devtools
     required: true
@@ -25,7 +25,5 @@ runs:
     - name: Run cmd
       shell: bash
       run:
-        docker run -v $GITHUB_WORKSPACE/${{inputs.config_template}}:/app/auditree.template.json:ro
-          -v $GITHUB_WORKSPACE/${{inputs.cdef}}:/app/cdef.json:ro
-          -e GITHUB_TOKEN -e CF_USERNAME -e CF_PASSWORD -e GIT_EMAIL="${{inputs.email}}"
-          ghcr.io/gsa-tts/auditree:${{ inputs.tag }} ${{ inputs.cmd }}
+        bin/auditree -t ${{ inputs.tag }} -a ${{ inputs.config_template }} -c ${{ inputs.cdef }}
+          -e "${{ inputs.email }}" ${{ inputs.cmd }}
