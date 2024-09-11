@@ -12,7 +12,7 @@ $0: Run auditree docker image: $image.
 
 Usage:
   $0 -h
-  $0 [-a AUDITREE_CONFIG_TEMPLATE] [-c CDEF] [-e GIT_EMAIL] [-t TAG] CMD
+  $0 [-a AUDITREE_CONFIG_TEMPLATE] [-c CDEF] [-v EXTRA_VOLUME] [-e GIT_EMAIL] [-t TAG] CMD
   $0 init > path/to/auditree.template.json
   $0 [-o] check
 
@@ -20,6 +20,7 @@ Options:
 -h: show help and exit
 -a: Auditree config. Given relative to \"$cwd\" Defaults to \"$config\"
 -c: component definition. Given relative to \"$cwd\" Defaults to \"$cdef\"
+-v: volume to mount. Given as a docker -v argument except that the first part is relative to \"$cwd\"
 -e: Git email. Defaults to \"$email\"
 -t: auditree docker tag. Defaults to \"$tag\"
 -o: Write assessment results to \"$cwd/tmp/auditree.json\". Only applicable for \"check\"
@@ -34,8 +35,9 @@ The following environment variables will be passed through to the docker image:
 
 ar_output=""
 args_to_shift=0
+declare -a volume_args
 
-while getopts "ha:c:e:t:o" opt; do
+while getopts "ha:c:v:e:t:o" opt; do
   case "$opt" in
     a)
       config=${OPTARG}
@@ -43,6 +45,10 @@ while getopts "ha:c:e:t:o" opt; do
       ;;
     c)
       cdef=${OPTARG}
+      args_to_shift=$((args_to_shift + 2))
+      ;;
+    v)
+      volume_args+=("-v" "$cwd/${OPTARG}")
       args_to_shift=$((args_to_shift + 2))
       ;;
     e)
@@ -69,6 +75,7 @@ shift $args_to_shift
 command="bash"
 if [ "$1" != "" ]; then
     command=$1
+    shift 1
 fi
 
 if [ "$command" = "init" ]; then
@@ -76,7 +83,6 @@ if [ "$command" = "init" ]; then
   exit 0
 fi
 
-declare -a volume_args
 volume_args+=("-v" "$cwd/$config":/app/auditree.template.json:ro)
 volume_args+=("-v" "$cwd/$cdef":/app/cdef.json:ro)
 if [ "$ar_output" != "" ]; then
@@ -87,5 +93,10 @@ if [ "$ar_output" != "" ]; then
   fi
 fi
 
-docker run -e GITHUB_TOKEN -e CF_USERNAME -e CF_PASSWORD -e GIT_EMAIL="$email" \
-  "${volume_args[@]}" -it --rm $image:$tag $command
+if [ "$command" = "bash" ]; then
+  docker run -e GITHUB_TOKEN -e CF_USERNAME -e CF_PASSWORD -e GIT_EMAIL="$email" \
+    "${volume_args[@]}" -it --rm $image:$tag $command "$@"
+else
+  docker run -e GITHUB_TOKEN -e CF_USERNAME -e CF_PASSWORD -e GIT_EMAIL="$email" \
+    "${volume_args[@]}" --rm $image:$tag $command "$@"
+fi

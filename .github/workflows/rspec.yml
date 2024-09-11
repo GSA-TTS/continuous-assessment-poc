@@ -20,6 +20,7 @@ jobs:
           POSTGRES_USER: cidbuser
           POSTGRES_PASSWORD: postgres
 
+    environment: staging
     steps:
       - uses: actions/checkout@v4
 
@@ -33,6 +34,17 @@ jobs:
           DATABASE_URL: ${{ steps.setup.outputs.database_url }}
           rspec_oscal_output: tmp
         run: bundle exec rspec
+
+      - name: Plant assessment results in evidence locker
+        uses: ./.github/actions/auditree-cmd
+        env:
+          GITHUB_TOKEN: ${{ secrets.AUDITREE_GITHUB_TOKEN }}
+        with:
+          email: "ryan.ahearn@gsa.gov"
+          volume: tmp/oscal/assessment-results/rspec/assessment-results.json:/tmp/rspec.json:ro
+          cmd:
+            plant-helper -f /tmp/rspec.json -c assessment-results -d "RSpec run assessment results"
+              -l https://github.com/gsa-tts/continuous-assessment-poc-evidence
 
       - name: Save assessment results
         uses: actions/upload-artifact@v4
