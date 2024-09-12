@@ -32,4 +32,4 @@ jobs:
           path: |
             doc/compliance/oscal/dist/system-security-plans/continuous_monitoring.json
             doc/compliance/oscal/ssp-render/continuous_monitoring_ssp.md
-            doc/compliance/oscal/ssp-render/continuous_monitoring_ssp.html
+            doc/compliance/oscal/ssp-render/continuous_monitoring_ssp.pdf
