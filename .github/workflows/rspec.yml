@@ -35,6 +35,17 @@ jobs:
           rspec_oscal_output: tmp
         run: bundle exec rspec
 
+      - name: Plant assessment plan in evidence locker
+        uses: ./.github/actions/auditree-cmd
+        env:
+          GITHUB_TOKEN: ${{ secrets.AUDITREE_GITHUB_TOKEN }}
+        with:
+          email: "ryan.ahearn@gsa.gov"
+          volume: tmp/oscal/assessment-plans/rspec/assessment-plan.json:/tmp/rspec.json:ro
+          cmd:
+            plant-helper -f /tmp/rspec.json -c assessment-plans -d "RSpec run assessment plan"
+              -l https://github.com/gsa-tts/continuous-assessment-poc-evidence
+
       - name: Plant assessment results in evidence locker
         uses: ./.github/actions/auditree-cmd
         env:
