@@ -28,10 +28,9 @@ jobs:
       - name: Check evidence
         uses: ./.github/actions/auditree-cmd
         env:
-          CF_USERNAME: ${{ secrets.CF_USERNAME }}
-          CF_PASSWORD: ${{ secrets.CF_PASSWORD }}
           GITHUB_TOKEN: ${{ secrets.AUDITREE_GITHUB_TOKEN }}
         with:
+          tag: 20240912
           cmd: -o check
           email: "ryan.ahearn@gsa.gov"
 
@@ -39,4 +38,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: auditree_assessment_results
-          path: tmp/auditree.json
+          path: tmp/auditree/auditree.json

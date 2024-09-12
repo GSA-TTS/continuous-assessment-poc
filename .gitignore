@@ -58,7 +58,7 @@ spec/examples.txt
 doc/compliance/oscal/.trestle/_trash
 doc/compliance/oscal/.trestle/cache
 # Trestle renders
-doc/compliance/oscal/ssp-render/continuous_monitoring_ssp.md*
+doc/compliance/oscal/ssp-render/continuous_monitoring_ssp.*
 
 # Terraform
 .terraform.lock.hcl

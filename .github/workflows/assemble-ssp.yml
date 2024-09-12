@@ -22,6 +22,9 @@ jobs:
         with:
           cmd: render-ssp
 
+      - name: Transform SSPP to PDF
+        run: docker run --rm -u "$(id -u):$(id -g)" -v "$GITHUB_WORKSPACE/doc/compliance/oscal/ssp-render:/data" pandoc/latex continuous_monitoring_ssp.md -o continuous_monitoring_ssp.pdf
+
       - name: Save artifact
         uses: actions/upload-artifact@v4
         with:
@@ -29,4 +32,4 @@ jobs:
           path: |
             doc/compliance/oscal/dist/system-security-plans/continuous_monitoring.json
             doc/compliance/oscal/ssp-render/continuous_monitoring_ssp.md
-            doc/compliance/oscal/ssp-render/continuous_monitoring_ssp.md.html
+            doc/compliance/oscal/ssp-render/continuous_monitoring_ssp.pdf
