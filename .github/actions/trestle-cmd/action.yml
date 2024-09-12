@@ -11,10 +11,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Enable writing to trestle directories
-      shell: bash
-      run: chmod -R a+w $GITHUB_WORKSPACE/doc/compliance/oscal || true
-
     - name: Run cmd
       shell: bash
-      run: docker run -v $GITHUB_WORKSPACE/doc/compliance/oscal:/app/docs:rw ghcr.io/gsa-tts/trestle:${{ inputs.tag }} ${{ inputs.cmd }}
+      run: docker run -u "$(id -u):$(id -g)" -v $GITHUB_WORKSPACE/doc/compliance/oscal:/app/docs:rw ghcr.io/gsa-tts/trestle:${{ inputs.tag }} ${{ inputs.cmd }}
