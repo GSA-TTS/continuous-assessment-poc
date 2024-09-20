@@ -35,6 +35,7 @@ jobs:
         run: bundle exec rspec
 
       - name: Plant assessment plan in evidence locker
+        if: ${{ github.actor != 'dependabot[bot]' }}
         uses: ./.github/actions/auditree-cmd
         env:
           GITHUB_TOKEN: ${{ secrets.AUDITREE_GITHUB_TOKEN }}
@@ -46,6 +47,7 @@ jobs:
               -t 31536000 -l https://github.com/gsa-tts/continuous-assessment-poc-evidence
 
       - name: Plant assessment results in evidence locker
+        if: ${{ github.actor != 'dependabot[bot]' }}
         uses: ./.github/actions/auditree-cmd
         env:
           GITHUB_TOKEN: ${{ secrets.AUDITREE_GITHUB_TOKEN }}
