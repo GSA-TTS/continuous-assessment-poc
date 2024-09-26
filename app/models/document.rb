@@ -4,9 +4,7 @@ class Document < ApplicationRecord
   validate :url_is_https
 
   def contents
-    @contents = Faraday.new(url) do |conn|
-      conn.adapter :typhoeus
-    end.get.body
+    @contents ||= Faraday.get(url).body
   end
 
   private
