@@ -1,6 +1,23 @@
 <div id="<%= dom_id @document %>" class="usa-prose">
   <h1><%= @document.title %></h1>
   <p><%= @document.description %></p>
+  <div class="usa-accordion usa-accordion--bordered">
+    <h4 class="usa-accordion__heading">
+      <button
+        type="button"
+        class="usa-accordion__button"
+        aria-expanded="false"
+        aria-controls="doc-contents"
+      >
+        Contents
+      </button>
+    </h4>
+    <div id="doc-contents" class="usa-accordion__content usa-prose">
+      <pre>
+<%= @document.contents.truncate 1000 %>
+      </pre>
+    </div>
+  </div>
   <p><%= external_link "Contents", @document.url %>
 </div>
 
