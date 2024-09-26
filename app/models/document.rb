@@ -4,22 +4,9 @@ class Document < ApplicationRecord
   validate :url_is_https
 
   def contents
-    @contents ||= begin
-      request = Net::HTTP.new(
-        uri.hostname, uri.port,
-        proxy&.hostname, proxy&.port, proxy&.user, proxy&.password, nil, true
-      )
-      request.use_ssl = true
-      request.get(uri.path).body
-    end
-  end
-
-  def uri
-    @uri ||= URI(url)
-  end
-
-  def proxy
-    @proxy_uri ||= URI(ENV["https_proxy"]) if ENV["https_proxy"].present?
+    @contents = Faraday.new(url) do |conn|
+      conn.adapter :typhoeus
+    end.get.body
   end
 
   private
