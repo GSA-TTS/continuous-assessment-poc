@@ -36,6 +36,16 @@ runs:
     - name: Copy config files
       shell: bash
       run: cp ./config/deployment/egress_proxy/${{ inputs.app }}.*.acl ${{ steps.create-temp-dir.outputs.path }}
+    - name: Install cf-cli
+      shell: bash
+      run: |
+        curl -A "cg-deploy-action" -v -L -o cf-cli_amd64.deb 'https://packages.cloudfoundry.org/stable?release=debian64&version=v8&source=github'
+        sudo dpkg -i cf-cli_amd64.deb
+    - name: Login to cf-cli
+      shell: bash
+      run: |
+        cf api api.fr.cloud.gov
+        cf auth
     - name: Deploy proxy
       shell: bash
       working-directory: ${{ steps.create-temp-dir.outputs.path }}

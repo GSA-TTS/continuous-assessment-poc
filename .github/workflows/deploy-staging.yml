@@ -43,6 +43,9 @@ jobs:
 
       - name: Deploy proxy
         uses: ./.github/actions/deploy-proxy
+        env:
+          CF_USERNAME: ${{ secrets.CF_USERNAME }}
+          CF_PASSWORD: ${{ secrets.CF_PASSWORD }}
         with:
           cf_space: rahearn
           app: continuous_monitoring-staging
