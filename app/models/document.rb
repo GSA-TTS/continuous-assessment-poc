@@ -1,7 +1,13 @@
+require "net/http"
+
 class Document < ApplicationRecord
   validates_presence_of :title, :url
 
   validate :url_is_https
+
+  def contents
+    @contents ||= Net::HTTP.get(URI.parse(url)).force_encoding("utf-8")
+  end
 
   private
 
