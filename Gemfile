@@ -57,6 +57,7 @@ gem "sidekiq", "~> 7.2"
 
 gem "pundit", "~> 2.3"
 gem "devise", "~> 4.9"
+gem "net-http", github: "ruby/net-http"
 
 group :development, :test do
   gem "rspec-rails", "~> 6.1"

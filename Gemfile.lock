@@ -19,6 +19,13 @@ GIT
       oscal (~> 0.2, >= 0.2.3)
       rspec-core (~> 3.13)
 
+GIT
+  remote: https://github.com/ruby/net-http.git
+  revision: 175a5e6e8330b87967ee2a83c08ca89fbefad752
+  specs:
+    net-http (0.4.1)
+      uri
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -341,6 +348,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.6.0)
+    uri (0.13.1)
     useragent (0.16.10)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -377,6 +385,7 @@ DEPENDENCIES
   i18n-tasks (~> 1.0)
   jbuilder
   jsbundling-rails
+  net-http!
   pg (~> 1.1)
   puma (>= 5.0)
   pundit (~> 2.3)
