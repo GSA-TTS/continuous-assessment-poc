@@ -1,6 +1,6 @@
 # Application boundary view
 
-![application boundary view](../rendered/apps/application.boundary.svg)
+![application boundary view](../rendered/apps/application.boundary.png)
 
 ```plantuml
 @startuml
@@ -27,15 +27,22 @@ Boundary(aws, "AWS GovCloud") {
         System_Ext(aws_alb, "cloud.gov load-balancer", "AWS ALB")
         System_Ext(cloudgov_router, "<&layers> cloud.gov routers", "Cloud Foundry traffic service")
         Boundary(atob, "ATO boundary") {
-            System_Boundary(inventory, "Application") {
-                Container(app, "<&layers> Continuous Monitoring", "Ruby 3.3.4, Rails 7.1.3.4", "TKTK Application Description")
-                ContainerDb(app_db, "Application DB", "AWS RDS (PostgreSQL)", "Primary data storage")
-                Container(worker, "<&layers> Sidekiq workers", "Ruby 3.3.4, Sidekiq", "Perform background work and data processing")
-                ContainerDb(redis, "Redis Database", "AWS ElastiCache (Redis)", "Background job queue")
+            Boundary(space, "Restricted-egress cloud.gov space") {
+                System_Boundary(inventory, "Application") {
+                    Container(app, "<&layers> Continuous Monitoring", "Ruby 3.3.4, Rails 7.1.3.4", "TKTK Application Description")
+                    ContainerDb(app_db, "Application DB", "AWS RDS (PostgreSQL)", "Primary data storage")
+                    Container(worker, "<&layers> Sidekiq workers", "Ruby 3.3.4, Sidekiq", "Perform background work and data processing")
+                    ContainerDb(redis, "Redis Database", "AWS ElastiCache (Redis)", "Background job queue")
+                }
+            }
+            Boundary(egress, "Public-egress cloud.gov space") {
+                Container(egress_proxy, "Egress Proxy", "caddy", "Allow-list external communication")
             }
         }
     }
 }
+
+System_Ext(external, "GitHub User Content")
 
 Boundary(gsa_saas, "GSA-authorized SaaS") {
 }
@@ -51,6 +58,10 @@ Rel(app, app_db, "reads/writes primary data", "psql (5432)")
 Rel(app, redis, "enqueue job parameters", "redis")
 Rel(worker, redis, "dequeues job parameters", "redis")
 Rel(worker, app_db, "reads/writes primary data", "psql (5432)")
+
+Rel(app, egress_proxy, "Request file content", "https (443)")
+Rel(egress_proxy, external, "Request file content", "https (443)")
+
 Rel(developer, githuball, "Publish code", "git ssh (22)")
 Rel(githuball, cg_api, "Deploy App", "Auth: SpaceDeployer Service Account, https (443)")
 @enduml

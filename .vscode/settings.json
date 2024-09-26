@@ -1,6 +1,6 @@
 {
   "plantuml.diagramsRoot": "doc/compliance",
-  "plantuml.exportFormat": "svg",
+  "plantuml.exportFormat": "png",
   "plantuml.exportOutDir": "doc/compliance/rendered",
   "plantuml.exportSubFolder": false
 }

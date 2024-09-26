@@ -118,9 +118,12 @@ ______________________________________________________________________
 
 ### This System
 
-<!-- Add implementation prose for the main This System component for control: sc-7_smt.a -->
+Outbound traffic is disabled by default. Traffic can be allowed:
 
-#### Implementation Status: planned
+* To cloud.gov-managed service endpoints, via security groups maintained by the cloud.gov team
+* To allow-listed host names via an egress proxy run by This System
+
+#### Implementation Status: implemented
 
 ### Cloud.gov
 
@@ -148,9 +151,12 @@ ______________________________________________________________________
 
 ### This System
 
-<!-- Add implementation prose for the main This System component for control: sc-7_smt.b -->
+Outbound traffic is disabled by default. Traffic can be allowed:
 
-#### Implementation Status: planned
+* To cloud.gov-managed service endpoints, via security groups maintained by the cloud.gov team
+* To allow-listed host names via an egress proxy run by This System
+
+#### Implementation Status: implemented
 
 ### Cloud.gov
 
@@ -168,9 +174,12 @@ ______________________________________________________________________
 
 ### This System
 
-<!-- Add implementation prose for the main This System component for control: sc-7_smt.c -->
+Outbound traffic is disabled by default. Traffic can be allowed:
 
-#### Implementation Status: planned
+* To cloud.gov-managed service endpoints, via security groups maintained by the cloud.gov team
+* To allow-listed host names via an egress proxy run by This System
+
+#### Implementation Status: implemented
 
 ### Cloud.gov
 

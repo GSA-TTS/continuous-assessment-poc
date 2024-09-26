@@ -23,4 +23,11 @@ module "redis" {
   redis_plan_name = "redis-dev"
 }
 
+module "egress_space" {
+  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v1.0.0"
 
+  cf_org_name   = local.cf_org_name
+  cf_space_name = "${local.cf_space_name}-egress"
+  managers      = ["ryan.ahearn@gsa.gov"]
+  deployers     = [var.cf_user]
+}
