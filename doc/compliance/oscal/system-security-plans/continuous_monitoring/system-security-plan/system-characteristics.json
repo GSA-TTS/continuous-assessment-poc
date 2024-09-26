@@ -97,7 +97,9 @@
     "responsible-parties": [
       {
         "role-id": "system-owner",
-        "party-uuids": ["5e4a1c1c-67a3-426a-bfa1-0abc1ba7a0b1"]
+        "party-uuids": [
+          "5e4a1c1c-67a3-426a-bfa1-0abc1ba7a0b1"
+        ]
       },
       {
         "role-id": "authorizing-official",

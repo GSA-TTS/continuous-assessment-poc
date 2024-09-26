@@ -1026,9 +1026,9 @@
                 {
                   "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
                   "uuid": "bdb34ca0-a732-47f9-b392-5798c335c56a",
-                  "description": "",
+                  "description": "Outbound traffic is disabled by default. Traffic can be allowed:\n\n* To cloud.gov-managed service endpoints, via security groups maintained by the cloud.gov team\n* To allow-listed host names via an egress proxy run by This System",
                   "implementation-status": {
-                    "state": "planned"
+                    "state": "implemented"
                   }
                 }
               ]
@@ -1054,9 +1054,9 @@
                 {
                   "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
                   "uuid": "8d44129b-b716-407b-b7f6-03f6147360b8",
-                  "description": "",
+                  "description": "Outbound traffic is disabled by default. Traffic can be allowed:\n\n* To cloud.gov-managed service endpoints, via security groups maintained by the cloud.gov team\n* To allow-listed host names via an egress proxy run by This System",
                   "implementation-status": {
-                    "state": "planned"
+                    "state": "implemented"
                   }
                 }
               ]
@@ -1082,9 +1082,9 @@
                 {
                   "component-uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
                   "uuid": "c9a8a6ed-a44e-4a4b-822f-1be9f58cb24d",
-                  "description": "",
+                  "description": "Outbound traffic is disabled by default. Traffic can be allowed:\n\n* To cloud.gov-managed service endpoints, via security groups maintained by the cloud.gov team\n* To allow-listed host names via an egress proxy run by This System",
                   "implementation-status": {
-                    "state": "planned"
+                    "state": "implemented"
                   }
                 }
               ]

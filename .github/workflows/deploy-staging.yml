@@ -20,7 +20,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Terraform apply
         uses: dflook/terraform-apply@v1
         env:
@@ -31,7 +31,7 @@ jobs:
           backend_config: >
             access_key=${{ secrets.TERRAFORM_STATE_ACCESS_KEY }}
             secret_key=${{ secrets.TERRAFORM_STATE_SECRET_ACCESS_KEY }}
-      
+
       - name: Deploy app
         uses: cloud-gov/cg-cli-tools@main
         with:
@@ -40,3 +40,9 @@ jobs:
           cf_org: gsa-tts-devtools-prototyping
           cf_space: rahearn
           cf_command: push --vars-file config/deployment/staging.yml --var rails_master_key="${{ secrets.RAILS_MASTER_KEY }}" --strategy rolling
+
+      - name: Deploy proxy
+        uses: ./.github/actions/deploy-proxy
+        with:
+          cf_space: rahearn
+          app: continuous_monitoring-staging
