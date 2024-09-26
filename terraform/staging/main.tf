@@ -28,6 +28,5 @@ module "egress_space" {
 
   cf_org_name   = local.cf_org_name
   cf_space_name = "${local.cf_space_name}-egress"
-  managers      = ["ryan.ahearn@gsa.gov"]
-  deployers     = [var.cf_user]
+  deployers     = ["ryan.ahearn@gsa.gov", var.cf_user]
 }

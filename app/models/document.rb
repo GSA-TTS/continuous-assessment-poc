@@ -6,10 +6,16 @@ class Document < ApplicationRecord
   validate :url_is_https
 
   def contents
-    @contents ||= Net::HTTP.get(URI.parse(url)).force_encoding("utf-8")
+    @contents ||= Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |request|
+      request.get(uri.path).body
+    end
   end
 
   private
+
+  def uri
+    @uri ||= URI(url)
+  end
 
   def url_is_https
     parsed = URI(url)
