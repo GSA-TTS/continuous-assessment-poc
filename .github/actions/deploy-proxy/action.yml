@@ -46,6 +46,9 @@ runs:
     - name: Copy config files
       shell: bash
       run: cp ./config/deployment/egress_proxy/${{ inputs.app }}.*.acl ${{ steps.create-temp-dir.outputs.path }}
+    - name: Target space
+      shell: bash
+      run: cf target -o gsa-tts-devtools-prototyping -s ${{ inputs.cf_space }}
     - name: Deploy proxy
       shell: bash
       working-directory: ${{ steps.create-temp-dir.outputs.path }}
