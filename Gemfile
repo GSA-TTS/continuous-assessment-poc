@@ -57,7 +57,8 @@ gem "sidekiq", "~> 7.2"
 
 gem "pundit", "~> 2.3"
 gem "devise", "~> 4.9"
-gem "net-http", github: "ruby/net-http"
+gem "faraday", "~> 2.12"
+gem "faraday-typhoeus", "~> 1.1"
 
 group :development, :test do
   gem "rspec-rails", "~> 6.1"
