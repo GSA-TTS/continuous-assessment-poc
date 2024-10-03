@@ -23,4 +23,14 @@ module "redis" {
   redis_plan_name = "redis-dev"
 }
 
+module "egress_space" {
+  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v1.0.0"
 
+  cf_org_name   = local.cf_org_name
+  cf_space_name = "${local.cf_space_name}-egress"
+  # deployers should include any user or service account ID that will deploy the egress proxy
+  deployers = [
+    "ryan.ahearn@gsa.gov",
+    var.cf_user
+  ]
+}

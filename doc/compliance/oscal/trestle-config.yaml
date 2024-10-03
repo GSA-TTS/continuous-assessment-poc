@@ -6,3 +6,4 @@ components:
   - cloud_gov
   - devtools_cloud_gov
   - github_actions
+  - cg-egress-proxy
