@@ -286,6 +286,27 @@
         }
       },
       {
+        "uuid": "1acb8ab7-4191-46c6-b79f-659a2f195b5a",
+        "type": "software",
+        "title": "cg-egress-proxy",
+        "description": "The cg-egress-proxy caddy server with forward_proxy configured",
+        "props": [
+          {
+            "name": "Rule_Id",
+            "value": "prod-space-restricted",
+            "remarks": "rule_prod_space_restricted"
+          },
+          {
+            "name": "Rule_Description",
+            "value": "The production space where the system app is running must not have the public-networks-egress ASG applied to it",
+            "remarks": "rule_prod_space_restricted"
+          }
+        ],
+        "status": {
+          "state": "operational"
+        }
+      },
+      {
         "uuid": "3dd05e37-06f1-4f8b-a4b7-7a80f2a0101b",
         "type": "this-system",
         "title": "This System",
