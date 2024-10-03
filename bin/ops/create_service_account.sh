@@ -78,7 +78,7 @@ username=`echo $creds | jq -r '.username'`
 password=`echo $creds | jq -r '.password'`
 
 if [[ "$org_manager" = "true" ]]; then
-  cf set-org-role $username $org OrgManager >&2
+  cf set-org-role $username $org OrgManager 1>&2
 fi
 
 cat << EOF
