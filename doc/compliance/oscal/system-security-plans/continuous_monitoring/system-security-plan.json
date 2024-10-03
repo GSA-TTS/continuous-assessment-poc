@@ -1086,6 +1086,14 @@
                   "implementation-status": {
                     "state": "implemented"
                   }
+                },
+                {
+                  "component-uuid": "1acb8ab7-4191-46c6-b79f-659a2f195b5a",
+                  "uuid": "be70b12c-2fe6-4723-9b2f-16d957c5cf8a",
+                  "description": "eg-egress-proxy provides a control point for allowing network traffic to specific hostnames or IP addresses. Outbound connections are compared to the following list in order:\n\n1. A `deny_file` list of hostnames and/or IP addresses to deny connections to.\n1. An `allow_file` list of hostnames and/or IP addresses to allow connections to.\n1. A `deny all` rule to deny all connections that did not match one of the first two rules.\n\nThe connection is allowed or denied based on the first matching rule.",
+                  "implementation-status": {
+                    "state": "implemented"
+                  }
                 }
               ]
             }

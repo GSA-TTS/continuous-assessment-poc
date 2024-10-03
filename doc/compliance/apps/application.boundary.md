@@ -29,6 +29,11 @@ Boundary(aws, "AWS GovCloud") {
         Boundary(atob, "ATO boundary") {
             Boundary(space, "Restricted-egress cloud.gov space") {
                 System_Boundary(inventory, "Application") {
+                Boundary(restricted_space, "Restricted egress space") {
+                }
+                Boundary(egress_space, "Public egress space") {
+                    Container(proxy, "<&layers> Egress Proxy", "Caddy, cg-egress-proxy", "Proxy with allow-list of external connections")
+                }
                     Container(app, "<&layers> Continuous Monitoring", "Ruby 3.3.4, Rails 7.1.3.4", "TKTK Application Description")
                     ContainerDb(app_db, "Application DB", "AWS RDS (PostgreSQL)", "Primary data storage")
                     Container(worker, "<&layers> Sidekiq workers", "Ruby 3.3.4, Sidekiq", "Perform background work and data processing")
@@ -64,6 +69,7 @@ Rel(egress_proxy, external, "Request file content", "https (443)")
 
 Rel(developer, githuball, "Publish code", "git ssh (22)")
 Rel(githuball, cg_api, "Deploy App", "Auth: SpaceDeployer Service Account, https (443)")
+Rel(app, proxy, "Proxy outbound connections", "https (443)")
 @enduml
 ```
 

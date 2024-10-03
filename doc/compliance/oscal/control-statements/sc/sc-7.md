@@ -20,6 +20,10 @@ x-trestle-comp-def-rules:
       description: Production spaces should disable ssh access
     - name: ssh-access-disabled
       description: Production spaces should disable ssh access
+  cg-egress-proxy:
+    - name: prod-space-restricted
+      description: The production space where the system app is running must not have
+        the public-networks-egress ASG applied to it
 x-trestle-rules-params:
   DevTools Cloud.gov:
     - name: gov.cloud.space-names
@@ -190,5 +194,21 @@ Application owners are responsible for ensuring their application does not excha
   - egress-control-in-place
 
 #### Implementation Status: partial
+
+### cg-egress-proxy
+
+eg-egress-proxy provides a control point for allowing network traffic to specific hostnames or IP addresses. Outbound connections are compared to the following list in order:
+
+1. A `deny_file` list of hostnames and/or IP addresses to deny connections to.
+1. An `allow_file` list of hostnames and/or IP addresses to allow connections to.
+1. A `deny all` rule to deny all connections that did not match one of the first two rules.
+
+The connection is allowed or denied based on the first matching rule.
+
+#### Rules:
+
+  - prod-space-restricted
+
+#### Implementation Status: implemented
 
 ______________________________________________________________________

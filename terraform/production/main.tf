@@ -42,3 +42,14 @@ module "redis" {
 #   domain_name    = "TKTK-production-domain-name"
 #   host_name      = "TKTK-production-hostname (optional)"
 # }
+
+module "egress_space" {
+  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v1.0.0"
+
+  cf_org_name   = local.cf_org_name
+  cf_space_name = "${local.cf_space_name}-egress"
+  # deployers should include any user or service account ID that will deploy the egress proxy
+  deployers = [
+    var.cf_user
+  ]
+}

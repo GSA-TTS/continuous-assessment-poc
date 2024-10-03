@@ -40,3 +40,12 @@ jobs:
           cf_org: gsa-tts-devtools-prototyping
           cf_space: rahearn
           cf_command: push --vars-file config/deployment/production.yml --var rails_master_key="${{ secrets.RAILS_MASTER_KEY }}" --strategy rolling
+
+      - name: Deploy egress proxy
+        uses: ./.github/actions/deploy-proxy
+        env:
+          CF_USERNAME: ${{ secrets.CF_USERNAME }}
+          CF_PASSWORD: ${{ secrets.CF_PASSWORD }}
+        with:
+          cf_space: rahearn
+          app: continuous_monitoring-production

@@ -28,5 +28,9 @@ module "egress_space" {
 
   cf_org_name   = local.cf_org_name
   cf_space_name = "${local.cf_space_name}-egress"
-  deployers     = ["ryan.ahearn@gsa.gov", var.cf_user]
+  # deployers should include any user or service account ID that will deploy the egress proxy
+  deployers = [
+    "ryan.ahearn@gsa.gov",
+    var.cf_user
+  ]
 }
