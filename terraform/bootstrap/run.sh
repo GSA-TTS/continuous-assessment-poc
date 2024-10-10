@@ -16,7 +16,8 @@ dig_output () {
 }
 
 if [[ ! -f "secrets.auto.tfvars" ]]; then
-  ../../bin/ops/create_service_account.sh -s rahearn -u config-bootstrap-deployer > secrets.auto.tfvars
+  cf target -s rahearn-mgmt || cf create-space rahearn-mgmt
+  ../../bin/ops/create_service_account.sh -s rahearn-mgmt -u config-bootstrap-deployer > secrets.auto.tfvars
 fi
 
 if [[ $# -gt 0 ]]; then

@@ -56,7 +56,7 @@ module "egress_proxy" {
   cf_space_name = module.egress_space.space_name
   client_space  = local.cf_space_name
   name          = "tfm-egress-proxy-${local.env}"
-  allowlist = {
-    "${local.app_name}-${local.env}" = ["raw.githubusercontent.com"]
-  }
+  # allowlist = {
+    # "${local.app_name}-${local.env}" = ["raw.githubusercontent.com"]
+  # }
 }
