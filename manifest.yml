@@ -21,3 +21,4 @@ applications:
   services:
   - continuous_monitoring-redis-((env))
   - continuous_monitoring-rds-((env))
+  - tfm-egress-proxy-((env))-creds

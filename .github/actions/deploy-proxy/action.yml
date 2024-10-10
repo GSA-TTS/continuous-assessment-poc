@@ -1,18 +1,9 @@
 name: Deploy egress proxy
-description: Set egress space security groups and deploy proxy
+description: Set egress space security groups
 inputs:
   cf_space:
     description: The space the target app exists in.
     required: true
-  app:
-    description: application name to be proxied.
-    required: true
-  proxy_repo:
-    description: git repo for cg-egress-proxy
-    default: https://github.com/GSA-TTS/cg-egress-proxy.git
-  proxy_version:
-    description: git ref to be deployed
-    default: main
 runs:
   using: composite
   steps:
@@ -26,9 +17,8 @@ runs:
       run: |
         cf api api.fr.cloud.gov
         cf auth
-    - name: Target space
+    - name: Set proper space egress rules
       shell: bash
-      run: cf target -o gsa-tts-devtools-prototyping -s ${{ inputs.cf_space }}
-    - name: Deploy proxy
-      shell: bash
-      run: ./bin/ops/deploy_egress_proxy.rb -a ${{ inputs.app }} -s ${{ inputs.cf_space }} -r ${{ inputs.proxy_repo }} -v ${{ inputs.proxy_version }}
+      run: |
+        ./bin/ops/set_space_egress.sh -s ${{ inputs.cf_space }} -t
+        ./bin/ops/set_space_egress.sh -s ${{ inputs.cf_space }}-egress -p

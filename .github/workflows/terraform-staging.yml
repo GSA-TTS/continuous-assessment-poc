@@ -15,6 +15,9 @@ jobs:
     environment: staging
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TERRAFORM_PRE_RUN: |
+          apt-get update
+          apt-get install -y zip
     steps:
       - name: Checkout
         uses: actions/checkout@v4

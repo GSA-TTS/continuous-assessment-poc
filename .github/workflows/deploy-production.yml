@@ -20,7 +20,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Terraform apply
         uses: dflook/terraform-apply@v1
         env:
@@ -31,7 +31,7 @@ jobs:
           backend_config: >
             access_key=${{ secrets.TERRAFORM_STATE_ACCESS_KEY }}
             secret_key=${{ secrets.TERRAFORM_STATE_SECRET_ACCESS_KEY }}
-      
+
       - name: Deploy app
         uses: cloud-gov/cg-cli-tools@main
         with:
@@ -48,4 +48,3 @@ jobs:
           CF_PASSWORD: ${{ secrets.CF_PASSWORD }}
         with:
           cf_space: rahearn
-          app: continuous_monitoring-production

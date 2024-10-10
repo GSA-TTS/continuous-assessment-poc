@@ -24,7 +24,7 @@ module "redis" {
 }
 
 module "egress_space" {
-  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v1.0.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=egress-proxy"
 
   cf_org_name   = local.cf_org_name
   cf_space_name = "${local.cf_space_name}-egress"
@@ -33,4 +33,16 @@ module "egress_space" {
     "ryan.ahearn@gsa.gov",
     var.cf_user
   ]
+}
+
+module "egress_proxy" {
+  source = "github.com/gsa-tts/terraform-cloudgov//egress_proxy?ref=egress-proxy"
+
+  cf_org_name   = local.cf_org_name
+  cf_space_name = module.egress_space.space_name
+  client_space  = local.cf_space_name
+  name          = "tfm-egress-proxy-${local.env}"
+  allowlist = {
+    "${local.app_name}-${local.env}" = ["raw.githubusercontent.com"]
+  }
 }
