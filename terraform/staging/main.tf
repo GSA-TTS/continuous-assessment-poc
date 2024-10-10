@@ -5,6 +5,19 @@ locals {
   app_name      = "continuous_monitoring"
 }
 
+module "app_space" {
+  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=cg-space-asg"
+
+  cf_org_name   = local.cf_org_name
+  cf_space_name = local.cf_space_name
+  # deployers should include any user or service account ID that will deploy the app
+  deployers = [
+    "ryan.ahearn@gsa.gov",
+    var.cf_user
+  ]
+  asg_names = ["trusted_local_networks_egress"]
+}
+
 module "database" {
   source = "github.com/gsa-tts/terraform-cloudgov//database?ref=v1.0.0"
 
@@ -24,7 +37,7 @@ module "redis" {
 }
 
 module "egress_space" {
-  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=egress-proxy"
+  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=cg-space-asg"
 
   cf_org_name   = local.cf_org_name
   cf_space_name = "${local.cf_space_name}-egress"
@@ -33,10 +46,11 @@ module "egress_space" {
     "ryan.ahearn@gsa.gov",
     var.cf_user
   ]
+  asg_names = ["public_networks_egress"]
 }
 
 module "egress_proxy" {
-  source = "github.com/gsa-tts/terraform-cloudgov//egress_proxy?ref=egress-proxy"
+  source = "github.com/gsa-tts/terraform-cloudgov//egress_proxy?ref=main"
 
   cf_org_name   = local.cf_org_name
   cf_space_name = module.egress_space.space_name
