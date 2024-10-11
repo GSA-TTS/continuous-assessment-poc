@@ -16,7 +16,7 @@ dig_output () {
 }
 
 if [[ ! -f "secrets.auto.tfvars" ]]; then
-  cf target -s rahearn-mgmt || cf create-space rahearn-mgmt
+  cf target -s rahearn-mgmt || cf create-space rahearn-mgmt && cf disallow-space-ssh rahearn-mgmt
   ../../bin/ops/create_service_account.sh -s rahearn-mgmt -u config-bootstrap-deployer > secrets.auto.tfvars
 fi
 
