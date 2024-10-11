@@ -6,19 +6,16 @@ locals {
 }
 
 module "app_space" {
-  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=cg-space-asg"
+  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v1.1.0"
 
   cf_org_name   = local.cf_org_name
   cf_space_name = local.cf_space_name
-  allow_ssh     = false
   # deployers should include any user or service account ID that will deploy the app
-  deployers  = ["ryan.ahearn@gsa.gov"]
-  developers = [var.cf_user]
-  asg_names  = ["trusted_local_networks_egress"]
+  deployers = ["ryan.ahearn@gsa.gov", var.cf_user]
 }
 
 module "database" {
-  source = "github.com/gsa-tts/terraform-cloudgov//database?ref=v1.0.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//database?ref=v1.1.0"
 
   cf_org_name   = local.cf_org_name
   cf_space_name = local.cf_space_name
@@ -28,7 +25,7 @@ module "database" {
 }
 
 # module "redis" {
-#   source = "github.com/gsa-tts/terraform-cloudgov//redis?ref=v1.0.0"
+#   source = "github.com/gsa-tts/terraform-cloudgov//redis?ref=v1.1.0"
 
 #   cf_org_name     = local.cf_org_name
 #   cf_space_name   = local.cf_space_name
@@ -38,19 +35,16 @@ module "database" {
 # }
 
 module "egress_space" {
-  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=cg-space-asg"
+  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v1.1.0"
 
   cf_org_name   = local.cf_org_name
   cf_space_name = "${local.cf_space_name}-egress"
-  allow_ssh     = false
   # deployers should include any user or service account ID that will deploy the egress proxy
-  deployers  = ["ryan.ahearn@gsa.gov"]
-  developers = [var.cf_user]
-  asg_names  = ["public_networks_egress"]
+  deployers = ["ryan.ahearn@gsa.gov", var.cf_user]
 }
 
 module "egress_proxy" {
-  source = "github.com/gsa-tts/terraform-cloudgov//egress_proxy?ref=main"
+  source = "github.com/gsa-tts/terraform-cloudgov//egress_proxy?ref=v1.1.0"
 
   cf_org_name   = local.cf_org_name
   cf_space_name = module.egress_space.space_name
