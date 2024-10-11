@@ -21,7 +21,7 @@ module "database" {
   cf_space_name = local.cf_space_name
   name          = "${local.app_name}-rds-${local.env}"
   rds_plan_name = "micro-psql"
-  depends_on    = [module.app_space]
+  # depends_on    = [module.app_space]
 }
 
 # module "redis" {
@@ -50,8 +50,8 @@ module "egress_proxy" {
   cf_space_name = module.egress_space.space_name
   client_space  = local.cf_space_name
   name          = "tfm-egress-proxy-${local.env}"
-  # allowlist = {
-  # "${local.app_name}-${local.env}" = ["raw.githubusercontent.com"]
-  # }
-  depends_on = [module.app_space, module.egress_space]
+  allowlist = {
+    "${local.app_name}-${local.env}" = ["raw.githubusercontent.com"]
+  }
+  # depends_on = [module.app_space, module.egress_space]
 }
