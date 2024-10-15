@@ -66,8 +66,6 @@ deploy the application from the CI/CD pipeline. Create a new account by running:
 
 `../bin/ops/create_service_account.sh -s <SPACE_NAME> -u <ACCOUNT_NAME> -m`
 
-Passing the `-m` flag to `create_service_account.sh` is required for the account that will run terraform.
-
 ## Set up a new environment manually
 
 The below steps rely on you first configuring access to the Terraform state in s3 as described in [initial project setup](#initial-project-setup) or [initial developer setup](#initial-developer-setup).
