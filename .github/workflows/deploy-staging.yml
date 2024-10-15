@@ -52,7 +52,6 @@ jobs:
           cf_org: gsa-tts-devtools-prototyping
           cf_space: rahearn-egress
           cf_command: bind-security-group public_networks_egress $INPUT_CF_ORG --space $INPUT_CF_SPACE
-
       - name: Deploy app
         uses: cloud-gov/cg-cli-tools@main
         with:
