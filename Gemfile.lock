@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gsa-tts/rails-template.git
-  revision: 579d7aa7a6cd612c1b949ff20290074e31193702
+  revision: 28b5a50467e4fc6d486d042864898b40a0d4ef5d
   branch: egress-generator
   specs:
     rails_template_18f (1.3.0)

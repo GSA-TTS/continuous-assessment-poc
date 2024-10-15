@@ -180,6 +180,12 @@ To deploy the proxy manually:
 1. Deploy the proxy to production: `bin/ops/deploy_egress_proxy.rb -s rahearn -a continuous_monitoring-production`
 
 See the [ruby troubleshooting doc](https://github.com/GSA-TTS/cg-egress-proxy/blob/main/docs/ruby.md) first if you have any problems making outbound connections through the proxy.
+### Public Egress Proxy
+
+Traffic to be delivered to the public internet must be proxied through the [cg-egress-proxy](https://github.com/GSA-TTS/cg-egress-proxy) app. Hostnames that the app should be able to
+reach should be added to the `allowlist` terraform configuration in `terraform/staging/main.tf` and `terraform/production/main.tf`
+
+See the [ruby troubleshooting doc](https://github.com/GSA-TTS/cg-egress-proxy/blob/main/docs/ruby.md) first if you have any problems making outbound connections through the proxy.
 ## Documentation
 
 ### Auditree Control Validation
