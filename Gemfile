@@ -82,3 +82,5 @@ group :test do
   # gem "rspec_oscal_formatter", path: "/Users/ryancahearn/software/devtools/oscal/rspec_oscal_formatter"
   gem "byebug", "~> 11.1"
 end
+gem "i18n-js", "~> 4.2"
+gem "listen", "~> 3.9", group: :development

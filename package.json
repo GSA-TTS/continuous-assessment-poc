@@ -6,6 +6,7 @@
     "@csstools/sass-import-resolve": "https://github.com/rahearn/sass-import-resolve",
     "@uswds/uswds": "^3.8.1",
     "autoprefixer": "^10.4.19",
+    "i18n-js": "^4.5.0",
     "postcss": "^8.4.38",
     "postcss-cli": "^11.0.0",
     "postcss-import": "^16.1.0",
