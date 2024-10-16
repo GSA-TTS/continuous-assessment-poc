@@ -1,8 +1,10 @@
-<%= render "form", document: @document, heading: "Editing document" %>
+<%= form_with(model: @document, url: document_path(@document, locale: I18n.locale), class: "usa-form usa-form--large") do |f| %>
+  <%= render "form", f: f, document: @document, heading: "Editing document" %>
+<% end %>
 
 <br>
 
 <div>
-  <%= link_to "Show this document", @document, class: "usa-link"%> |
+  <%= link_to "Show this document", document_path(@document, locale: I18n.locale), class: "usa-link"%> |
   <%= link_to "Back to documents", documents_path, class: "usa-link" %>
 </div>

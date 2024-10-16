@@ -28,7 +28,7 @@ class DocumentsController < ApplicationController
     respond_to do |format|
       if @document.save
         logger.info "[PRIVILEGED] Document(#{@document.id}) created by #{current_user.id}"
-        format.html { redirect_to document_url(@document), notice: "Document was successfully created." }
+        format.html { redirect_to document_url(@document, locale: I18n.locale), notice: "Document was successfully created." }
         format.json { render :show, status: :created, location: @document }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +42,7 @@ class DocumentsController < ApplicationController
     respond_to do |format|
       if @document.update(document_params)
         logger.info "[PRIVILEGED] Document(#{@document.id}) updated by #{current_user.id}"
-        format.html { redirect_to document_url(@document), notice: "Document was successfully updated." }
+        format.html { redirect_to document_url(@document, locale: I18n.locale), notice: "Document was successfully updated." }
         format.json { render :show, status: :ok, location: @document }
       else
         format.html { render :edit, status: :unprocessable_entity }

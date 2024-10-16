@@ -45,7 +45,7 @@ RSpec.describe "/documents", type: :request do
   describe "GET /show" do
     it "renders a successful response" do
       document = Document.create! valid_attributes
-      get document_url(document)
+      get document_url(document, locale: "en")
       expect(response).to be_successful
     end
   end
@@ -64,7 +64,7 @@ RSpec.describe "/documents", type: :request do
 
     it "renders a successful response" do
       document = Document.create! valid_attributes
-      get edit_document_url(document)
+      get edit_document_url(document, locale: "en")
       expect(response).to be_successful
     end
   end
@@ -81,7 +81,7 @@ RSpec.describe "/documents", type: :request do
 
       it "redirects to the created document" do
         post documents_url, params: {document: valid_attributes}
-        expect(response).to redirect_to(document_url(Document.last))
+        expect(response).to redirect_to(document_url(Document.last, locale: "en"))
       end
 
       it "logs the use of this privileged function", control_id: "ac-6.9", statement_id: "ac-6.9_smt", implementation_statement_uuid: "c2db0c86-cfa5-4fb5-9f92-66a066bf5604" do
@@ -117,28 +117,28 @@ RSpec.describe "/documents", type: :request do
       }
 
       it "updates the requested document" do
-        patch document_url(document), params: {document: new_attributes}
+        patch document_url(document, locale: "en"), params: {document: new_attributes}
         document.reload
         expect(document.description).to eq "We updated the description!"
       end
 
       it "redirects to the document" do
-        patch document_url(document), params: {document: new_attributes}
+        patch document_url(document, locale: "en"), params: {document: new_attributes}
         document.reload
-        expect(response).to redirect_to(document_url(document))
+        expect(response).to redirect_to(document_url(document, locale: "en"))
       end
 
       it "logs the use of this privileged function", control_id: "ac-6.9", statement_id: "ac-6.9_smt", implementation_statement_uuid: "c2db0c86-cfa5-4fb5-9f92-66a066bf5604" do
         allow(Rails.logger).to receive(:info)
         expect(Rails.logger).to receive(:info).with("[PRIVILEGED] Document(#{document.id}) updated by #{user.id}")
-        patch document_url(document), params: {document: new_attributes}
+        patch document_url(document, locale: "en"), params: {document: new_attributes}
       end
     end
 
     context "with invalid parameters" do
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
         document = Document.create! valid_attributes
-        patch document_url(document), params: {document: invalid_attributes}
+        patch document_url(document, locale: "en"), params: {document: invalid_attributes}
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -150,19 +150,19 @@ RSpec.describe "/documents", type: :request do
 
     it "destroys the requested document" do
       expect {
-        delete document_url(document)
+        delete document_url(document, locale: "en")
       }.to change(Document, :count).by(-1)
     end
 
     it "redirects to the documents list" do
-      delete document_url(document)
+      delete document_url(document, locale: "en")
       expect(response).to redirect_to(documents_url)
     end
 
     it "logs the use of this privileged function", control_id: "ac-6.9", statement_id: "ac-6.9_smt", implementation_statement_uuid: "c2db0c86-cfa5-4fb5-9f92-66a066bf5604" do
       allow(Rails.logger).to receive(:info)
       expect(Rails.logger).to receive(:info).with("[PRIVILEGED] Document(#{document.id}) destroyed by #{user.id}")
-      delete document_url(document)
+      delete document_url(document, locale: "en")
     end
   end
 end

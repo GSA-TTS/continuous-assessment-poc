@@ -70,7 +70,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "rails_template_18f", github: "gsa-tts/rails-template", branch: "egress-generator"
+  gem "rails_template_18f", github: "gsa-tts/rails-template", branch: "main"
   gem "rails-erd", "~> 1.7"
 end
 
@@ -81,3 +81,5 @@ group :test do
   # gem "rspec_oscal_formatter", path: "/Users/ryancahearn/software/devtools/oscal/rspec_oscal_formatter"
   gem "byebug", "~> 11.1"
 end
+gem "i18n-js", "~> 4.2"
+gem "listen", "~> 3.9", group: :development
