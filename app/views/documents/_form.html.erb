@@ -1,26 +1,24 @@
-<%= form_with(model: document, class: "usa-form usa-form--large") do |f| %>
-  <fieldset class="usa-fieldset">
-    <legend class="usa-legend usa-legend--large"><%= heading %></legend>
+<fieldset class="usa-fieldset">
+  <legend class="usa-legend usa-legend--large"><%= heading %></legend>
 
-    <% if document.errors.any? %>
-      <%= render partial: "application/alert", locals: {heading: "#{pluralize(document.errors.count, "error")} prohibited this document from being saved", content: capture do %>
-        <ul class="usa-list">
-          <% document.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      <% end } %>
-    <% end %>
+  <% if document.errors.any? %>
+    <%= render partial: "application/alert", locals: {heading: "#{pluralize(document.errors.count, "error")} prohibited this document from being saved", content: capture do %>
+      <ul class="usa-list">
+        <% document.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    <% end } %>
+  <% end %>
 
-    <p>
-      Required fields are marked with an asterisk (<abbr title="required" class="usa-hint usa-hint--required">*</abbr>).
-    </p>
-    <%= f.label :title, required_field_label("Title"), class: "usa-label" %>
-    <%= f.text_field :title, class: "usa-input", required: true %>
-    <%= f.label :description, class: "usa-label" %>
-    <%= f.text_area :description, class: "usa-textarea" %>
-    <%= f.label :url, required_field_label("URL"), class: "usa-label" %>
-    <%= f.text_field :url, class: "usa-input", required: true %>
-    <%= f.submit class: "usa-button" %>
-  </fieldset>
-<% end %>
+  <p>
+    Required fields are marked with an asterisk (<abbr title="required" class="usa-hint usa-hint--required">*</abbr>).
+  </p>
+  <%= f.label :title, required_field_label("Title"), class: "usa-label" %>
+  <%= f.text_field :title, class: "usa-input", required: true %>
+  <%= f.label :description, class: "usa-label" %>
+  <%= f.text_area :description, class: "usa-textarea" %>
+  <%= f.label :url, required_field_label("URL"), class: "usa-label" %>
+  <%= f.text_field :url, class: "usa-input", required: true %>
+  <%= f.submit class: "usa-button" %>
+</fieldset>

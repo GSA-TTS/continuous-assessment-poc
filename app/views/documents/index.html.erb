@@ -4,7 +4,7 @@
   <% @documents.each do |document| %>
     <li>
       <% if policy(document).show? %>
-        <%= link_to document.title, document, class: "usa-link" %>
+        <%= link_to document.title, document_path(document, locale: I18n.locale), class: "usa-link" %>
       <% else %>
         <%= document.title %>
       <% end %>

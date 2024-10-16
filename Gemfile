@@ -70,7 +70,8 @@ group :development, :test do
 end
 
 group :development do
-  gem "rails_template_18f", github: "gsa-tts/rails-template", branch: "egress-generator"
+  # gem "rails_template_18f", github: "gsa-tts/rails-template", branch: "egress-generator"
+  gem "rails_template_18f", path: "/Users/ryancahearn/software/devtools/rails-template/rails-template"
   gem "rails-erd", "~> 1.7"
 end
 
