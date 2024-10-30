@@ -30,7 +30,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.AUDITREE_GITHUB_TOKEN }}
         with:
-          tag: 20240912
           cmd: -o check
           email: "ryan.ahearn@gsa.gov"
 
