@@ -25,7 +25,7 @@ x-trestle-rules-params:
   DevTools Cloud.gov:
     - name: gov.cloud.space-names
       description: The cloud.gov spaces in which ssh access should be disabled
-      options: rahearn
+      options: rahearn,rahearn-egress,rahearn-mgmt
       rule-id: ssh-access-disabled
     - name: gov.cloud.org-name
       description: The cloud.gov org in which ssh access should be disabled
@@ -49,6 +49,8 @@ x-trestle-comp-def-rules-param-vals:
     - name: gov.cloud.space-names
       values:
         - rahearn
+        - rahearn-egress
+        - rahearn-mgmt
 x-trestle-set-params:
   # You may set values for parameters in the assembled SSP by adding
   #
