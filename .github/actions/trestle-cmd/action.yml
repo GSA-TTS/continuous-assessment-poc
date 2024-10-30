@@ -4,7 +4,7 @@ inputs:
   tag:
     description: docker-trestle tag to use. Defaults to latest
     required: false
-    default: 20240911
+    default: 20241025
   cmd:
     description: Command to run within docker-trestle
     required: true
