@@ -195,7 +195,7 @@
           },
           {
             "name": "Parameter_Value_Alternatives",
-            "value": "rahearn",
+            "value": "rahearn,rahearn-egress,rahearn-mgmt",
             "remarks": "rule_ssh_access_disabled_1"
           },
           {

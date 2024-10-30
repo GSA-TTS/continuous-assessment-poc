@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-trestle_tag="20240911"
+trestle_tag="20241025"
 
 command="bash"
 if [ "$1" != "" ]; then

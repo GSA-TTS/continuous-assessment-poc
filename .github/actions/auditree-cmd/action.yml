@@ -4,7 +4,7 @@ inputs:
   tag:
     description: auditree-devtools tag to use. Defaults to 20240819
     required: false
-    default: 20240911
+    default: 20241030
   cmd:
     description: Command to run within auditree-devtools
     required: true

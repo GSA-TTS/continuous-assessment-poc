@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 image="ghcr.io/gsa-tts/auditree"
-tag="20240912"
+tag="20241030"
 cwd=`pwd`
 cdef="doc/compliance/oscal/component-definitions/devtools_cloud_gov/component-definition.json"
 config="config/auditree.template.json"
@@ -79,7 +79,7 @@ if [ "$1" != "" ]; then
 fi
 
 if [ "$command" = "init" ]; then
-  docker run --rm $image init
+  docker run --rm $image:$tag init
   exit 0
 fi
 
