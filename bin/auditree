@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 image="ghcr.io/gsa-tts/auditree"
-tag="20241030"
+tag="20241118"
 cwd=`pwd`
 cdef="doc/compliance/oscal/component-definitions/devtools_cloud_gov/component-definition.json"
 config="config/auditree.template.json"
