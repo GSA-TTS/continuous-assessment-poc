@@ -10,7 +10,7 @@ module "app_space" {
 
   cf_org_name   = local.cf_org_name
   cf_space_name = local.cf_space_name
-  deployers     = [var.cf_user, "0ee91aab-1041-494b-b315-307419a0eeac"]
+  deployers     = ["0ee91aab-1041-494b-b315-307419a0eeac"]
   # developers should include any users that will potentially need to run `cf ssh` on the app
   developers = ["ryan.ahearn@gsa.gov"]
 }
@@ -43,10 +43,7 @@ module "egress_space" {
   cf_org_name   = local.cf_org_name
   cf_space_name = "${local.cf_space_name}-egress"
   # deployers should include any user or service account ID that will deploy the egress proxy
-  deployers = [
-    var.cf_user,
-    "0ee91aab-1041-494b-b315-307419a0eeac"
-  ]
+  deployers  = ["0ee91aab-1041-494b-b315-307419a0eeac"]
   developers = ["ryan.ahearn@gsa.gov"]
 }
 
