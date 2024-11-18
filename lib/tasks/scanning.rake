@@ -53,7 +53,7 @@ def all_issues_ignored?(issues)
   # And, a comment as to why we're ignoring
   ignored_advisories_with_frequencies = {
     # 1005154 => 2, # high - inefficient regex in dev server and at build time
-    1098615 => 1 # moderate - inefficient regex in build pipeline. Ignore as we supply only trusted input.
+    # 1098615 => 1 # moderate - inefficient regex in build pipeline. Ignore as we supply only trusted input.
   }
 
   pp "Present advisories: #{present_advisories_with_frequencies}"
