@@ -2,9 +2,9 @@ name: "Run an auditree-devtools command"
 description: "Sets up workspace for running a single command in auditree-devtools"
 inputs:
   tag:
-    description: auditree-devtools tag to use. Defaults to 20240819
+    description: auditree-devtools tag to use
     required: false
-    default: 20241030
+    default: 20241118
   cmd:
     description: Command to run within auditree-devtools
     required: true
