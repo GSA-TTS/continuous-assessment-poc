@@ -19,10 +19,9 @@ module "app_space" {
 }
 
 module "database" {
-  source = "github.com/gsa-tts/terraform-cloudgov//database?ref=v1.1.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//database?ref=migrate-provider"
 
-  cf_org_name   = local.cf_org_name
-  cf_space_name = local.cf_space_name
+  cf_space_id   = module.app_space.space_id
   name          = "${local.app_name}-rds-${local.env}"
   rds_plan_name = "micro-psql"
   # depends_on line is needed only for initial creation and destruction. It should be commented out for updates to prevent unwanted cascading effects
