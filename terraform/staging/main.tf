@@ -7,13 +7,14 @@ locals {
 }
 
 module "app_space" {
-  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v1.1.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=migrate-provider"
 
   cf_org_name   = local.cf_org_name
   cf_space_name = local.cf_space_name
+  allow_ssh     = local.allow_ssh
   deployers = [
-    "0ee91aab-1041-494b-b315-307419a0eeac", # CI/CD deploy user
-    "7b3128d6-86d4-4906-b0ce-f873d9a55c8a"  # rahearn-terraform-local
+    "0ee91aab-1041-494b-b315-307419a0eeac" #, # CI/CD deploy user
+    # "7b3128d6-86d4-4906-b0ce-f873d9a55c8a"  # rahearn-terraform-local
   ]
   # developers should include any users that will potentially need to run `cf ssh` on the app
   developers = ["ryan.ahearn@gsa.gov"]
