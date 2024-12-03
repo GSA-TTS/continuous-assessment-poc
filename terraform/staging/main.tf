@@ -10,7 +10,10 @@ module "app_space" {
 
   cf_org_name   = local.cf_org_name
   cf_space_name = local.cf_space_name
-  deployers     = ["0ee91aab-1041-494b-b315-307419a0eeac"]
+  deployers     = [
+    "0ee91aab-1041-494b-b315-307419a0eeac", # CI/CD deploy user
+    "7b3128d6-86d4-4906-b0ce-f873d9a55c8a" # rahearn-terraform-local
+  ]
   # developers should include any users that will potentially need to run `cf ssh` on the app
   developers = ["ryan.ahearn@gsa.gov"]
 }
