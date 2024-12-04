@@ -1,5 +1,4 @@
 .setup-node: &setup-node
-  - apt-get install -y curl
   - curl -fsSL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh
   - bash nodesource_setup.sh
   - apt-get install -y nodejs
@@ -8,6 +7,7 @@
   - echo 'yarn-offline-mirror-pruning true' >> .yarnrc
 
 .ruby-deps: &ruby-deps
+  - "echo \"http_proxy: $http_proxy\" > $HOME/.gemrc"
   - export PATH=$PATH:/usr/local/bundle/bin
   - bundle config set --local path 'vendor/ruby'
   - bundle install -j 1
