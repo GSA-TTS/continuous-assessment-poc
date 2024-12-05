@@ -14,7 +14,7 @@
 
 .node-deps: &node-deps
   - *setup-node
-  - PUPPETEER_SKIP_DOWNLOAD=true yarn install --frozen-lockfile --no-progress --ignore-engines
+  - PUPPETEER_SKIP_DOWNLOAD=true https_proxy=$http_proxy yarn install --frozen-lockfile --no-progress --ignore-engines
 
 .node-deps-puppet: &node-deps-puppet
   - apt-get update
@@ -26,7 +26,7 @@
     libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1
     libxss1 libxtst6 ca-certificates fonts-liberation libnss3 lsb-release
     xdg-utils wget
-  - yarn add puppeteer
+  - https_proxy=$http_proxy yarn add puppeteer
 
 .setup-langs:
   before_script:
