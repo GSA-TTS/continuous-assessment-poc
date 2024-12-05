@@ -140,9 +140,6 @@ yarn-audit:
 rspec:
   stage: test
   extends: .setup-project
-  before_script:
-    - echo "Setup project..."
-    - !reference [.setup-script]
   script:
     - echo "Rspec..."
     - bundle exec rspec
