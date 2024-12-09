@@ -7,7 +7,7 @@ locals {
 }
 
 module "app_space" {
-  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=migrate-provider"
+  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.0.0"
 
   cf_org_name   = local.cf_org_name
   cf_space_name = local.cf_space_name
@@ -20,7 +20,7 @@ module "app_space" {
 }
 
 module "database" {
-  source = "github.com/gsa-tts/terraform-cloudgov//database?ref=migrate-provider"
+  source = "github.com/gsa-tts/terraform-cloudgov//database?ref=v2.0.0"
 
   cf_space_id   = module.app_space.space_id
   name          = "${local.app_name}-rds-${local.env}"
@@ -41,7 +41,7 @@ module "database" {
 # }
 
 module "egress_space" {
-  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=migrate-provider"
+  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.0.0"
 
   cf_org_name   = local.cf_org_name
   cf_space_name = "${local.cf_space_name}-egress"
@@ -54,7 +54,7 @@ module "egress_space" {
 }
 
 module "egress_proxy" {
-  source = "github.com/gsa-tts/terraform-cloudgov//egress_proxy?ref=migrate-provider"
+  source = "github.com/gsa-tts/terraform-cloudgov//egress_proxy?ref=v2.0.0"
 
   cf_org_name = local.cf_org_name
   cf_egress_space = {

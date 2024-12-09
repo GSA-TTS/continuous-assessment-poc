@@ -12,4 +12,8 @@ class CloudGovConfig
   def self.vcap_services
     @vcap_services ||= JSON.parse(ENV[ENV_VARIABLE]).with_indifferent_access
   end
+
+  def self.reset
+    @vcap_services = nil
+  end
 end

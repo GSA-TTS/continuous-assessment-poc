@@ -1,0 +1,177 @@
+# You can override the included template(s) by including variable overrides
+#
+# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
+# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
+#
+# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
+#
+# Note that environment variables can be set in several places
+# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
+
+stages:
+  - build
+  - test
+  - dependabot
+  - deploy
+
+variables:
+  # RAILS_ENV: ci
+  SECRET_KEY_BASE: not-actually-secret
+  POSTGRES_DB: rtci_test
+  POSTGRES_PASSWORD: testpass123
+  CACHE_FALLBACK_KEY: main
+  PACKAGE_MANAGER_SET: bundler,npm
+  SETTINGS__GITLAB_ACCESS_TOKEN: $DEPENDABOT_KEY
+  DIRECTORY: /
+  a11y_urls: "https://localhost:8080"
+
+include:
+  - local: ".gitlab/caches.yml"
+  - local: ".gitlab/setup_langs.yml"
+  - local: ".gitlab/setup_project.yml"
+  - local: ".gitlab/run_server.yml"
+  - remote: "https://gitlab.com/dependabot-gitlab/dependabot-standalone/-/raw/3.24.0/.gitlab-ci.yml"
+
+default:
+  image: ruby:3.3.4
+  cache:
+    - !reference [.cache-pull]
+
+.dependabot-gitlab:
+  image:
+    entrypoint: ["sh"]
+  stage: dependabot
+
+install-deps:
+  stage: build
+  inherit:
+    default:
+      - image
+      - tags
+  cache:
+    - !reference [.cache-ruby-pull-push]
+    - !reference [.cache-yarn-pull-push]
+  script:
+    - !reference [.setup-langs, before_script]
+  rules:
+    - if: $CI_PIPELINE_SOURCE != "schedule"
+
+build-project:
+  stage: build
+  needs: ["install-deps"]
+  extends: .init-project-build
+  rules:
+    - if: $CI_PIPELINE_SOURCE != "schedule"
+
+# test-run-server:
+#   stage: test
+#   extends: .run-server
+#   script:
+#     - RESULT=$(curl http://localhost:8080)
+#     - echo "$RESULT" | grep -q "<title>Rtci</title>"
+#   rules:
+#     - if: $CI_PIPELINE_SOURCE != "schedule"
+
+brakeman-scan:
+  stage: test
+  extends: .setup-langs
+  script:
+    - bundle exec brakeman -f sarif -o output.sarif.json .
+  artifacts:
+    when: always
+    paths:
+      - output.sarif.json
+
+bundle-audit:
+  stage: test
+  extends: .setup-langs
+  script:
+    - echo "Bundle audit..."
+    - bundle exec rake bundler:audit
+  rules:
+    - if: $CI_PIPELINE_SOURCE != "schedule"
+
+yarn-audit:
+  stage: test
+  extends: .setup-langs
+  script:
+    - echo "Yarn audit..."
+    - bundle exec rake yarn:audit
+  rules:
+    - if: $CI_PIPELINE_SOURCE != "schedule"
+
+# ruby-bom:
+#   stage: test
+#   extends: .setup-langs
+#   before_script:
+#     - !reference [.setup-langs, before_script]
+#     - gem install cyclonedx-ruby
+#   script:
+#     - echo "Ruby SBOM Generation..."
+#     - cyclonedx-ruby -p . -o ruby_bom.xml
+#   artifacts:
+#     when: always
+#     paths:
+#       - ./ruby_bom.xml
+#   rules:
+#     - if: $CI_PIPELINE_SOURCE != "schedule"
+
+# .owasp-scan:
+#   stage: test
+#   #TODO: check gitlab security templates for this scan
+#   #TODO: Owasp Dail Scan
+#   script:
+#     - echo "OWASP ZAP Scan..."
+#     - echo "Scan Complete"
+
+# pa11y-scan:
+#   stage: test
+#   extends: .run-server
+#   script:
+#     - !reference [.node-deps-puppet]
+#     - set -o pipefail
+#     - yarn run pa11y-ci -c pa11yci.js 2>&1 | tee pa11y_output.txt
+#   artifacts:
+#     when: always
+#     expose_as: "Accessibility Reports"
+#     paths:
+#       - pa11y_output.txt
+
+rspec:
+  stage: test
+  extends: .setup-project
+  script:
+    - echo "Rspec..."
+    - bundle exec rspec
+    - echo "Rspec Complete"
+
+# terraform-staging:
+#   stage: deploy
+#   rules:
+#     - if: $CI_COMMIT_BRANCH != "main" && $CI_PIPELINE_SOURCE != "merge_request_event"
+#       when: never
+#     - when: always
+#   trigger:
+#     include: terraform/staging/.gitlab-ci.yml
+#     strategy: depend
+
+# terraform-production:
+#   stage: deploy
+#   rules:
+#     - if: $CI_COMMIT_BRANCH != "production" && $CI_PIPELINE_SOURCE != "merge_request_event"
+#       when: never
+#     - when: always
+#   trigger:
+#     include: terraform/production/.gitlab-ci.yml
+#     strategy: depend
+
+# .terraform-production:
+#   stage: deploy
+#   environment: production
+#   script:
+#     - echo "deploy production"
+
+.sast:
+  stage: test
+  include:
+    - template: Security/SAST.gitlab-ci.yml

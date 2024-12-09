@@ -28,7 +28,9 @@ RSpec.describe CloudGovConfig, type: :model do
 
       around do |example|
         ClimateControl.modify VCAP_SERVICES: vcap.to_json do
+          described_class.reset
           example.run
+          described_class.reset
         end
       end
 
