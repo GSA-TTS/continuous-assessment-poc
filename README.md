@@ -170,20 +170,8 @@ Configuration that changes from staging to production, but is public, should be 
 
 ### Public Egress Proxy
 
-Traffic to be delivered to the public internet or s3 must be proxied through the [cg-egress-proxy](https://github.com/GSA-TTS/cg-egress-proxy) app.
-
-To deploy the proxy manually:
-
-1. Ensure terraform state is up to date.
-1. Update the acl files in `config/deployment/egress_proxy`
-1. Deploy the proxy to staging: `bin/ops/deploy_egress_proxy.rb -s rahearn -a continuous_monitoring-staging`
-1. Deploy the proxy to production: `bin/ops/deploy_egress_proxy.rb -s rahearn -a continuous_monitoring-production`
-
-See the [ruby troubleshooting doc](https://github.com/GSA-TTS/cg-egress-proxy/blob/main/docs/ruby.md) first if you have any problems making outbound connections through the proxy.
-### Public Egress Proxy
-
 Traffic to be delivered to the public internet must be proxied through the [cg-egress-proxy](https://github.com/GSA-TTS/cg-egress-proxy) app. Hostnames that the app should be able to
-reach should be added to the `allowlist` terraform configuration in `terraform/staging/main.tf` and `terraform/production/main.tf`
+reach should be added to the `egress_allowlist` terraform variable in `terraform/production.tfvars` and `terraform/staging.tfvars`
 
 See the [ruby troubleshooting doc](https://github.com/GSA-TTS/cg-egress-proxy/blob/main/docs/ruby.md) first if you have any problems making outbound connections through the proxy.
 ## Documentation

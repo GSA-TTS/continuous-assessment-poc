@@ -3,6 +3,6 @@
 # https://docs.cloudfoundry.org/devguide/deploy-apps/deploy-app.html#profile
 ##
 
-egress_proxy=`jq -r ".\"user-provided\"[] | select(.name == \"tfm-egress-proxy-$RAILS_ENV-creds\") | .credentials.https_uri" <<< $VCAP_SERVICES`
-export http_proxy="$egress_proxy"
-export https_proxy="$egress_proxy"
+proxy_creds=$(echo "$VCAP_SERVICES" | jq --arg service_name "egress-proxy-$RAILS_ENV-credentials" '.[][] | select(.name == $service_name) | .credentials')
+export http_proxy=$(echo "$proxy_creds" | jq --raw-output ".http_uri")
+export https_proxy=$(echo "$proxy_creds" | jq --raw-output ".https_uri")

@@ -1,11 +1,10 @@
 terraform {
-  required_version = "~> 1.0"
+  required_version = "~> 1.7"
   required_providers {
     cloudfoundry = {
       source  = "cloudfoundry/cloudfoundry"
       version = "1.1.0"
     }
-
     cloudfoundry-community = {
       source  = "cloudfoundry-community/cloudfoundry"
       version = "0.53.1"
@@ -13,8 +12,6 @@ terraform {
   }
 
   backend "s3" {
-    bucket  = "cg-7ecc7fa5-6da9-4df7-bfbc-59d957a2d61e"
-    key     = "terraform.tfstate.stage"
     encrypt = "true"
     region  = "us-gov-west-1"
   }
