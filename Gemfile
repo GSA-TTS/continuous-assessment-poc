@@ -69,7 +69,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "rails_template_18f", github: "gsa-tts/rails-template", branch: "main"
+  gem "rails_template_18f", github: "gsa-tts/rails-template", branch: "next-gen-terraform"
   gem "rails-erd", "~> 1.7"
 end
 
