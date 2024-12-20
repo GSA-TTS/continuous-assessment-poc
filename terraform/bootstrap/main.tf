@@ -44,9 +44,10 @@ module "mgmt_space" {
 module "s3" {
   source = "github.com/gsa-tts/terraform-cloudgov//s3?ref=v2.0.0"
 
-  cf_space_id = module.mgmt_space.space_id
-  name        = "continuous_monitoring-terraform-state"
-  depends_on  = [module.mgmt_space]
+  cf_space_id  = module.mgmt_space.space_id
+  name         = "continuous_monitoring-terraform-state"
+  s3_plan_name = "basic-sandbox"
+  depends_on   = [module.mgmt_space]
 }
 
 data "cloudfoundry_service_plans" "cg_service_account" {
