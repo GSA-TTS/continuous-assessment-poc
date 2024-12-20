@@ -20,31 +20,17 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-
       - name: Terraform apply
         uses: dflook/terraform-apply@v1
         env:
           TF_VAR_cf_user: ${{ secrets.CF_USERNAME }}
           TF_VAR_cf_password: ${{ secrets.CF_PASSWORD }}
+          TF_VAR_rails_master_key: ${{ secrets.RAILS_MASTER_KEY }}
         with:
-          path: terraform/production
+          path: terraform
+          var_file: production.tfvars
           backend_config: >
             access_key=${{ secrets.TERRAFORM_STATE_ACCESS_KEY }}
             secret_key=${{ secrets.TERRAFORM_STATE_SECRET_ACCESS_KEY }}
-
-      - name: Set public egress
-        uses: cloud-gov/cg-cli-tools@main
-        with:
-          cf_username: ${{ secrets.CF_USERNAME }}
-          cf_password: ${{ secrets.CF_PASSWORD }}
-          cf_org: gsa-tts-devtools-prototyping
-          cf_space: rahearn-egress
-          cf_command: bind-security-group public_networks_egress $INPUT_CF_ORG --space $INPUT_CF_SPACE
-      - name: Deploy app
-        uses: cloud-gov/cg-cli-tools@main
-        with:
-          cf_username: ${{ secrets.CF_USERNAME }}
-          cf_password: ${{ secrets.CF_PASSWORD }}
-          cf_org: gsa-tts-devtools-prototyping
-          cf_space: rahearn
-          cf_command: push --vars-file config/deployment/production.yml --var rails_master_key="${{ secrets.RAILS_MASTER_KEY }}" --strategy rolling
+            bucket=${{ secrets.TERRAFORM_STATE_BUCKET_NAME }}
+            key="terraform.tfstate.prod"

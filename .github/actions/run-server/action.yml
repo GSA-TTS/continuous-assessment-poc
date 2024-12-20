@@ -11,14 +11,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Seed data
-      shell: bash
-      env:
-        RAILS_ENV: ${{ inputs.rails_env }}
-        DATABASE_URL: ${{ inputs.database_url }}
-        SECRET_KEY_BASE: not-actually-secret
-      run: bundle exec rails db:seed
-
     - name: "Start server in background"
       shell: bash
       env:
