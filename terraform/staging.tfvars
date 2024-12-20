@@ -4,4 +4,6 @@ allow_space_ssh = true
 space_developers = [
   "ryan.ahearn@gsa.gov"
 ]
-egress_allowlist = [ "raw.githubusercontent.com" ]
+egress_allowlist = [
+  "raw.githubusercontent.com" # download content previews
+]
