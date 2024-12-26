@@ -50,7 +50,7 @@ group :development do
   # gem "spring"
 end
 
-gem "secure_headers", "~> 6.3"
+gem "secure_headers", "~> 7.1"
 
 gem "sidekiq", "~> 7.2"
 
