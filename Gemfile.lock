@@ -339,7 +339,7 @@ GEM
     ruby-graphviz (1.2.5)
       rexml
     ruby-progressbar (1.13.0)
-    secure_headers (6.7.0)
+    secure_headers (7.1.0)
     securerandom (0.4.1)
     shoulda-matchers (6.4.0)
       activesupport (>= 5.2.0)
@@ -419,7 +419,7 @@ DEPENDENCIES
   rails_template_18f!
   rspec-rails (~> 7.1)
   rspec_oscal_formatter!
-  secure_headers (~> 6.3)
+  secure_headers (~> 7.1)
   shoulda-matchers (~> 6.2)
   sidekiq (~> 7.2)
   standard (~> 1.36)
