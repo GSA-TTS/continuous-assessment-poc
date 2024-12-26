@@ -38,7 +38,7 @@ jobs:
 
             Run \`bin/trestle assemble-ssp-json\` to ensure markdown changes are reflected in your SSP`;
 
-            github.issues.createComment({
+            github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
