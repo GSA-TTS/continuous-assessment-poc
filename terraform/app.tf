@@ -3,7 +3,7 @@ data "archive_file" "src" {
   source_dir  = "${path.module}/.."
   output_path = "${path.module}/dist/src.zip"
   excludes = [
-    ".git",
+    ".git*",
     "node_modules/*",
     "tmp/**/*",
     "terraform/*",
