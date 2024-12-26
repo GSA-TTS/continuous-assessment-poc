@@ -116,8 +116,7 @@ See [cloud.gov docs](https://cloud.gov/docs/services/relational-database/) for i
 
 #### Staging
 
-Deploys to staging, including applying changes in terraform, happen
-on every push to the `main` branch in GitHub.
+Deploys to staging via terraform happen on every push to the `main` branch in GitHub.
 
 The following secrets must be set within the `staging` [environment secrets](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-environment)
 to enable a deploy to work:
@@ -129,13 +128,11 @@ to enable a deploy to work:
 | `RAILS_MASTER_KEY` | `config/master.key` |
 | `TERRAFORM_STATE_ACCESS_KEY` | Access key for terraform state bucket |
 | `TERRAFORM_STATE_SECRET_ACCESS_KEY` | Secret key for terraform state bucket |
-
-
+| `TERRAFORM_STATE_BUCKET_NAME` | Bucket name for terraform state bucket |
 
 #### Production
 
-Deploys to production, including applying changes in terraform, happen
-on every push to the `production` branch in GitHub.
+Deploys to production via terraform happen on every push to the `production` branch in GitHub.
 
 The following secrets must be set within the `production` [environment secrets](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-environment)
 to enable a deploy to work:
@@ -147,8 +144,7 @@ to enable a deploy to work:
 | `RAILS_MASTER_KEY` | `config/credentials/production.key` |
 | `TERRAFORM_STATE_ACCESS_KEY` | Access key for terraform state bucket |
 | `TERRAFORM_STATE_SECRET_ACCESS_KEY` | Secret key for terraform state bucket |
-
-
+| `TERRAFORM_STATE_BUCKET_NAME` | Bucket name for terraform state bucket |
 
 ### Configuring ENV variables in cloud.gov
 
@@ -162,7 +158,7 @@ Otherwise, they are set as a `((variable))` within `manifest.yml` and the variab
 #### Credentials and other Secrets
 
 1. Store variables that must be secret using [GitHub Environment Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-environment)
-1. Add the appropriate `--var` addition to the `cf_command` line on the deploy action like the existing `rails_master_key`
+1. Add the appropriate `TF_VAR_<variable name>` addition to the `terraform-<env>.yml` and `deploy-<env>.yml` workflows like the existing `TF_VAR_rails_master_key`
 
 #### Non-secrets
 
@@ -170,20 +166,8 @@ Configuration that changes from staging to production, but is public, should be 
 
 ### Public Egress Proxy
 
-Traffic to be delivered to the public internet or s3 must be proxied through the [cg-egress-proxy](https://github.com/GSA-TTS/cg-egress-proxy) app.
-
-To deploy the proxy manually:
-
-1. Ensure terraform state is up to date.
-1. Update the acl files in `config/deployment/egress_proxy`
-1. Deploy the proxy to staging: `bin/ops/deploy_egress_proxy.rb -s rahearn -a continuous_monitoring-staging`
-1. Deploy the proxy to production: `bin/ops/deploy_egress_proxy.rb -s rahearn -a continuous_monitoring-production`
-
-See the [ruby troubleshooting doc](https://github.com/GSA-TTS/cg-egress-proxy/blob/main/docs/ruby.md) first if you have any problems making outbound connections through the proxy.
-### Public Egress Proxy
-
 Traffic to be delivered to the public internet must be proxied through the [cg-egress-proxy](https://github.com/GSA-TTS/cg-egress-proxy) app. Hostnames that the app should be able to
-reach should be added to the `allowlist` terraform configuration in `terraform/staging/main.tf` and `terraform/production/main.tf`
+reach should be added to the `egress_allowlist` terraform variable in `terraform/production.tfvars` and `terraform/staging.tfvars`
 
 See the [ruby troubleshooting doc](https://github.com/GSA-TTS/cg-egress-proxy/blob/main/docs/ruby.md) first if you have any problems making outbound connections through the proxy.
 ## Documentation
