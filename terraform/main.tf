@@ -15,7 +15,7 @@ module "app_space" {
 }
 # temporary method for setting egress rules until terraform provider supports it and cg_space module is updated
 data "external" "set-app-space-egress" {
-  program     = ["/bin/sh", "set_space_egress.sh", "-t", "-s", module.app_space.space_name, "-o", local.cf_org_name]
+  program     = ["/bin/sh", "${path.module}/set_space_egress.sh", "-t", "-s", module.app_space.space_name, "-o", local.cf_org_name]
   working_dir = path.module
   depends_on  = [module.app_space]
 }
@@ -73,7 +73,7 @@ module "egress_space" {
 }
 # temporary method for setting egress rules until terraform provider supports it and cg_space module is updated
 data "external" "set-egress-space-egress" {
-  program     = ["/bin/sh", "set_space_egress.sh", "-p", "-s", module.egress_space.space_name, "-o", local.cf_org_name]
+  program     = ["/bin/sh", "${path.module}/set_space_egress.sh", "-p", "-s", module.egress_space.space_name, "-o", local.cf_org_name]
   working_dir = path.module
   depends_on  = [module.egress_space]
 }
