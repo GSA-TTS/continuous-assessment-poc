@@ -47,7 +47,7 @@ resource "cloudfoundry_app" "app" {
       type      = "web"
       instances = var.web_instances
       memory    = var.web_memory
-      command   = "bundle exec rake cf:on_first_instance db:migrate && exec bundle exec rails s -b 0.0.0.0 -p $PORT -e $RAILS_ENV"
+      command   = "bundle exec rake cf:on_first_instance db:migrate && exec env HTTP_PORT=$PORT ./bin/thrust ./bin/rails server"
     }
   ]
 
