@@ -6,11 +6,11 @@ if [ -f terraform.tfstate ]; then
 fi
 
 terraform init
-terraform import 'cloudfoundry_org_role.sa_org_manager' 1977aec2-b720-4c72-ae6e-9eacd94adcd4
-terraform import 'cloudfoundry_service_credential_binding.bucket_creds' 38791219-5353-4345-91f1-4dd13942af7e
-terraform import 'cloudfoundry_service_credential_binding.runner_sa_key' 671a08be-3fef-449d-8ca0-03e28f869d70
-terraform import 'cloudfoundry_service_instance.runner_service_account' 72339f15-3499-4262-8b1b-10c85e1f4585
-terraform import 'module.mgmt_space.cloudfoundry_space.space' 0d382490-25c9-44d0-9d77-4cd5d5b9e3b9
-terraform import 'module.mgmt_space.cloudfoundry_space_role.developers["ryan.ahearn@gsa.gov"]' 74ff14fd-38a8-40d7-9c4d-a41975888cd5
-terraform import 'module.s3.cloudfoundry_service_instance.bucket' c5623a00-4813-4203-8a0d-ae725a4c1846
+terraform import 'cloudfoundry_org_role.sa_org_manager' b7a45415-d471-4d5c-b600-8716eb5810df
+terraform import 'cloudfoundry_service_credential_binding.bucket_creds' b4493ebc-8534-4bf1-bfbd-f85b4e327b1b
+terraform import 'cloudfoundry_service_credential_binding.runner_sa_key' cee6f8d4-39a3-4b81-951f-f073dd9e61fa
+terraform import 'cloudfoundry_service_instance.runner_service_account' fe7904e2-68b2-4adf-adce-0fbccd3bf18b
+terraform import 'module.mgmt_space.cloudfoundry_space.space' 5d1625d9-026b-47c4-a0f6-9c47d719ef8d
+terraform import 'module.mgmt_space.cloudfoundry_space_role.developers["ryan.ahearn@gsa.gov"]' 5d89e0df-d0ac-4fe2-a381-0d3338982849
+terraform import 'module.s3.cloudfoundry_service_instance.bucket' 914edcc8-9133-4116-bbd4-19e28acca986
 terraform apply
