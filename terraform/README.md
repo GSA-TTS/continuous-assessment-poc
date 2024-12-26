@@ -80,16 +80,16 @@ The below steps rely on you first configuring access to the Terraform state in s
 
     The easiest way to use this script locally is to redirect the output directly to the `secrets.auto.tfvars` file it needs to be used in
 
-1. Create a new `sandbox-name.tfvars` file to hold variable values for your environment.
+1. Create a new `sandbox.tfvars` file to hold variable values for your environment.
 
 1. Run terraform from your new environment directory with
     ```bash
-    terraform plan -var-file=sandbox-name.tfvars -var rails_master_key=$(cat ../config/master.key)
+    ./tfm_sandbox.sh plan
     ```
 
 1. Apply changes with
     ```bash
-    terraform apply -var-file=sandbox-name.tfvars -var rails_master_key=$(cat ../config/master.key)`.
+    ./tfm_sandbox.sh apply
     ```
 
 1. Remove the space deployer service instance if it doesn't need to be used again, such as when manually running terraform plan before letting CI/CD apply the changes.

@@ -67,6 +67,7 @@ doc/compliance/oscal/ssp-render/continuous_monitoring_ssp.*
 .terraform.lock.hcl
 **/.terraform/*
 secrets.*.tfvars
+sandbox*.tfvars
 terraform.tfstate
 terraform.tfstate.backup
 terraform/dist
