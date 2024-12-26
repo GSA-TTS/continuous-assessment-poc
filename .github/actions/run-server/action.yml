@@ -10,13 +10,21 @@ inputs:
     required: true
 runs:
   using: "composite"
+  env:
+    RAILS_ENV: ${{ inputs.rails_env }}
+    DATABASE_URL: ${{ inputs.database_url }}
+    SECRET_KEY_BASE: not-actually-secret
   steps:
+    - name: "Seed database"
+      shell: bash
+      run: bundle exec rake db:seed
+
+    - name: "Check for dockerize"
+      shell: bash
+      run: which dockerize
+
     - name: "Start server in background"
       shell: bash
-      env:
-        RAILS_ENV: ${{ inputs.rails_env }}
-        DATABASE_URL: ${{ inputs.database_url }}
-        SECRET_KEY_BASE: not-actually-secret
       run: bundle exec rails server &
 
     - name: "Wait for startup"
