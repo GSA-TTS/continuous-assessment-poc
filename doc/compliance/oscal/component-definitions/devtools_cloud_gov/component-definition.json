@@ -36,7 +36,7 @@
           },
           {
             "name": "Parameter_Value_Alternatives",
-            "value": "rahearn,rahearn-egress,rahearn-mgmt",
+            "value": "capoc-stage,capoc-stage-egress,capoc-mgmt",
             "remarks": "rule_ssh_access_disabled_1"
           },
           {
@@ -80,9 +80,9 @@
               {
                 "param-id": "gov.cloud.space-names",
                 "values": [
-                  "rahearn",
-                  "rahearn-egress",
-                  "rahearn-mgmt"
+                  "capoc-stage",
+                  "capoc-stage-egress",
+                  "capoc-mgmt"
                 ]
               }
             ],
