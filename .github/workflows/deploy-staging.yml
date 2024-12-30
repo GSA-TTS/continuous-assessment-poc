@@ -36,7 +36,7 @@ jobs:
             access_key=${{ secrets.TERRAFORM_STATE_ACCESS_KEY }}
             secret_key=${{ secrets.TERRAFORM_STATE_SECRET_ACCESS_KEY }}
             bucket=${{ secrets.TERRAFORM_STATE_BUCKET_NAME }}
-            key=terraform.tfstate.stage
+            key=terraform.tfstate.staging
 
       - name: Set restricted egress
         uses: cloud-gov/cg-cli-tools@main
