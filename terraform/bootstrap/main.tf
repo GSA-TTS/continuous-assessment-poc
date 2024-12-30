@@ -148,3 +148,10 @@ resource "local_sensitive_file" "bot_secrets_file" {
     password     = local.sa_cf_password
   })
 }
+
+output "mgmt_space_id" {
+  value = module.mgmt_space.space_id
+}
+output "mgmt_org_id" {
+  value = data.cloudfoundry_org.org.id
+}
