@@ -72,7 +72,7 @@ fi
 if [[ $tfm_needs_init = true ]]; then
   if [[ ! -f secrets.backend.tfvars ]]; then
     echo "=============================================================================================================="
-    echo "= Recreating backend config file. It is fine if this step wants to delete any local_sensitive_file resources ="
+    echo "= Recreating backend config file. It is fine if this step wants to delete any local_sensitive_file resources"
     echo "=============================================================================================================="
     (cd bootstrap && ./apply.sh)
   fi
@@ -80,7 +80,7 @@ if [[ $tfm_needs_init = true ]]; then
 fi
 
 echo "=============================================================================================================="
-echo "= Creating or finding a bot deployer for $env ="
+echo "= Creating or finding a bot deployer for $env"
 echo "=============================================================================================================="
 if [[ "$env" = "staging" ]] || [[ "$env" = "production" ]]; then
   (cd bootstrap && ./apply.sh -var create_bot_secrets_file=true)
@@ -89,6 +89,6 @@ else
 fi
 
 echo "=============================================================================================================="
-echo "= Calling $cmd on the application infrastructure ="
+echo "= Calling $cmd on the application infrastructure"
 echo "=============================================================================================================="
 terraform "$cmd" -var-file="$env.tfvars" -var rails_master_key="$rmk" "$@"
