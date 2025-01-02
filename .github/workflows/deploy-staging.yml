@@ -23,17 +23,10 @@ jobs:
       - uses: ./.github/actions/setup-languages
 
       - name: Restore asset cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           key: cache-staging-assets
-          path: |
-            public/assets
-
-      - name: Precompile assets and clean old versions
-        env:
-          RAILS_ENV: staging
-          SECRET_KEY_BASE_DUMMY: 1
-        run: ./bin/rake assets:precompile && ./bin/rake assets:clean
+          path: public/assets
 
       - name: Terraform apply
         uses: dflook/terraform-apply@v1
