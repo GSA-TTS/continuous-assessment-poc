@@ -40,6 +40,7 @@ jobs:
         with:
           path: terraform
           var_file: terraform/staging.tfvars
+          auto_approve: true
           backend_config: >
             access_key=${{ secrets.TERRAFORM_STATE_ACCESS_KEY }}
             secret_key=${{ secrets.TERRAFORM_STATE_SECRET_ACCESS_KEY }}
