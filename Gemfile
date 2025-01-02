@@ -63,14 +63,14 @@ gem "faraday-typhoeus", "~> 1.1"
 group :development, :test do
   gem "rspec-rails", "~> 7.1"
   gem "dotenv-rails", "~> 3.1"
-  gem "brakeman", "~> 6.1"
+  gem "brakeman", "~> 7.0"
   gem "bundler-audit", "~> 0.9"
   gem "standard", "~> 1.36"
   gem "i18n-tasks", "~> 1.0"
 end
 
 group :development do
-  gem "rails_template_18f", github: "gsa-tts/rails-template", branch: "next-gen-terraform"
+  gem "rails_template_18f", github: "gsa-tts/rails-template", branch: "easy-sandbox-deploys"
   gem "rails-erd", "~> 1.7"
 end
 
