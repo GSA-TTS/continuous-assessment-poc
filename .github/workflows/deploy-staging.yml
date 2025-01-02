@@ -29,7 +29,7 @@ jobs:
       #     path: public/assets
 
       - name: Terraform apply
-        uses: dflook/terraform-apply@v1.44
+        uses: dflook/terraform-apply@v1
         env:
           TF_VAR_cf_user: ${{ secrets.CF_USERNAME }}
           TF_VAR_cf_password: ${{ secrets.CF_PASSWORD }}

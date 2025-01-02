@@ -42,7 +42,7 @@ jobs:
       #   run: ./bin/rake assets:precompile && ./bin/rake assets:clean
 
       - name: terraform plan
-        uses: dflook/terraform-plan@v1.44
+        uses: dflook/terraform-plan@v1
         env:
           TF_VAR_cf_user: ${{ secrets.CF_USERNAME }}
           TF_VAR_cf_password: ${{ secrets.CF_PASSWORD }}
