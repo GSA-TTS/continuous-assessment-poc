@@ -27,11 +27,13 @@ variable "mgmt_space_name" {
 variable "create_bot_secrets_file" {
   type        = bool
   default     = false
-  description = "Flag whether to create secrets.auto.tfvars file"
+  description = "Flag whether to create secrets.cicd.tfvars file"
 }
 
 locals {
   org_name = "gsa-tts-devtools-prototyping"
+  # s3_plan_name should be basic when holding production data, though basic-sandbox will make early iterations easier
+  s3_plan_name = "basic-sandbox"
 }
 module "mgmt_space" {
   source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.0.2"
@@ -42,11 +44,11 @@ module "mgmt_space" {
 }
 
 module "s3" {
-  source = "github.com/gsa-tts/terraform-cloudgov//s3?ref=v2.0.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//s3?ref=v2.0.2"
 
   cf_space_id  = module.mgmt_space.space_id
   name         = "continuous_monitoring-terraform-state"
-  s3_plan_name = "basic-sandbox"
+  s3_plan_name = local.s3_plan_name
   depends_on   = [module.mgmt_space]
 }
 
@@ -138,7 +140,7 @@ resource "local_sensitive_file" "bucket_creds" {
 
 resource "local_sensitive_file" "bot_secrets_file" {
   count           = (var.create_bot_secrets_file ? 1 : 0)
-  filename        = "${path.module}/../secrets.auto.tfvars"
+  filename        = "${path.module}/../secrets.cicd.tfvars"
   file_permission = "0600"
 
   content = templatefile("${path.module}/templates/bot_secrets.tftpl", {
