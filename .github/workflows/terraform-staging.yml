@@ -29,6 +29,18 @@ jobs:
         with:
           path: terraform
 
+      - uses: ./.github/actions/setup-languages
+      - name: Use asset cache
+        uses: actions/cache@v4
+        with:
+          key: cache-staging-assets
+          path: public/assets
+      - name: Precompile assets and clean old versions
+        env:
+          RAILS_ENV: staging
+          SECRET_KEY_BASE_DUMMY: 1
+        run: ./bin/rake assets:precompile && ./bin/rake assets:clean
+
       - name: terraform plan
         uses: dflook/terraform-plan@v1
         env:
