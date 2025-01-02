@@ -5,7 +5,7 @@ locals {
 }
 
 module "app_space" {
-  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.0.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.0.2"
 
   cf_org_name   = local.cf_org_name
   cf_space_name = var.cf_space_name
@@ -15,28 +15,29 @@ module "app_space" {
 }
 # temporary method for setting egress rules until terraform provider supports it and cg_space module is updated
 data "external" "set-app-space-egress" {
-  program     = ["/bin/sh", "${path.module}/set_space_egress.sh", "-t", "-s", module.app_space.space_name, "-o", local.cf_org_name]
+  program     = ["/bin/sh", "set_space_egress.sh", "-t", "-s", var.cf_space_name, "-o", local.cf_org_name]
   working_dir = path.module
-  depends_on  = [module.app_space]
+  # depends_on line is required only for initial creation and destruction. It can be commented out for updates if you see unwanted cascading effects
+  depends_on = [module.app_space]
 }
 
 module "database" {
-  source = "github.com/gsa-tts/terraform-cloudgov//database?ref=v2.0.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//database?ref=v2.0.2"
 
   cf_space_id   = module.app_space.space_id
   name          = "${local.app_name}-rds-${var.env}"
   rds_plan_name = var.rds_plan_name
-  # depends_on line is needed only for initial creation and destruction. It should be commented out for updates to prevent unwanted cascading effects
+  # depends_on line is required only for initial creation and destruction. It can be commented out for updates if you see unwanted cascading effects
   depends_on = [module.app_space]
 }
 
 # module "redis" {
-#   source = "github.com/gsa-tts/terraform-cloudgov//redis?ref=v2.0.0"
+#   source = "github.com/gsa-tts/terraform-cloudgov//redis?ref=v2.0.2"
 
 #   cf_space_id     = module.app_space.space_id
 #   name            = "${local.app_name}-redis-${var.env}"
 #   redis_plan_name = var.redis_plan_name
-#   # depends_on line is needed only for initial creation and destruction. It should be commented out for updates to prevent unwanted cascading effects
+#   # depends_on line is required only for initial creation and destruction. It can be commented out for updates if you see unwanted cascading effects
 #   depends_on = [module.app_space]
 # }
 
@@ -51,14 +52,14 @@ module "database" {
 ###########################################################################
 module "domain" {
   count  = (var.custom_domain_name == null ? 0 : 1)
-  source = "github.com/gsa-tts/terraform-cloudgov//domain?ref=v2.0.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//domain?ref=v2.0.2"
 
   cf_org_name   = local.cf_org_name
   cf_space      = module.app_space.space
   cdn_plan_name = "domain"
   domain_name   = var.custom_domain_name
   host_name     = var.host_name
-  # depends_on line is needed only for initial creation and destruction. It should be commented out for updates to prevent unwanted cascading effects
+  # depends_on line is required only for initial creation and destruction. It can be commented out for updates if you see unwanted cascading effects
   depends_on = [module.app_space]
 }
 
@@ -73,7 +74,7 @@ module "egress_space" {
 }
 # temporary method for setting egress rules until terraform provider supports it and cg_space module is updated
 data "external" "set-egress-space-egress" {
-  program     = ["/bin/sh", "${path.module}/set_space_egress.sh", "-p", "-s", module.egress_space.space_name, "-o", local.cf_org_name]
+  program     = ["/bin/sh", "set_space_egress.sh", "-p", "-s", module.egress_space.space_name, "-o", local.cf_org_name]
   working_dir = path.module
   depends_on  = [module.egress_space]
 }

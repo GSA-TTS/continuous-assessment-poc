@@ -49,11 +49,11 @@ if [[ "$space" = "" ]] || [[ "$org" = "" ]]; then
 fi
 
 if [[ $public = true ]]; then
-  cf bind-security-group public_networks_egress "$org" --space "$space" 1>&2
+  cf bind-security-group public_networks_egress "$org" --space "$space" > /dev/null
 fi
 
 if [[ $trusted = true ]]; then
-  cf bind-security-group trusted_local_networks_egress "$org" --space "$space" 1>&2
+  cf bind-security-group trusted_local_networks_egress "$org" --space "$space" > /dev/null
 fi
 
 cat << EOF

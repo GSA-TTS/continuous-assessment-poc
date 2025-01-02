@@ -19,7 +19,7 @@ locals {
 
 resource "cloudfoundry_app" "app" {
   name       = "${local.app_name}-${var.env}"
-  space_name = module.app_space.space_name
+  space_name = var.cf_space_name
   org_name   = local.cf_org_name
 
   path             = data.archive_file.src.output_path
@@ -47,7 +47,7 @@ resource "cloudfoundry_app" "app" {
       type      = "web"
       instances = var.web_instances
       memory    = var.web_memory
-      command   = "bundle exec rake cf:on_first_instance db:migrate && exec env HTTP_PORT=$PORT ./bin/thrust ./bin/rails server"
+      command   = "./bin/rake cf:on_first_instance db:migrate && exec env HTTP_PORT=$PORT ./bin/thrust ./bin/rails server"
     }
   ]
 
@@ -60,7 +60,7 @@ resource "cloudfoundry_app" "app" {
   depends_on = [
     cloudfoundry_service_instance.egress_proxy_credentials,
     # module.redis,
-    module.database,
-    module.app_space
+    module.app_space,
+    module.database
   ]
 }
