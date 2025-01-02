@@ -20,13 +20,13 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup-languages
+      # - uses: ./.github/actions/setup-languages
 
-      - name: Restore asset cache
-        uses: actions/cache/restore@v4
-        with:
-          key: cache-staging-assets
-          path: public/assets
+      # - name: Restore asset cache
+      #   uses: actions/cache/restore@v4
+      #   with:
+      #     key: cache-staging-assets
+      #     path: public/assets
 
       - name: Terraform apply
         uses: dflook/terraform-apply@v1
