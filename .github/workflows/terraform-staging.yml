@@ -30,10 +30,10 @@ jobs:
           path: terraform
 
       - uses: ./.github/actions/setup-languages
-      - name: Asset cache
+      - name: Restore asset cache
         uses: actions/cache@v4
         with:
-          key: staging-assets-build-${{ github.sha }}
+          key: staging-assets-build-${{ github.event.number }}
           restore-keys: staging-assets-deployed-
           path: |
             public/assets
