@@ -29,17 +29,21 @@ jobs:
         with:
           path: terraform
 
-      # - uses: ./.github/actions/setup-languages
-      # - name: Use asset cache
-      #   uses: actions/cache@v4
-      #   with:
-      #     key: cache-staging-assets
-      #     path: public/assets
-      # - name: Precompile assets and clean old versions
-      #   env:
-      #     RAILS_ENV: staging
-      #     SECRET_KEY_BASE_DUMMY: 1
-      #   run: ./bin/rake assets:precompile && ./bin/rake assets:clean
+      - uses: ./.github/actions/setup-languages
+      - name: Asset cache
+        uses: actions/cache@v4
+        with:
+          key: staging-assets-build-${{ github.sha }}
+          restore-keys: staging-assets-deployed-
+          path: |
+            public/assets
+            app/assets/builds
+            app/javascript/generated
+      - name: Precompile assets and clean old versions
+        env:
+          RAILS_ENV: staging
+          SECRET_KEY_BASE_DUMMY: 1
+        run: ./bin/rake assets:precompile && ./bin/rake assets:clean
 
       - name: terraform plan
         uses: dflook/terraform-plan@v1
@@ -53,8 +57,17 @@ jobs:
         with:
           path: terraform
           var_file: terraform/staging.tfvars
+          add_github_comment: changes-only
           backend_config: >
             access_key=${{ secrets.TERRAFORM_STATE_ACCESS_KEY }}
             secret_key=${{ secrets.TERRAFORM_STATE_SECRET_ACCESS_KEY }}
             bucket=${{ secrets.TERRAFORM_STATE_BUCKET_NAME }}
             key=terraform.tfstate.staging
+
+      - name: Save app zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-src-plan
+          path: terraform/dist/src.zip
+          compression-level: 0
+          retention-days: 2
