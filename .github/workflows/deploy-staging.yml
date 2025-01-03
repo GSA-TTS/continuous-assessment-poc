@@ -21,11 +21,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup-languages
-      - name: Restore asset cache
+      - name: Asset cache
         uses: actions/cache@v4
         with:
-          key: staging-assets-deployed-${{ github.sha }}
-          restore-keys: staging-assets-deployed-
+          key: staging-assets-deployed
           path: |
             public/assets
             app/assets/builds
@@ -77,4 +76,4 @@ jobs:
           name: app-src-apply
           path: terraform/dist/src.zip
           compression-level: 0
-          retention-days: 2
+          retention-days: 1
