@@ -29,17 +29,17 @@ jobs:
         with:
           path: terraform
 
-      # - uses: ./.github/actions/setup-languages
-      # - name: Use asset cache
-      #   uses: actions/cache@v4
-      #   with:
-      #     key: cache-staging-assets
-      #     path: public/assets
-      # - name: Precompile assets and clean old versions
-      #   env:
-      #     RAILS_ENV: staging
-      #     SECRET_KEY_BASE_DUMMY: 1
-      #   run: ./bin/rake assets:precompile && ./bin/rake assets:clean
+      - uses: ./.github/actions/setup-languages
+      - name: Use asset cache
+        uses: actions/cache@v4
+        with:
+          key: cache-staging-assets
+          path: public/assets
+      - name: Precompile assets and clean old versions
+        env:
+          RAILS_ENV: staging
+          SECRET_KEY_BASE_DUMMY: 1
+        run: ./bin/rake assets:precompile && ./bin/rake assets:clean
 
       - name: terraform plan
         uses: dflook/terraform-plan@v1
@@ -53,6 +53,48 @@ jobs:
         with:
           path: terraform
           var_file: terraform/staging.tfvars
+          add_github_comment: changes-only
+          backend_config: >
+            access_key=${{ secrets.TERRAFORM_STATE_ACCESS_KEY }}
+            secret_key=${{ secrets.TERRAFORM_STATE_SECRET_ACCESS_KEY }}
+            bucket=${{ secrets.TERRAFORM_STATE_BUCKET_NAME }}
+            key=terraform.tfstate.staging
+
+  recompile:
+    needs: terraform
+    runs-on: ubuntu-24.04
+    environment: staging
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-languages
+      - name: Use asset cache
+        uses: actions/cache/restore@v4
+        with:
+          key: cache-staging-assets
+          path: public/assets
+      # - name: Precompile assets and clean old versions
+      #   env:
+      #     RAILS_ENV: staging
+      #     SECRET_KEY_BASE_DUMMY: 1
+      #   run: ./bin/rake assets:precompile
+
+      - name: terraform plan
+        uses: dflook/terraform-plan@v1
+        env:
+          TF_VAR_cf_user: ${{ secrets.CF_USERNAME }}
+          TF_VAR_cf_password: ${{ secrets.CF_PASSWORD }}
+          TF_VAR_rails_master_key: ${{ secrets.RAILS_MASTER_KEY }}
+          TERRAFORM_PRE_RUN: |
+            apt-get update
+            apt-get install -y zip
+        with:
+          path: terraform
+          var_file: terraform/staging.tfvars
+          add_github_comment: always-new
           backend_config: >
             access_key=${{ secrets.TERRAFORM_STATE_ACCESS_KEY }}
             secret_key=${{ secrets.TERRAFORM_STATE_SECRET_ACCESS_KEY }}
