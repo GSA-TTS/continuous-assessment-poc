@@ -5,6 +5,7 @@ data "archive_file" "src" {
   excludes = [
     ".git*",
     "app/assets/builds/*",
+    "app/javascript/generated",
     "node_modules/*",
     "tmp/**/*",
     "terraform/*",
