@@ -41,6 +41,11 @@ jobs:
           SECRET_KEY_BASE_DUMMY: 1
         run: ./bin/rake assets:precompile && ./bin/rake assets:clean
 
+      - name: show public
+        run: ls -l public/
+      - name: show assets
+        run: ls -l public/assets/
+
       - name: terraform plan
         uses: dflook/terraform-plan@v1
         env:
@@ -53,7 +58,7 @@ jobs:
         with:
           path: terraform
           var_file: terraform/staging.tfvars
-          add_github_comment: changes-only
+          add_github_comment: always-new
           backend_config: >
             access_key=${{ secrets.TERRAFORM_STATE_ACCESS_KEY }}
             secret_key=${{ secrets.TERRAFORM_STATE_SECRET_ACCESS_KEY }}
@@ -81,6 +86,11 @@ jobs:
       #     RAILS_ENV: staging
       #     SECRET_KEY_BASE_DUMMY: 1
       #   run: ./bin/rake assets:precompile
+
+      - name: show public
+        run: ls -l public/
+      - name: show assets
+        run: ls -l public/assets/
 
       - name: terraform plan
         uses: dflook/terraform-plan@v1
