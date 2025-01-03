@@ -20,13 +20,16 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-      # - uses: ./.github/actions/setup-languages
-
-      # - name: Restore asset cache
-      #   uses: actions/cache/restore@v4
-      #   with:
-      #     key: cache-staging-assets
-      #     path: public/assets
+      - uses: ./.github/actions/setup-languages
+      - name: Restore asset cache
+        uses: actions/cache/restore@v4
+        with:
+          key: staging-assets-build-${{ github.sha }}
+          fail-on-cache-miss: true
+          path: |
+            public/assets
+            app/assets/builds
+            app/javascript/generated
 
       - name: Terraform apply
         uses: dflook/terraform-apply@v1
@@ -62,3 +65,20 @@ jobs:
           cf_org: gsa-tts-devtools-prototyping
           cf_space: capoc-stage-egress
           cf_command: bind-security-group public_networks_egress $INPUT_CF_ORG --space $INPUT_CF_SPACE
+
+      - name: Save deployed assets cache
+        uses: actions/cache/save@v4
+        with:
+          key: staging-assets-deployed-${{ github.sha }}
+          path: |
+            public/assets
+            app/assets/builds
+            app/javascript/generated
+
+      - name: Save app zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-src-apply
+          path: terraform/dist/src.zip
+          compression-level: 0
+          retention-days: 2
