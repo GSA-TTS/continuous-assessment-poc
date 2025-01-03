@@ -30,10 +30,11 @@ jobs:
           path: terraform
 
       - uses: ./.github/actions/setup-languages
-      - name: Use asset cache
+      - name: Asset cache
         uses: actions/cache@v4
         with:
-          key: cache-staging-assets-${{ github.sha }}
+          key: staging-assets-build-${{ github.sha }}
+          restore-keys: staging-assets-deployed-
           path: |
             public/assets
             app/assets/builds
@@ -89,7 +90,7 @@ jobs:
       - name: Use asset cache
         uses: actions/cache/restore@v4
         with:
-          key: cache-staging-assets-${{ github.sha }}
+          key: staging-assets-build-${{ github.sha }}
           fail-on-cache-miss: true
           path: |
             public/assets
@@ -114,6 +115,15 @@ jobs:
             secret_key=${{ secrets.TERRAFORM_STATE_SECRET_ACCESS_KEY }}
             bucket=${{ secrets.TERRAFORM_STATE_BUCKET_NAME }}
             key=terraform.tfstate.staging
+
+      - name: Save deployed assets cache
+        uses: actions/cache/save@v4
+        with:
+          key: staging-assets-deployed-${{ github.sha }}
+          path: |
+            public/assets
+            app/assets/builds
+            app/javascript/generated
 
       - name: Save app zip
         uses: actions/upload-artifact@v4
