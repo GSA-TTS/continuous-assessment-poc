@@ -14,7 +14,7 @@ permissions:
 jobs:
   deploy:
     name: Deploy to staging
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment: staging
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -40,7 +40,6 @@ jobs:
         with:
           path: terraform
           var_file: terraform/staging.tfvars
-          auto_approve: true
           backend_config: >
             access_key=${{ secrets.TERRAFORM_STATE_ACCESS_KEY }}
             secret_key=${{ secrets.TERRAFORM_STATE_SECRET_ACCESS_KEY }}
