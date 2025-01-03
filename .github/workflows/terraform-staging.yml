@@ -33,7 +33,7 @@ jobs:
       - name: Use asset cache
         uses: actions/cache@v4
         with:
-          key: cache-staging-assets-{{ github.sha }}
+          key: cache-staging-assets-${{ github.sha }}
           path: |
             public/assets
             app/assets/builds
@@ -89,7 +89,7 @@ jobs:
       - name: Use asset cache
         uses: actions/cache/restore@v4
         with:
-          key: cache-staging-assets-{{ github.sha }}
+          key: cache-staging-assets-${{ github.sha }}
           fail-on-cache-miss: true
           path: |
             public/assets
