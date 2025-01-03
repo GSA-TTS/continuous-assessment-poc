@@ -33,7 +33,7 @@ jobs:
       - name: Use asset cache
         uses: actions/cache@v4
         with:
-          key: cache-staging-assets
+          key: cache-staging-assets-{{ github.sha }}
           path: |
             public/assets
             app/assets/builds
@@ -89,16 +89,12 @@ jobs:
       - name: Use asset cache
         uses: actions/cache/restore@v4
         with:
-          key: cache-staging-assets
+          key: cache-staging-assets-{{ github.sha }}
+          fail-on-cache-miss: true
           path: |
             public/assets
             app/assets/builds
             app/javascript/generated
-      # - name: Precompile assets and clean old versions
-      #   env:
-      #     RAILS_ENV: staging
-      #     SECRET_KEY_BASE_DUMMY: 1
-      #   run: ./bin/rake assets:precompile
 
       - name: terraform plan
         uses: dflook/terraform-plan@v1
