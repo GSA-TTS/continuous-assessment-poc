@@ -65,6 +65,17 @@ jobs:
             bucket=${{ secrets.TERRAFORM_STATE_BUCKET_NAME }}
             key=terraform.tfstate.staging
 
+      - name: Save app zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: zip-with-precompile
+          path: terraform/dist/src.zip
+          compression-level: 0
+          overwrite: true
+          retention-days: 2
+          if-no-files-found: error
+
+
   recompile:
     needs: terraform
     runs-on: ubuntu-24.04
@@ -110,3 +121,13 @@ jobs:
             secret_key=${{ secrets.TERRAFORM_STATE_SECRET_ACCESS_KEY }}
             bucket=${{ secrets.TERRAFORM_STATE_BUCKET_NAME }}
             key=terraform.tfstate.staging
+
+      - name: Save app zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: zip-with-cache
+          path: terraform/dist/src.zip
+          compression-level: 0
+          overwrite: true
+          retention-days: 2
+          if-no-files-found: error
