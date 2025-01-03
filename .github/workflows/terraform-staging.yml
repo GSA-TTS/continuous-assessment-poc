@@ -85,9 +85,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - uses: ./.github/actions/setup-languages
-
-      - name: Use asset cache
+      - name: Restore asset cache
         uses: actions/cache/restore@v4
         with:
           key: staging-assets-build-${{ github.sha }}
