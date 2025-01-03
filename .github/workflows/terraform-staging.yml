@@ -34,6 +34,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           key: staging-assets-deployed
+          fail-on-cache-miss: true
           path: |
             public/assets
             app/assets/builds
