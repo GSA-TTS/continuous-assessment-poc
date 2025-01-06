@@ -29,21 +29,11 @@ jobs:
         with:
           path: terraform
 
-      - uses: ./.github/actions/setup-languages
-      - name: Restore asset cache
-        uses: actions/cache/restore@v4
+      - name: Compile assets
+        uses: ./.github/actions/compile-assets
         with:
-          key: staging-assets-deployed
-          fail-on-cache-miss: true
-          path: |
-            public/assets
-            app/assets/builds
-            app/javascript/generated
-      - name: Precompile assets and clean old versions
-        env:
-          RAILS_ENV: staging
-          SECRET_KEY_BASE_DUMMY: 1
-        run: ./bin/rake assets:precompile && ./bin/rake assets:clean
+          rails_env: staging
+          fail_on_missing_cache: true
 
       - name: terraform plan
         uses: dflook/terraform-plan@v1

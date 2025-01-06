@@ -31,6 +31,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Touch staging cache
+        uses: ./.github/actions/compile-assets
+        with:
+          rails_env: staging
+          fail_on_missing_cache: true
+
       - id: setup
         uses: ./.github/actions/setup-project
 

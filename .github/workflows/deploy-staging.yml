@@ -20,20 +20,13 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup-languages
-      - name: Asset cache
-        uses: actions/cache@v4
+
+      - name: Compile assets
+        uses: ./.github/actions/compile-assets
         with:
-          key: staging-assets-deployed
-          path: |
-            public/assets
-            app/assets/builds
-            app/javascript/generated
-      - name: Precompile assets and clean old versions
-        env:
-          RAILS_ENV: staging
-          SECRET_KEY_BASE_DUMMY: 1
-        run: ./bin/rake assets:precompile && ./bin/rake assets:clean
+          rails_env: staging
+          fail_on_missing_cache: false
+          save_cache: true
 
       - name: Terraform apply
         uses: dflook/terraform-apply@v1
