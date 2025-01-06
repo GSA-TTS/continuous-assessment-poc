@@ -33,6 +33,10 @@ runs:
       shell: bash
       run: ./bin/rake assets:precompile
 
+    - name: list asset timestamps
+      shell: bash
+      run: ls -lh public/assets
+
     - name: Clean old assets
       env:
         RAILS_ENV: ${{ inputs.rails_env }}
