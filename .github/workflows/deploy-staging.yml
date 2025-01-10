@@ -12,21 +12,37 @@ permissions:
   pull-requests: write
 
 jobs:
+  build-assets:
+    name: Compile and clean assets
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile assets
+        uses: ./.github/actions/compile-assets
+        with:
+          rails_env: staging
+          save_cache: true
+      - name: Upload assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: staging-assets
+          path: public/assets
+
   deploy:
     name: Deploy to staging
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
+    needs: build-assets
     environment: staging
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
-      - name: Compile assets
-        uses: ./.github/actions/compile-assets
+      - name: Download assets
+        uses: actions/download-artifact@v4
         with:
-          rails_env: staging
-          fail_on_missing_cache: false
-          save_cache: true
+          name: staging-assets
+          path: public/assets
 
       - name: Terraform apply
         uses: dflook/terraform-apply@v1
@@ -46,24 +62,8 @@ jobs:
             bucket=${{ secrets.TERRAFORM_STATE_BUCKET_NAME }}
             key=terraform.tfstate.staging
 
-      - name: Set restricted egress
-        uses: cloud-gov/cg-cli-tools@main
-        with:
-          cf_username: ${{ secrets.CF_USERNAME }}
-          cf_password: ${{ secrets.CF_PASSWORD }}
-          cf_org: gsa-tts-devtools-prototyping
-          cf_space: capoc-stage
-          cf_command: bind-security-group trusted_local_networks_egress $INPUT_CF_ORG --space $INPUT_CF_SPACE
-      - name: Set public egress
-        uses: cloud-gov/cg-cli-tools@main
-        with:
-          cf_username: ${{ secrets.CF_USERNAME }}
-          cf_password: ${{ secrets.CF_PASSWORD }}
-          cf_org: gsa-tts-devtools-prototyping
-          cf_space: capoc-stage-egress
-          cf_command: bind-security-group public_networks_egress $INPUT_CF_ORG --space $INPUT_CF_SPACE
-
-      - name: Save app zip
+      - name: Save app zip for debugging
+        if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: app-src-apply

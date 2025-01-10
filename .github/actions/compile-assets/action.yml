@@ -1,14 +1,15 @@
-name: Compile assets for deploy
-description: Restore a deployed asset cache, precompile, and clean
+name: Compile assets
+description: Restore an asset cache, precompile, clean, and optionally save the cache back
 inputs:
   rails_env:
-    description: RAILS_ENV to set.
+    description: RAILS_ENV in use.
     required: true
   fail_on_missing_cache:
-    description: Whether to fail the action on a missing cache
-    required: true
+    description: Whether to fail the action on a missing cache restore
+    required: false
+    default: 'false'
   save_cache:
-    description: Whether to save the compiled assets to a cache
+    description: Whether to save the compiled assets cache
     required: false
     default: 'false'
 runs:
@@ -19,7 +20,7 @@ runs:
     - name: Restore asset cache
       uses: actions/cache/restore@v4
       with:
-        key: ${{ inputs.rails_env }}-assets
+        key: ${{ inputs.rails_env }}-assets-
         fail-on-cache-miss: ${{ inputs.fail_on_missing_cache }}
         path: |
           public/assets
@@ -33,7 +34,7 @@ runs:
       shell: bash
       run: ./bin/rake assets:precompile
 
-    - name: Clean old assets
+    - name: "Clean old assets, keeping current + 2 old versions + anything created within past 1 hour"
       env:
         RAILS_ENV: ${{ inputs.rails_env }}
         SECRET_KEY_BASE_DUMMY: 1
