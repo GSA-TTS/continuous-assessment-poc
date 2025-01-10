@@ -1,1 +1,5 @@
 // Entry point for your Sass build
+@forward "uswds-settings";
+@forward "uswds-components";
+
+@forward "uswds-overrides";

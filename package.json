@@ -2,29 +2,20 @@
   "name": "app",
   "private": true,
   "dependencies": {
-    "@csstools/postcss-sass": "^5.1.1",
-    "@csstools/sass-import-resolve": "https://github.com/rahearn/sass-import-resolve",
     "@uswds/uswds": "^3.8.1",
-    "autoprefixer": "^10.4.19",
     "i18n-js": "^4.5.0",
-    "postcss": "^8.4.38",
-    "postcss-cli": "^11.0.0",
-    "postcss-import": "^16.1.0",
-    "postcss-minify": "^1.1.0",
-    "postcss-scss": "^4.0.9",
     "sass": "^1.83.1",
     "webpack": "^5.92.1",
     "webpack-cli": "^6.0.1"
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+    "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules/@uswds/uswds/packages"
   },
   "devDependencies": {
     "pa11y-ci": "^3.1.0"
   },
   "resolutions": {
-    "@csstools/postcss-sass/@csstools/sass-import-resolve": "https://github.com/rahearn/sass-import-resolve",
     "semver": "7.6.3"
   }
 }
