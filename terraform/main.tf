@@ -80,7 +80,7 @@ data "external" "set-egress-space-egress" {
 }
 
 module "egress_proxy" {
-  source = "github.com/gsa-tts/terraform-cloudgov//egress_proxy?ref=v2.0.1"
+  source = "github.com/gsa-tts/terraform-cloudgov//egress_proxy?ref=v2.0.2"
 
   cf_org_name     = local.cf_org_name
   cf_egress_space = module.egress_space.space
