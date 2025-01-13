@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "@uswds/uswds": "^3.8.1",
-    "i18n-js": "^4.5.0",
+    "i18n-js": "^4.5.1",
     "sass": "^1.83.1"
   },
   "scripts": {
