@@ -676,7 +676,7 @@ https-proxy-agent@^5.0.0:
     agent-base "6"
     debug "4"
 
-i18n-js@^4.5.0:
+i18n-js@^4.5.1:
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/i18n-js/-/i18n-js-4.5.1.tgz#12ea3d6333552ff75be0904ea50705f5a263d172"
   integrity sha512-n7jojFj1WC0tztgr0I8jqTXuIlY1xNzXnC3mjKX/YjJhimdM+jXM8vOmn9d3xQFNC6qDHJ4ovhdrGXrRXLIGkA==

@@ -2,6 +2,6 @@
 
 import "@uswds/uswds"
 
-import { i18n } from './utils/i18n';
+import { i18n } from './i18n';
 
 console.log(i18n.t('shared.banner.official_site'));
