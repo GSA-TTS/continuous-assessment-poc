@@ -4,7 +4,7 @@
   "dependencies": {
     "@uswds/uswds": "^3.8.1",
     "i18n-js": "^4.5.1",
-    "sass": "^1.83.1"
+    "sass": "^1.83.3"
   },
   "scripts": {
     "build:js": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --target=$(cat config/esbuild-targets.txt)",
