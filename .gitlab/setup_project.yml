@@ -20,10 +20,6 @@ include:
     - *setup-script
 
 .init-project-build:
-  cache:
-    - !reference [.cache-ruby]
-    - !reference [.cache-yarn]
-    - !reference [.cache-assets-pull-push]
   services:
     - *pg-service
   script:

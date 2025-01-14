@@ -64,7 +64,7 @@ module "domain" {
 }
 
 module "egress_space" {
-  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.0.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.0.2"
 
   cf_org_name   = local.cf_org_name
   cf_space_name = "${var.cf_space_name}-egress"
@@ -80,7 +80,7 @@ data "external" "set-egress-space-egress" {
 }
 
 module "egress_proxy" {
-  source = "github.com/gsa-tts/terraform-cloudgov//egress_proxy?ref=v2.0.1"
+  source = "github.com/gsa-tts/terraform-cloudgov//egress_proxy?ref=v2.0.2"
 
   cf_org_name     = local.cf_org_name
   cf_egress_space = module.egress_space.space
