@@ -42,7 +42,7 @@ default:
     entrypoint: ["sh"]
   stage: dependabot
 
-install-deps:
+build-project:
   stage: build
   inherit:
     default:
@@ -51,14 +51,7 @@ install-deps:
   cache:
     - !reference [.cache-ruby-pull-push]
     - !reference [.cache-yarn-pull-push]
-  script:
-    - !reference [.setup-langs, before_script]
-  rules:
-    - if: $CI_PIPELINE_SOURCE != "schedule"
-
-build-project:
-  stage: build
-  needs: ["install-deps"]
+    - !reference [.cache-assets-pull-push]
   extends: .init-project-build
   rules:
     - if: $CI_PIPELINE_SOURCE != "schedule"
