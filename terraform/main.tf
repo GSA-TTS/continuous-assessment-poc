@@ -5,20 +5,14 @@ locals {
 }
 
 module "app_space" {
-  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.0.2"
+  source = "/Users/ryancahearn/software/devtools/terraform-cloudgov/cg_space"
 
-  cf_org_name   = local.cf_org_name
-  cf_space_name = var.cf_space_name
-  allow_ssh     = var.allow_space_ssh
-  deployers     = local.space_deployers
-  developers    = var.space_developers
-}
-# temporary method for setting egress rules until terraform provider supports it and cg_space module is updated
-data "external" "set-app-space-egress" {
-  program     = ["/bin/sh", "set_space_egress.sh", "-t", "-s", var.cf_space_name, "-o", local.cf_org_name]
-  working_dir = path.module
-  # depends_on line is required only for initial creation and destruction. It can be commented out for updates if you see unwanted cascading effects
-  depends_on = [module.app_space]
+  cf_org_name          = local.cf_org_name
+  cf_space_name        = var.cf_space_name
+  allow_ssh            = var.allow_space_ssh
+  deployers            = local.space_deployers
+  developers           = var.space_developers
+  security_group_names = ["trusted_local_networks_egress"]
 }
 
 module "database" {
@@ -64,19 +58,14 @@ module "domain" {
 }
 
 module "egress_space" {
-  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.0.2"
+  source = "/Users/ryancahearn/software/devtools/terraform-cloudgov/cg_space"
 
-  cf_org_name   = local.cf_org_name
-  cf_space_name = "${var.cf_space_name}-egress"
-  allow_ssh     = var.allow_space_ssh
-  deployers     = local.space_deployers
-  developers    = var.space_developers
-}
-# temporary method for setting egress rules until terraform provider supports it and cg_space module is updated
-data "external" "set-egress-space-egress" {
-  program     = ["/bin/sh", "set_space_egress.sh", "-p", "-s", module.egress_space.space_name, "-o", local.cf_org_name]
-  working_dir = path.module
-  depends_on  = [module.egress_space]
+  cf_org_name          = local.cf_org_name
+  cf_space_name        = "${var.cf_space_name}-egress"
+  allow_ssh            = var.allow_space_ssh
+  deployers            = local.space_deployers
+  developers           = var.space_developers
+  security_group_names = ["public_networks_egress"]
 }
 
 module "egress_proxy" {
