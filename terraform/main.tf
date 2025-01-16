@@ -69,13 +69,13 @@ module "egress_space" {
 }
 
 module "egress_proxy" {
-  source = "github.com/gsa-tts/terraform-cloudgov//egress_proxy?ref=v2.1.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//egress_proxy?ref=c84d37f9c677629a0ea440e3996c6faf3a313960" #v2.1.0
 
   cf_org_name     = local.cf_org_name
   cf_egress_space = module.egress_space.space
   name            = "egress-proxy-${var.env}"
   allowlist       = var.egress_allowlist
-  gitref          = "refs/heads/caddy-2.9"
+  gitref          = "1fe9454b85cb8cb54b57e161c3250a46c521307b"
   # depends_on line is needed only for initial creation and destruction. It should be commented out for updates to prevent unwanted cascading effects
   depends_on = [module.app_space, module.egress_space]
 }
