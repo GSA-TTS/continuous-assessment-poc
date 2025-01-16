@@ -324,7 +324,7 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.2)
-    rubocop (1.69.2)
+    rubocop (1.70.0)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
@@ -351,10 +351,10 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
-    standard (1.43.0)
+    standard (1.44.0)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
-      rubocop (~> 1.69.1)
+      rubocop (~> 1.70.0)
       standard-custom (~> 1.0.0)
       standard-performance (~> 1.6)
     standard-custom (1.0.2)
@@ -431,7 +431,7 @@ DEPENDENCIES
   secure_headers (~> 7.1)
   shoulda-matchers (~> 6.2)
   sidekiq (~> 7.2)
-  standard (~> 1.36)
+  standard (~> 1.44)
   thruster (~> 0.1)
   tzinfo-data
   web-console
