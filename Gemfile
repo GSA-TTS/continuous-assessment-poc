@@ -53,7 +53,7 @@ end
 
 gem "secure_headers", "~> 7.1"
 
-gem "sidekiq", "~> 7.2"
+gem "sidekiq", "~> 7.3"
 
 gem "pundit", "~> 2.3"
 gem "devise", "~> 4.9"
