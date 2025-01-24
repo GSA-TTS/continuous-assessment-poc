@@ -75,7 +75,7 @@ module "egress_proxy" {
   cf_egress_space = module.egress_space.space
   name            = "egress-proxy-${var.env}"
   allowlist       = var.egress_allowlist
-  gitref          = "1fe9454b85cb8cb54b57e161c3250a46c521307b"
+  gitref          = "6999bf7620a009efd427ed7d7d6a6c6c4b6cb6d0"
   # depends_on line is needed only for initial creation and destruction. It should be commented out for updates to prevent unwanted cascading effects
   depends_on = [module.app_space, module.egress_space]
 }
