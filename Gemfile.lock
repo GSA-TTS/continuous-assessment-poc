@@ -186,7 +186,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.6.5)
+    logger (1.6.6)
     loofah (2.24.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -350,7 +350,7 @@ GEM
     securerandom (0.4.1)
     shoulda-matchers (6.4.0)
       activesupport (>= 5.2.0)
-    sidekiq (7.3.8)
+    sidekiq (7.3.9)
       base64
       connection_pool (>= 2.3.0)
       logger
@@ -437,7 +437,7 @@ DEPENDENCIES
   rspec_oscal_formatter!
   secure_headers (~> 7.1)
   shoulda-matchers (~> 6.2)
-  sidekiq (~> 7.2)
+  sidekiq (~> 7.3)
   standard (~> 1.44)
   thruster (~> 0.1)
   tzinfo-data
