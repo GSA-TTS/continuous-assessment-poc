@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gsa-tts/rails-template.git
-  revision: 77e60954dcb664091d5282b14720445bdeae3791
+  revision: 4d527157f3690c61e2ddbe937491e992c7eae227
   branch: main
   specs:
     rails_template_18f (2.0.0)
@@ -368,7 +368,7 @@ GEM
     standard-performance (1.6.0)
       lint_roller (~> 1.1)
       rubocop-performance (~> 1.23.0)
-    stringio (3.1.3)
+    stringio (3.1.4)
     terminal-table (4.0.0)
       unicode-display_width (>= 1.1.1, < 4)
     thor (1.3.2)
