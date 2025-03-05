@@ -55,7 +55,7 @@ gem "secure_headers", "~> 7.1"
 
 gem "sidekiq", "~> 7.2"
 
-gem "pundit", "~> 2.3"
+gem "pundit", "~> 2.5"
 gem "devise", "~> 4.9"
 gem "faraday", "~> 2.12"
 gem "faraday-typhoeus", "~> 1.1"
