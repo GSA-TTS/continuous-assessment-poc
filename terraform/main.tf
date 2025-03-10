@@ -46,7 +46,7 @@ module "database" {
 ###########################################################################
 module "domain" {
   count  = (var.custom_domain_name == null ? 0 : 1)
-  source = "github.com/gsa-tts/terraform-cloudgov//domain?ref=v2.1.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//domain?ref=v2.2.0"
 
   cf_org_name   = local.cf_org_name
   cf_space      = module.app_space.space
