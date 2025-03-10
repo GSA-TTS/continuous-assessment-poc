@@ -58,7 +58,7 @@ module "domain" {
 }
 
 module "egress_space" {
-  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.1.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.2.0"
 
   cf_org_name          = local.cf_org_name
   cf_space_name        = "${var.cf_space_name}-egress"
