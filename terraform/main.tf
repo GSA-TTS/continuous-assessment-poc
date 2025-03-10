@@ -16,7 +16,7 @@ module "app_space" {
 }
 
 module "database" {
-  source = "github.com/gsa-tts/terraform-cloudgov//database?ref=v2.1.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//database?ref=v2.2.0"
 
   cf_space_id   = module.app_space.space_id
   name          = "${local.app_name}-rds-${var.env}"
