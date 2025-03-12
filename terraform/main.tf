@@ -5,7 +5,7 @@ locals {
 }
 
 module "app_space" {
-  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.1.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.2.0"
 
   cf_org_name          = local.cf_org_name
   cf_space_name        = var.cf_space_name
@@ -16,7 +16,7 @@ module "app_space" {
 }
 
 module "database" {
-  source = "github.com/gsa-tts/terraform-cloudgov//database?ref=v2.1.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//database?ref=v2.2.0"
 
   cf_space_id   = module.app_space.space_id
   name          = "${local.app_name}-rds-${var.env}"
@@ -26,7 +26,7 @@ module "database" {
 }
 
 # module "redis" {
-#   source = "github.com/gsa-tts/terraform-cloudgov//redis?ref=v2.1.0"
+#   source = "github.com/gsa-tts/terraform-cloudgov//redis?ref=v2.2.0"
 
 #   cf_space_id     = module.app_space.space_id
 #   name            = "${local.app_name}-redis-${var.env}"
@@ -46,7 +46,7 @@ module "database" {
 ###########################################################################
 module "domain" {
   count  = (var.custom_domain_name == null ? 0 : 1)
-  source = "github.com/gsa-tts/terraform-cloudgov//domain?ref=v2.1.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//domain?ref=v2.2.0"
 
   cf_org_name   = local.cf_org_name
   cf_space      = module.app_space.space
@@ -58,7 +58,7 @@ module "domain" {
 }
 
 module "egress_space" {
-  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.1.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.2.0"
 
   cf_org_name          = local.cf_org_name
   cf_space_name        = "${var.cf_space_name}-egress"
@@ -69,13 +69,13 @@ module "egress_space" {
 }
 
 module "egress_proxy" {
-  source = "github.com/gsa-tts/terraform-cloudgov//egress_proxy?ref=c84d37f9c677629a0ea440e3996c6faf3a313960" #v2.1.0
+  source = "github.com/gsa-tts/terraform-cloudgov//egress_proxy?ref=206ee1a196406a9f29a08aef57da88552400752b" #v2.2.0
 
   cf_org_name     = local.cf_org_name
   cf_egress_space = module.egress_space.space
   name            = "egress-proxy-${var.env}"
   allowlist       = var.egress_allowlist
-  gitref          = "6999bf7620a009efd427ed7d7d6a6c6c4b6cb6d0"
+  gitref          = "1500c67157c1a7a6fbbda7a2de172b3d0a67e703"
   # depends_on line is needed only for initial creation and destruction. It should be commented out for updates to prevent unwanted cascading effects
   depends_on = [module.app_space, module.egress_space]
 }
