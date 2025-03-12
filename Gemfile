@@ -65,7 +65,7 @@ group :development, :test do
   gem "dotenv-rails", "~> 3.1"
   gem "brakeman", "~> 7.0"
   gem "bundler-audit", "~> 0.9"
-  gem "standard", "~> 1.44"
+  gem "standard", "~> 1.47"
   gem "i18n-tasks", "~> 1.0"
 end
 
