@@ -353,12 +353,12 @@ GEM
     securerandom (0.4.1)
     shoulda-matchers (6.4.0)
       activesupport (>= 5.2.0)
-    sidekiq (7.3.9)
-      base64
-      connection_pool (>= 2.3.0)
-      logger
-      rack (>= 2.2.4)
-      redis-client (>= 0.22.2)
+    sidekiq (8.0.1)
+      connection_pool (>= 2.5.0)
+      json (>= 2.9.0)
+      logger (>= 1.6.2)
+      rack (>= 3.1.0)
+      redis-client (>= 0.23.2)
     standard (1.47.0)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
@@ -440,7 +440,7 @@ DEPENDENCIES
   rspec_oscal_formatter!
   secure_headers (~> 7.1)
   shoulda-matchers (~> 6.2)
-  sidekiq (~> 7.2)
+  sidekiq (~> 8.0)
   standard (~> 1.44)
   thruster (~> 0.1)
   tzinfo-data
