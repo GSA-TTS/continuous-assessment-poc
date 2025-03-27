@@ -83,21 +83,9 @@ if [[ $tfm_needs_init = true ]]; then
     echo "=============================================================================================================="
     echo "= Recreating backend config file. It is fine if this step wants to delete any local_sensitive_file resources"
     echo "=============================================================================================================="
-    (cd bootstrap && ./apply.sh $force)
+    (cd bootstrap && ./apply.sh -auto-approve)
   fi
   terraform init -backend-config=secrets.backend.tfvars -backend-config="key=terraform.tfstate.$env" -reconfigure
-fi
-
-echo "=============================================================================================================="
-echo "= Creating a bot deployer for $env"
-echo "=============================================================================================================="
-if [[ "$env" = "staging" ]] || [[ "$env" = "production" ]]; then
-  (cd bootstrap && ./apply.sh -var create_bot_secrets_file=true $force)
-else
-  (cd sandbox_bot && ./run.sh "$env" apply $force)
-fi
-
-if [[ -f secrets.backend.tfvars ]]; then
   rm secrets.backend.tfvars
 fi
 
@@ -105,16 +93,3 @@ echo "==========================================================================
 echo "= Calling $cmd $force on the application infrastructure"
 echo "=============================================================================================================="
 terraform "$cmd" -var-file="$env.tfvars" -var rails_master_key="$rmk" $force "$@"
-
-if [[ "$cmd" = "destroy" ]] && [[ "$env" != "staging" ]] && [[ "$env" != "production" ]]; then
-  if [[ -z "$force" ]]; then
-    read -p "Destroy the sandbox_bot user? (y/n) " confirm
-    if [[ "$confirm" != "y" ]]; then
-      exit 0
-    fi
-  fi
-  echo "=============================================================================================================="
-  echo "= Destroying the sandbox_bot user"
-  echo "=============================================================================================================="
-  (cd sandbox_bot && ./run.sh "$env" destroy -auto-approve)
-fi

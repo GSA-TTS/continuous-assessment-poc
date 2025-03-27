@@ -86,17 +86,18 @@ module "egress_proxy" {
 }
 
 resource "cloudfoundry_network_policy" "egress_routing" {
-  provider = cloudfoundry-community
-  policy {
-    source_app      = cloudfoundry_app.app.id
-    destination_app = module.egress_proxy.app_id
-    port            = "61443"
-  }
-  policy {
-    source_app      = cloudfoundry_app.app.id
-    destination_app = module.egress_proxy.app_id
-    port            = "8080"
-  }
+  policies = [
+    {
+      source_app      = cloudfoundry_app.app.id
+      destination_app = module.egress_proxy.app_id
+      port            = module.egress_proxy.https_port
+    },
+    {
+      source_app      = cloudfoundry_app.app.id
+      destination_app = module.egress_proxy.app_id
+      port            = module.egress_proxy.http_port
+    }
+  ]
 }
 
 resource "cloudfoundry_service_instance" "egress_proxy_credentials" {
