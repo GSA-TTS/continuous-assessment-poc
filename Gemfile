@@ -79,7 +79,7 @@ group :test do
   gem "shoulda-matchers", "~> 6.2"
   gem "rspec_oscal_formatter", github: "gsa-tts/rspec_oscal_formatter", branch: "main"
   # gem "rspec_oscal_formatter", path: "/Users/ryancahearn/software/devtools/oscal/rspec_oscal_formatter"
-  gem "byebug", "~> 11.1"
+  gem "byebug", "~> 12.0"
 end
 gem "i18n-js", "~> 4.2"
 gem "listen", "~> 3.9", group: :development
