@@ -38,23 +38,29 @@ module "database" {
 
 
 ###########################################################################
-# Before setting var.custom_domain_name, perform the following steps:
-# 1) Domain must be manually created by an OrgManager:
-#     cf create-domain var.cf_org_name var.domain_name
-# 2) ACME challenge record must be created.
-#     See https://cloud.gov/docs/services/external-domain-service/#how-to-create-an-instance-of-this-service
+# Before setting var.custom_domain_name, ensure the ACME challenge record has been created:
+# See https://cloud.gov/docs/services/external-domain-service/#how-to-create-an-instance-of-this-service
 ###########################################################################
 module "domain" {
   count  = (var.custom_domain_name == null ? 0 : 1)
-  source = "github.com/gsa-tts/terraform-cloudgov//domain?ref=v2.2.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//domain?ref=0a406ca86bcbd3d1ce26c77f4c6eb97f0667e7d2"
 
   cf_org_name   = local.cf_org_name
   cf_space      = module.app_space.space
   cdn_plan_name = "domain"
   domain_name   = var.custom_domain_name
+  create_domain = true
+  app_ids       = [cloudfoundry_app.app.id]
   host_name     = var.host_name
-  # depends_on line is required only for initial creation and destruction. It can be commented out for updates if you see unwanted cascading effects
-  depends_on = [module.app_space]
+}
+module "app_route" {
+  count  = (var.custom_domain_name == null ? 1 : 0)
+  source = "github.com/gsa-tts/terraform-cloudgov//app_route?ref=0a406ca86bcbd3d1ce26c77f4c6eb97f0667e7d2"
+
+  cf_org_name   = local.cf_org_name
+  cf_space_name = module.app_space.space_name
+  app_ids       = [cloudfoundry_app.app.id]
+  hostname      = coalesce(var.host_name, "${local.app_name}-${var.env}")
 }
 
 module "egress_space" {
@@ -69,13 +75,12 @@ module "egress_space" {
 }
 
 module "egress_proxy" {
-  source = "github.com/gsa-tts/terraform-cloudgov//egress_proxy?ref=206ee1a196406a9f29a08aef57da88552400752b" #v2.2.0
+  source = "github.com/gsa-tts/terraform-cloudgov//egress_proxy?ref=1e1b46cdd3a6590cda4506e249418c9fa87dddd0"
 
   cf_org_name     = local.cf_org_name
   cf_egress_space = module.egress_space.space
   name            = "egress-proxy-${var.env}"
   allowlist       = var.egress_allowlist
-  gitref          = "1500c67157c1a7a6fbbda7a2de172b3d0a67e703"
   # depends_on line is needed only for initial creation and destruction. It should be commented out for updates to prevent unwanted cascading effects
   depends_on = [module.app_space, module.egress_space]
 }
