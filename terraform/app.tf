@@ -12,11 +12,6 @@ data "archive_file" "src" {
   ]
 }
 
-locals {
-  host_name = coalesce(var.host_name, "${local.app_name}-${var.env}")
-  domain    = coalesce(var.custom_domain_name, "app.cloud.gov")
-}
-
 resource "cloudfoundry_app" "app" {
   name       = "${local.app_name}-${var.env}"
   space_name = var.cf_space_name
@@ -26,7 +21,6 @@ resource "cloudfoundry_app" "app" {
   source_code_hash = data.archive_file.src.output_base64sha256
   buildpacks       = ["ruby_buildpack"]
   strategy         = "rolling"
-  routes           = [{ route = "${local.host_name}.${local.domain}" }]
 
   environment = {
     no_proxy                 = "apps.internal,s3-fips.us-gov-west-1.amazonaws.com"
