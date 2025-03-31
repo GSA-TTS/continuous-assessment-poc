@@ -15,7 +15,7 @@
   "devDependencies": {
     "browserslist": "^4.24.4",
     "browserslist-to-esbuild": "^2.1.1",
-    "esbuild": "^0.25.0",
+    "esbuild": "^0.25.2",
     "pa11y-ci": "^3.1.0"
   },
   "resolutions": {
