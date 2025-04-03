@@ -57,6 +57,8 @@ gem "sidekiq", "~> 8.0"
 
 gem "pundit", "~> 2.3"
 gem "devise", "~> 4.9"
+gem "omniauth-saml", "~> 2.2"
+gem 'omniauth-rails_csrf_protection'
 gem "faraday", "~> 2.12"
 gem "faraday-typhoeus", "~> 1.1"
 
@@ -67,6 +69,7 @@ group :development, :test do
   gem "bundler-audit", "~> 0.9"
   gem "standard", "~> 1.44"
   gem "i18n-tasks", "~> 1.0"
+  gem "byebug", "~> 12.0"
 end
 
 group :development do
@@ -79,7 +82,6 @@ group :test do
   gem "shoulda-matchers", "~> 6.2"
   gem "rspec_oscal_formatter", github: "gsa-tts/rspec_oscal_formatter", branch: "main"
   # gem "rspec_oscal_formatter", path: "/Users/ryancahearn/software/devtools/oscal/rspec_oscal_formatter"
-  gem "byebug", "~> 12.0"
 end
 gem "i18n-js", "~> 4.2"
 gem "listen", "~> 3.9", group: :development

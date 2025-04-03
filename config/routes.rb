@@ -1,10 +1,10 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     # Your application routes go here
     resources :documents
-    devise_for :users
     if Rails.env.development?
       mount Sidekiq::Web => "/sidekiq"
     end
