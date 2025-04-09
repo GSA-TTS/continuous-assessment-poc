@@ -57,7 +57,7 @@ gem "sidekiq", "~> 8.0"
 
 gem "pundit", "~> 2.3"
 gem "devise", "~> 4.9"
-gem "faraday", "~> 2.12"
+gem "faraday", "~> 2.13"
 gem "faraday-typhoeus", "~> 1.1"
 
 group :development, :test do
