@@ -52,6 +52,7 @@ module "domain" {
   create_domain = true
   app_ids       = [cloudfoundry_app.app.id]
   host_name     = var.host_name
+  depends_on    = [module.app_space]
 }
 module "app_route" {
   count  = (var.custom_domain_name == null ? 1 : 0)
@@ -61,6 +62,7 @@ module "app_route" {
   cf_space_name = module.app_space.space_name
   app_ids       = [cloudfoundry_app.app.id]
   hostname      = coalesce(var.host_name, "${local.app_name}-${var.env}")
+  depends_on    = [module.app_space]
 }
 
 module "egress_space" {
@@ -86,17 +88,18 @@ module "egress_proxy" {
 }
 
 resource "cloudfoundry_network_policy" "egress_routing" {
-  provider = cloudfoundry-community
-  policy {
-    source_app      = cloudfoundry_app.app.id
-    destination_app = module.egress_proxy.app_id
-    port            = "61443"
-  }
-  policy {
-    source_app      = cloudfoundry_app.app.id
-    destination_app = module.egress_proxy.app_id
-    port            = "8080"
-  }
+  policies = [
+    {
+      source_app      = cloudfoundry_app.app.id
+      destination_app = module.egress_proxy.app_id
+      port            = module.egress_proxy.https_port
+    },
+    {
+      source_app      = cloudfoundry_app.app.id
+      destination_app = module.egress_proxy.app_id
+      port            = module.egress_proxy.http_port
+    }
+  ]
 }
 
 resource "cloudfoundry_service_instance" "egress_proxy_credentials" {

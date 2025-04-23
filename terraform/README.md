@@ -38,6 +38,7 @@ These steps only need to be run once per project.
 ### Steps:
 
 1. Create a new `sandbox-<NAME>.tfvars` file to hold variable values for your environment. A good starting point is copying `staging.tfvars` and editing it with your values.
+1. Add a `cf_user = "your.email@gsa.gov"` line to the `sandbox-<NAME>.tfvars` file
 
 1. Run terraform plan with:
     ```bash
