@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gsa-tts/rails-template.git
-  revision: 8a2a383ff59a20d68eda646ea43aa00f7f68bfff
+  revision: 6e6cab7fdee77e2417ae9c6208d9a58342737865
   branch: main
   specs:
     rails_template_18f (2.0.0)
