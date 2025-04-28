@@ -135,7 +135,7 @@ GEM
     erubi (1.13.1)
     ethon (0.16.0)
       ffi (>= 1.15.0)
-    faraday (2.13.0)
+    faraday (2.13.1)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
@@ -181,7 +181,7 @@ GEM
       activesupport (>= 5.0.0)
     jsbundling-rails (1.3.1)
       railties (>= 6.0.0)
-    json (2.10.2)
+    json (2.11.3)
     language_server-protocol (3.17.0.4)
     lint_roller (1.1.0)
     listen (3.9.0)
@@ -424,7 +424,7 @@ DEPENDENCIES
   debug
   devise (~> 4.9)
   dotenv-rails (~> 3.1)
-  faraday (~> 2.12)
+  faraday (~> 2.13)
   faraday-typhoeus (~> 1.1)
   i18n-js (~> 4.2)
   i18n-tasks (~> 1.0)
