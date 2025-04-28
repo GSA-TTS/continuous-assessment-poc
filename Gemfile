@@ -76,7 +76,7 @@ end
 
 group :test do
   gem "climate_control", "~> 1.0"
-  gem "shoulda-matchers", "~> 6.2"
+  gem "shoulda-matchers", "~> 6.5"
   gem "rspec_oscal_formatter", github: "gsa-tts/rspec_oscal_formatter", branch: "main"
   # gem "rspec_oscal_formatter", path: "/Users/ryancahearn/software/devtools/oscal/rspec_oscal_formatter"
   gem "byebug", "~> 12.0"

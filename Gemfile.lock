@@ -353,7 +353,7 @@ GEM
     ruby-progressbar (1.13.0)
     secure_headers (7.1.0)
     securerandom (0.4.1)
-    shoulda-matchers (6.4.0)
+    shoulda-matchers (6.5.0)
       activesupport (>= 5.2.0)
     sidekiq (8.0.2)
       connection_pool (>= 2.5.0)
@@ -441,7 +441,7 @@ DEPENDENCIES
   rspec-rails (~> 7.1)
   rspec_oscal_formatter!
   secure_headers (~> 7.1)
-  shoulda-matchers (~> 6.2)
+  shoulda-matchers (~> 6.5)
   sidekiq (~> 8.0)
   standard (~> 1.44)
   thruster (~> 0.1)
