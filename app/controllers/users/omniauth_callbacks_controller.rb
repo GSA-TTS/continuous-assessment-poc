@@ -1,7 +1,6 @@
 module Users
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-    # self.forgery_protection_origin_check = false
-    skip_forgery_protection
+    protect_from_forgery with: :reset_session
 
     def saml
       response = request.env["omniauth.auth"].extra.response_object

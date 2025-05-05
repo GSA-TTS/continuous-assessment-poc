@@ -58,7 +58,7 @@ gem "sidekiq", "~> 8.0"
 gem "pundit", "~> 2.3"
 gem "devise", "~> 4.9"
 gem "omniauth-saml", "~> 2.2"
-gem 'omniauth-rails_csrf_protection'
+gem "omniauth-rails_csrf_protection"
 gem "faraday", "~> 2.12"
 gem "faraday-typhoeus", "~> 1.1"
 
