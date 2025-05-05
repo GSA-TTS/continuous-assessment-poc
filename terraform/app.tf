@@ -21,6 +21,7 @@ resource "cloudfoundry_app" "app" {
   source_code_hash = data.archive_file.src.output_base64sha256
   buildpacks       = ["ruby_buildpack"]
   strategy         = "rolling"
+  enable_ssh       = true
 
   environment = {
     no_proxy                 = "apps.internal,s3-fips.us-gov-west-1.amazonaws.com"
@@ -28,6 +29,7 @@ resource "cloudfoundry_app" "app" {
     RAILS_MASTER_KEY         = var.rails_master_key
     RAILS_LOG_TO_STDOUT      = "true"
     RAILS_SERVE_STATIC_FILES = "true"
+    SAML_PROXY_HOST          = var.saml_proxy_host
   }
 
   processes = [

@@ -140,6 +140,7 @@ search:
 ignore_missing:
   - 'shared.languages.*'
   - 'shared.header.{title,close,demo_banner,menu}'
+  - 'errors.messages.not_saved' # plural key not being checked properly
 # - 'errors.messages.{accepted,blank,invalid,too_short,too_long}'
 # - '{devise,simple_form}.*'
 
