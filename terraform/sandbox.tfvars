@@ -7,3 +7,4 @@ egress_allowlist = [
   "raw.githubusercontent.com", # download content previews
   "saml-proxy-sandbox.app.cloud.gov"
 ]
+saml_proxy_host = "saml-proxy-sandbox.app.cloud.gov"

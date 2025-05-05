@@ -90,3 +90,9 @@ variable "egress_allowlist" {
   default     = []
   description = "The set of hostnames that the application is allowed to connect to"
 }
+
+variable "saml_proxy_host" {
+  type        = string
+  default     = "saml-proxy-staging.app.cloud.gov"
+  description = "FQDN for saml-proxy app"
+}

@@ -273,10 +273,13 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   idp_metadata_parser = OneLogin::RubySaml::IdpMetadataParser.new
-  # saml_host = "http://localhost:3001"
-  saml_host = "https://saml-proxy-sandbox.app.cloud.gov"
-  idp_metadata = idp_metadata_parser.parse_remote_to_hash("#{saml_host}/saml/metadata")
-  config.omniauth :saml, idp_metadata.merge(sp_entity_id: "CAPOC")
+  saml_host = "https://#{ENV["SAML_PROXY_HOST"]}"
+  begin
+    idp_metadata = idp_metadata_parser.parse_remote_to_hash("#{saml_host}/saml/metadata")
+    config.omniauth :saml, idp_metadata.merge(sp_entity_id: "CAPOC")
+  rescue
+    Rails.logger.warn "Could not retrieve IDP metadata. Skipping omniuath config"
+  end
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

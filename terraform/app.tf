@@ -28,6 +28,7 @@ resource "cloudfoundry_app" "app" {
     RAILS_MASTER_KEY         = var.rails_master_key
     RAILS_LOG_TO_STDOUT      = "true"
     RAILS_SERVE_STATIC_FILES = "true"
+    SAML_PROXY_HOST          = var.saml_proxy_host
   }
 
   processes = [
