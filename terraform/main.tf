@@ -5,7 +5,7 @@ locals {
 }
 
 module "app_space" {
-  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.2.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.3.0"
 
   cf_org_name          = local.cf_org_name
   cf_space_name        = var.cf_space_name
@@ -16,7 +16,7 @@ module "app_space" {
 }
 
 module "database" {
-  source = "github.com/gsa-tts/terraform-cloudgov//database?ref=v2.2.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//database?ref=v2.3.0"
 
   cf_space_id   = module.app_space.space_id
   name          = "${local.app_name}-rds-${var.env}"
@@ -26,7 +26,7 @@ module "database" {
 }
 
 # module "redis" {
-#   source = "github.com/gsa-tts/terraform-cloudgov//redis?ref=v2.2.0"
+#   source = "github.com/gsa-tts/terraform-cloudgov//redis?ref=v2.3.0"
 
 #   cf_space_id     = module.app_space.space_id
 #   name            = "${local.app_name}-redis-${var.env}"
@@ -66,7 +66,7 @@ module "app_route" {
 }
 
 module "egress_space" {
-  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.2.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//cg_space?ref=v2.3.0"
 
   cf_org_name          = local.cf_org_name
   cf_space_name        = "${var.cf_space_name}-egress"
