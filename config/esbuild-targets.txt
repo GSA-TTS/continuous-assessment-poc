@@ -1,1 +1,1 @@
-chrome109,edge130,firefox115,ios11,opera113,safari16.6
+chrome109,edge133,firefox115,ios15.6,opera116,safari17.6
