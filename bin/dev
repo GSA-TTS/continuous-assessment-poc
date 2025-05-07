@@ -5,7 +5,7 @@ if gem list --no-installed --exact --silent foreman; then
   gem install foreman
 fi
 
-# Default to port 3000 if not specified
-export PORT="${PORT:-3000}"
+# Default to port 3001 if not specified
+export PORT="${PORT:-3001}"
 
 exec foreman start -f Procfile.dev --env /dev/null "$@"

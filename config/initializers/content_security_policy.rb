@@ -8,11 +8,7 @@ Rails.application.configure do
   config.content_security_policy do |policy|
     policy.default_src :self
     policy.font_src :self
-    if ENV["SAML_PROXY_HOST"].present?
-      policy.form_action :self, "login.fr.cloud.gov", ENV["SAML_PROXY_HOST"]
-    else
-      policy.form_action :self
-    end
+    policy.form_action :self, "login.fr.cloud.gov", ENV.fetch("SAML_PROXY_HOST", "localhost:3000")
     policy.frame_ancestors :none
     policy.img_src :self, :data
     policy.object_src :none
