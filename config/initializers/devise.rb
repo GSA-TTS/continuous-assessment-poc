@@ -273,10 +273,21 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   idp_metadata_parser = OneLogin::RubySaml::IdpMetadataParser.new
-  saml_host = "https://#{ENV["SAML_PROXY_HOST"]}"
+  saml_host = "#{Rails.env.local? ? "http" : "https"}://#{ENV.fetch("SAML_PROXY_HOST", "localhost:3000")}"
   begin
     idp_metadata = idp_metadata_parser.parse_remote_to_hash("#{saml_host}/saml/metadata")
-    config.omniauth :saml, idp_metadata.merge(sp_entity_id: "CAPOC")
+    config.omniauth :saml, idp_metadata.merge(
+      sp_entity_id: "CAPOC",
+      private_key: Rails.application.credentials.saml_secret_key,
+      certificate: Rails.application.credentials.saml_cert,
+      security: {
+        authn_requests_signed: true,
+        metadata_signed: true,
+        want_assertions_signed: true,
+        digest_method: XMLSecurity::Document::SHA256,
+        signature_method: XMLSecurity::Document::RSA_SHA256
+      }
+    )
   rescue
     Rails.logger.warn "Could not retrieve IDP metadata. Skipping omniuath config"
   end
