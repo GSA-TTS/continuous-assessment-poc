@@ -284,6 +284,7 @@ Devise.setup do |config|
         authn_requests_signed: true,
         metadata_signed: true,
         want_assertions_signed: true,
+        want_assertions_encrypted: true,
         digest_method: XMLSecurity::Document::SHA256,
         signature_method: XMLSecurity::Document::RSA_SHA256
       }
