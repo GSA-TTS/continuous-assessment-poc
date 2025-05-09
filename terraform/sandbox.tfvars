@@ -4,7 +4,6 @@ host_name       = "capoc-saml"
 allow_space_ssh = true
 cf_user         = "ryan.ahearn@gsa.gov"
 egress_allowlist = [
-  "raw.githubusercontent.com", # download content previews
-  "saml-proxy-sandbox.app.cloud.gov"
+  "raw.githubusercontent.com" # download content previews
 ]
 saml_proxy_host = "saml-proxy-sandbox.app.cloud.gov"
