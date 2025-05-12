@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gsa-tts/rails-template.git
-  revision: 218f7e85e7596dc62b18859e8ed2ef1fdc12470a
+  revision: f1881999d445c12a429af5a5e8af3c2725fc8325
   branch: main
   specs:
     rails_template_18f (2.1.0)
@@ -255,7 +255,7 @@ GEM
       activesupport (>= 7.0.0)
       rack
       railties (>= 7.0.0)
-    psych (5.2.4)
+    psych (5.2.5)
       date
       stringio
     puma (6.6.0)
