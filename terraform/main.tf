@@ -9,9 +9,10 @@ module "app_space" {
 
   cf_org_name          = local.cf_org_name
   cf_space_name        = var.cf_space_name
-  allow_ssh            = var.allow_space_ssh
+  allow_ssh            = var.allow_ssh
   deployers            = local.space_deployers
   developers           = var.space_developers
+  auditors             = var.space_auditors
   security_group_names = ["trusted_local_networks_egress"]
 }
 
@@ -43,7 +44,7 @@ module "database" {
 ###########################################################################
 module "domain" {
   count  = (var.custom_domain_name == null ? 0 : 1)
-  source = "github.com/gsa-tts/terraform-cloudgov//domain?ref=0a406ca86bcbd3d1ce26c77f4c6eb97f0667e7d2"
+  source = "github.com/gsa-tts/terraform-cloudgov//domain?ref=v2.3.0"
 
   cf_org_name   = local.cf_org_name
   cf_space      = module.app_space.space
@@ -52,14 +53,15 @@ module "domain" {
   create_domain = true
   app_ids       = [cloudfoundry_app.app.id]
   host_name     = var.host_name
-  depends_on    = [module.app_space]
+  # depends_on line is required only for initial creation and destruction. It can be commented out for updates if you see unwanted cascading effects
+  depends_on = [module.app_space]
 }
 module "app_route" {
   count  = (var.custom_domain_name == null ? 1 : 0)
-  source = "github.com/gsa-tts/terraform-cloudgov//app_route?ref=0a406ca86bcbd3d1ce26c77f4c6eb97f0667e7d2"
+  source = "github.com/gsa-tts/terraform-cloudgov//app_route?ref=v2.3.0"
 
   cf_org_name   = local.cf_org_name
-  cf_space_name = module.app_space.space_name
+  cf_space_name = var.cf_space_name
   app_ids       = [cloudfoundry_app.app.id]
   hostname      = coalesce(var.host_name, "${local.app_name}-${var.env}")
   depends_on    = [module.app_space]
@@ -70,7 +72,7 @@ module "egress_space" {
 
   cf_org_name          = local.cf_org_name
   cf_space_name        = "${var.cf_space_name}-egress"
-  allow_ssh            = var.allow_space_ssh
+  allow_ssh            = var.allow_ssh
   deployers            = local.space_deployers
   developers           = var.space_developers
   security_group_names = ["public_networks_egress"]

@@ -21,3 +21,6 @@ brew "graphviz"
 
 # queue for sidekiq jobs
 brew "redis"
+
+# shadowenv for loading terraform backend secrets
+brew "shadowenv"

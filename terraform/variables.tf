@@ -19,10 +19,15 @@ variable "space_developers" {
   default     = []
   description = "A list of users to be granted SpaceDeveloper on cf_space_name"
 }
-variable "allow_space_ssh" {
+variable "space_auditors" {
+  type        = set(string)
+  default     = []
+  description = "A list of users to be granted SpaceAuditor on cf_space_name"
+}
+variable "allow_ssh" {
   type        = bool
   default     = false
-  description = "Whether to allow ssh to cf_space_name"
+  description = "Whether to allow ssh to the space and/or app"
 }
 
 # supporting services settings
