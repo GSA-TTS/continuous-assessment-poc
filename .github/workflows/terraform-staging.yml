@@ -44,7 +44,7 @@ jobs:
           path: terraform
 
       - name: terraform fmt
-        uses: dflook/terraform-fmt-check@v1
+        uses: dflook/terraform-fmt-check@v2
         with:
           path: terraform
 
