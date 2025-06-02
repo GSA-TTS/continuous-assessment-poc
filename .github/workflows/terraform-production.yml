@@ -55,7 +55,7 @@ jobs:
           path: public/assets
 
       - name: terraform plan
-        uses: dflook/terraform-plan@v1
+        uses: dflook/terraform-plan@v2
         env:
           CF_API_URL: "https://api.fr.cloud.gov"
           CF_USER: ${{ secrets.CF_USERNAME }}
