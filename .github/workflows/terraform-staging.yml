@@ -39,12 +39,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: terraform validate
-        uses: dflook/terraform-validate@v1
+        uses: dflook/terraform-validate@v2
         with:
           path: terraform
 
       - name: terraform fmt
-        uses: dflook/terraform-fmt-check@v1
+        uses: dflook/terraform-fmt-check@v2
         with:
           path: terraform
 
@@ -55,7 +55,7 @@ jobs:
           path: public/assets
 
       - name: terraform plan
-        uses: dflook/terraform-plan@v1
+        uses: dflook/terraform-plan@v2
         env:
           CF_API_URL: "https://api.fr.cloud.gov"
           CF_USER: ${{ secrets.CF_USERNAME }}
