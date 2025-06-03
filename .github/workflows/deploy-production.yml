@@ -45,7 +45,7 @@ jobs:
           path: public/assets
 
       - name: Terraform apply
-        uses: dflook/terraform-apply@v1
+        uses: dflook/terraform-apply@v2
         env:
           CF_API_URL: "https://api.fr.cloud.gov"
           CF_USER: ${{ secrets.CF_USERNAME }}

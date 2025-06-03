@@ -13,6 +13,7 @@ guide for an introduction to the framework.
 * Install Ruby 3.3.4
 * Install NodeJS 22.8.0
 * Install homebrew dependencies: `brew bundle`
+  * [shadowenv](https://shopify.github.io/shadowenv/)
   * [redis](https://redis.io/)
   * [PostgreSQL](https://www.postgresql.org/)
   * [Dockerize](https://github.com/jwilder/dockerize)
