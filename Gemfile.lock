@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/gsa-tts/rails-template.git
-  revision: 008cf8e4f71b7e169ebe4f60c159a33d6299dba9
+  revision: 367edfbb69dc63f8bc01c6264dad37743130f1c7
   branch: main
   specs:
-    rails_template_18f (2.1.0)
+    rails_template_18f (2.2.0)
       activesupport (~> 8.0.1)
       colorize (~> 1.1)
       railties (~> 8.0.1)
