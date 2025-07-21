@@ -65,7 +65,7 @@ gem "faraday-typhoeus", "~> 1.1"
 group :development, :test do
   gem "rspec-rails", "~> 8.0"
   gem "dotenv-rails", "~> 3.1"
-  gem "brakeman", "~> 7.0"
+  gem "brakeman", "~> 7.1"
   gem "bundler-audit", "~> 0.9"
   gem "standard", "~> 1.44"
   gem "i18n-tasks", "~> 1.0"
