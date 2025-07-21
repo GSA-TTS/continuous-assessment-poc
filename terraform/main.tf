@@ -58,7 +58,7 @@ module "domain" {
 }
 module "app_route" {
   count  = (var.custom_domain_name == null ? 1 : 0)
-  source = "github.com/gsa-tts/terraform-cloudgov//app_route?ref=v2.3.0"
+  source = "github.com/gsa-tts/terraform-cloudgov//app_route?ref=v2.4.0"
 
   cf_org_name   = local.cf_org_name
   cf_space_name = var.cf_space_name
