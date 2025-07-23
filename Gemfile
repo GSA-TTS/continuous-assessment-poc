@@ -59,7 +59,7 @@ gem "pundit", "~> 2.3"
 gem "devise", "~> 4.9"
 gem "omniauth-saml", "~> 2.2"
 gem "omniauth-rails_csrf_protection"
-gem "faraday", "~> 2.12"
+gem "faraday", "~> 2.13"
 gem "faraday-typhoeus", "~> 1.1"
 
 group :development, :test do
